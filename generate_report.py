@@ -17,7 +17,7 @@ Pipeline (runs on GitHub Actions, no server needed):
 
 Secrets / env vars (set as GitHub Actions secrets):
   Required:
-    BW_TOKEN            BirdWeather station auth token
+    BW_STATION_ID       public BirdWeather station ID (a number)
     ANTHROPIC_API_KEY   Claude API key
     SITE_BASE_URL       e.g. https://<you>.github.io/<repo>   (no trailing slash)
   TTS (pick one provider):
@@ -49,12 +49,12 @@ import requests
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-BW_TOKEN          = os.environ["BW_TOKEN"]
+BW_STATION_ID     = os.environ["BW_STATION_ID"]
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 SITE_BASE_URL     = os.environ["SITE_BASE_URL"].rstrip("/")
 TTS_PROVIDER      = os.environ.get("TTS_PROVIDER", "openai").lower()
 
-CLAUDE_MODEL  = "claude-sonnet-4-6"   # update if retired; Haiku is cheaper
+CLAUDE_MODEL  = os.environ.get("CLAUDE_MODEL", "claude-sonnet-4-6")  # set in the workflow
 KEEP_EPISODES = 30
 KEEP_HISTORY  = 30
 RETURN_GAP    = 14
@@ -73,8 +73,8 @@ PODCAST_DESC   = "Daglig fågelrapport från min BirdWeather-station, med Astrid
 PODCAST_AUTHOR = "BirdWeather"
 PODCAST_LANG   = "sv"
 
-BW_BASE = f"https://app.birdweather.com/api/v1/stations/{BW_TOKEN}"
-TODAY   = dt.date.today()
+BW_GRAPHQL = "https://app.birdweather.com/graphql"
+TODAY      = dt.date.today()
 
 
 # ---------------------------------------------------------------------------
@@ -93,43 +93,57 @@ def save_history(history):
 
 
 # ---------------------------------------------------------------------------
-# 1. Fetch last night's data
+# 1. Fetch last night's data via the public GraphQL API (no token needed)
 # ---------------------------------------------------------------------------
 def fetch_birdweather():
-    s = requests.Session()
-
-    stats = s.get(f"{BW_BASE}/stats", params={"period": "day"}, timeout=30)
-    stats.raise_for_status()
-    stats = stats.json()
-
-    species = s.get(
-        f"{BW_BASE}/species",
-        params={"period": "day", "limit": 12, "sort": "detections", "order": "desc"},
+    # topSpecies over the last 24h gives per-species counts for the day; we sum
+    # them for the total and count the list for species richness. A high limit
+    # makes sure we capture every species heard, not just the very top ones.
+    query = """
+    query ($id: ID!) {
+      station(id: $id) {
+        id
+        name
+        topSpecies(limit: 200, period: {count: 24, unit: "hour"}) {
+          count
+          species { commonName scientificName imageUrl }
+        }
+      }
+    }
+    """
+    r = requests.post(
+        BW_GRAPHQL,
+        json={"query": query, "variables": {"id": str(BW_STATION_ID)}},
         timeout=30,
     )
-    species.raise_for_status()
-    raw = species.json().get("species") or species.json().get("data") or []
+    r.raise_for_status()
+    payload = r.json()
+    if payload.get("errors"):
+        raise RuntimeError(f"GraphQL errors: {payload['errors']}")
 
-    top = []
-    for item in raw:
-        name = (
-            item.get("commonName")
-            or item.get("common_name")
-            or (item.get("species") or {}).get("commonName")
-            or "Okand art"
+    station = (payload.get("data") or {}).get("station")
+    if not station:
+        raise RuntimeError(
+            f"No public station found for id {BW_STATION_ID} "
+            "(check the id exists and the station is public)."
         )
-        count = item.get("detections") or item.get("count") or item.get("total") or 0
-        top.append({"name": name, "count": count})
+
+    rows = station.get("topSpecies") or []
+    all_species = []
+    for item in rows:
+        sp = item.get("species") or {}
+        all_species.append({
+            "name": sp.get("commonName") or sp.get("scientificName") or "Okand art",
+            "count": item.get("count") or 0,
+        })
+    all_species.sort(key=lambda x: x["count"], reverse=True)
 
     return {
         "date": TODAY.isoformat(),
-        "total_detections": stats.get("detections")
-            or stats.get("counts", {}).get("detections")
-            or sum(t["count"] for t in top),
-        "species_count": stats.get("species")
-            or stats.get("counts", {}).get("species")
-            or len(top),
-        "top_species": top,
+        "station_name": station.get("name"),
+        "total_detections": sum(s["count"] for s in all_species),
+        "species_count": len(all_species),
+        "top_species": all_species[:12],
     }
 
 
@@ -186,27 +200,50 @@ def derive_signals(today, history):
 # ---------------------------------------------------------------------------
 # 3. Generate a two-host DIALOGUE with Claude (returns list of turns)
 # ---------------------------------------------------------------------------
-def write_dialogue(today, signals):
-    prompt = f"""Du skriver manus till en kort daglig morgonpodd om faglarna vid min tradgard.
-Tva programledare samtalar: {HOST_A} (nyfiken, varm) och {HOST_B} (lugn, kunnig).
+# The wording/tone lives in an editable file (prompt.txt) so it can be tuned
+# without touching this code. Lines starting with # there are treated as
+# comments and stripped. Placeholders below are filled in at runtime.
+PROMPT_PATH = Path("prompt.txt")
 
+# Minimal built-in fallback, only used if prompt.txt is missing.
+# Edit prompt.txt, NOT this string.
+DEFAULT_PROMPT = """Du skriver manus till en kort daglig morgonpodd om faglarna.
+Tva programledare samtalar: {{HOST_A}} (nyfiken, varm) och {{HOST_B}} (lugn, kunnig).
 GARNATTENS DATA (JSON):
-{json.dumps(today, ensure_ascii=False, indent=2)}
+{{DATA_JSON}}
+KONTINUITET – verifierade fakta, hitta inte pa egna:
+{{SIGNALS_JSON}}
+Skriv ett naturligt samtal pa svenska, ca 400 ord, avslappnat, korta repliker.
+Returnera ENBART giltig JSON: lista av objekt med "speaker" ("{{HOST_A}}" eller
+"{{HOST_B}}") och "text". Ingen markdown, ingen text utanfor listan."""
 
-KONTINUITET – verifierade fakta, anvand fritt men hitta INTE pa egna:
-{json.dumps(signals, ensure_ascii=False, indent=2)}
 
-Skriv ett naturligt samtal pa svenska, totalt ca 400 ord (cirka 3 minuter), dar de:
-- halsar god morgon och namner dagens datum,
-- pratar om de mest aktiva arterna och vaver in kontinuiteten dar det passar
-  (nya arter, forsta for aret, atervandande, skillnad mot igar) – men bara om
-  listorna ovan faktiskt innehaller nagot,
-- later som ett avslappnat samtal med korta repliker fram och tillbaka, inte en
-  upplasning, och avslutar mjukt.
+def build_prompt(today, signals):
+    if PROMPT_PATH.exists():
+        raw = PROMPT_PATH.read_text(encoding="utf-8")
+    else:
+        print("  (prompt.txt saknas – använder inbyggd standardprompt)")
+        raw = DEFAULT_PROMPT
 
-Returnera ENBART giltig JSON: en lista av objekt med exakt faltet "speaker"
-(antingen "{HOST_A}" eller "{HOST_B}") och "text". Ingen markdown, inga kodstaket,
-ingen text utanfor JSON-listan."""
+    # Drop comment lines (those starting with #) so they aren't sent to the model.
+    lines = [ln for ln in raw.splitlines() if not ln.lstrip().startswith("#")]
+    template = "\n".join(lines).strip()
+
+    for marker in ("{{DATA_JSON}}", "{{SIGNALS_JSON}}"):
+        if marker not in template:
+            print(f"  VARNING: platshållaren {marker} saknas i prompt.txt")
+
+    return (
+        template
+        .replace("{{HOST_A}}", HOST_A)
+        .replace("{{HOST_B}}", HOST_B)
+        .replace("{{DATA_JSON}}", json.dumps(today, ensure_ascii=False, indent=2))
+        .replace("{{SIGNALS_JSON}}", json.dumps(signals, ensure_ascii=False, indent=2))
+    )
+
+
+def write_dialogue(today, signals):
+    prompt = build_prompt(today, signals)
 
     r = requests.post(
         "https://api.anthropic.com/v1/messages",
