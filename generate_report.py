@@ -320,7 +320,12 @@ def tts_segment(text, voice, out_path):
                 "voice": voice,
                 "input": text,
                 "response_format": "mp3",
-                "instructions": "Las lugnt och varmt, som en avslappnad morgonradiovard.",
+                "instructions": (
+                    "Tala som en levande, varm radiopratare pa svenska: naturligt "
+                    "tempo med sma pauser, tydlig men avslappnad intonation och lite "
+                    "variation i tonfallet. Lat engagerad och samtalande, aldrig "
+                    "monoton eller upplasande."
+                ),
             },
             timeout=120,
         )
