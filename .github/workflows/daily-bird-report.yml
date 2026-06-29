@@ -13,9 +13,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -34,8 +34,8 @@ jobs:
           # --- TTS: openai (standard), två röster ---
           TTS_PROVIDER: openai
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_VOICE_A: nova    # Astrid
-          OPENAI_VOICE_B: onyx    # Erik
+          OPENAI_VOICE_A: marin    # Astrid
+          OPENAI_VOICE_B: cedar    # Erik
           # --- byt till ElevenLabs: sätt TTS_PROVIDER till "elevenlabs"
           #     och lägg till dessa tre secrets ---
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
