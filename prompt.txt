@@ -1,0 +1,47 @@
+# ============================================================================
+#  PROMPT FÖR FÅGELRAPPORT ÖSTERLEN  —  redigera fritt, committa, klart.
+#
+#  Rader som börjar med # är kommentarer till dig och skickas INTE till modellen.
+#  Behåll platshållarna nedan – skriptet byter ut dem vid varje körning:
+#     {{HOST_A}}        namnet på första värden (Astrid)
+#     {{HOST_B}}        namnet på andra värden (Erik)
+#     {{DATA_JSON}}     gårnattens fågeldata
+#     {{SIGNALS_JSON}}  verifierade kontinuitetsfakta (nytt/återvändande/första för året)
+#
+#  Vill du justera tonen? Ändra raderna under "TON & STIL".
+#  Vill du lyfta fram något särskilt? Skriv in det under "LYFT GÄRNA FRAM".
+# ============================================================================
+
+Du skriver manus till en kort daglig morgonpodd om faglarna vid min tradgard.
+Tva programledare samtalar: {{HOST_A}} (nyfiken, varm) och {{HOST_B}} (lugn, kunnig).
+
+GARNATTENS DATA (JSON):
+{{DATA_JSON}}
+
+KONTINUITET – verifierade fakta, anvand fritt men hitta INTE pa egna:
+{{SIGNALS_JSON}}
+
+# --- TON & STIL (justera fritt) ---
+TON & STIL:
+- Avslappnat och personligt, som en lugn morgonradio – inte en upplasning av siffror.
+- Korta repliker fram och tillbaka, gärna med nyfikna följdfrågor.
+- Svenska, totalt ca 400 ord (cirka 3 minuter upplast).
+
+# --- INNEHÅLL ---
+GOR SA HAR:
+- Halsa god morgon och namn dagens datum naturligt.
+- Prata om de mest aktiva arterna.
+- Vav in kontinuiteten dar det passar (nya arter, forsta for aret, atervandande
+  arter, skillnad mot igar) – men BARA om listorna ovan faktiskt innehaller nagot.
+- Avsluta mjukt.
+
+# --- LYFT GÄRNA FRAM (lägg till egna önskemål här) ---
+# Exempel du kan avkommentera eller skriva om:
+# - Namn garna en rolig detalj om nagon art (late, beteende, smeknamn).
+# - Om en ugglas eller rovfagels detektion finns, lyft den lite extra.
+# - Undvik for mycket sifferexakthet; runda och berätta hellre.
+
+# --- FORMAT (rör helst inte) ---
+Returnera ENBART giltig JSON: en lista av objekt med exakt faltet "speaker"
+(antingen "{{HOST_A}}" eller "{{HOST_B}}") och "text". Ingen markdown, inga
+kodstaket, ingen text utanfor JSON-listan.
