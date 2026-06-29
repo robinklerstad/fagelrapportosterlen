@@ -2,12 +2,12 @@ name: Daily bird report
 
 on:
   schedule:
-    # GitHub cron is UTC. 04:00 UTC ≈ 06:00 Swedish summer (CEST) / 05:00 winter (CET).
+    # GitHub cron är UTC. 04:00 UTC ≈ 06:00 svensk sommartid (CEST) / 05:00 vinter (CET).
     - cron: "0 4 * * *"
-  workflow_dispatch:        # manual "Run workflow" button in the Actions tab
+  workflow_dispatch:        # manuell "Run workflow"-knapp i Actions-fliken
 
 permissions:
-  contents: write           # lets the job commit the new mp3, feed, page, history
+  contents: write           # låter jobbet committa ny mp3, feed, sida, history
 
 jobs:
   build:
@@ -19,33 +19,34 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install ffmpeg (for stitching the two voices)
+      - name: Installera ffmpeg (för att sy ihop de två rösterna)
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
       - run: pip install requests
 
-      - name: Generate report
+      - name: Generera rapport
         env:
-          # --- required ---
-          BW_TOKEN: ${{ secrets.BW_TOKEN }}
+          # --- obligatoriskt ---
+          BW_STATION_ID: ${{ secrets.BW_STATION_ID }}   # publikt stations-ID (siffra)
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_MODEL: claude-sonnet-4-6   # textmodell som skriver dialogen
           SITE_BASE_URL: ${{ secrets.SITE_BASE_URL }}
-          # --- TTS: openai (default), two voices ---
+          # --- TTS: openai (standard), två röster ---
           TTS_PROVIDER: openai
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_VOICE_A: nova    # Astrid
           OPENAI_VOICE_B: onyx    # Erik
-          # --- to switch to ElevenLabs: set TTS_PROVIDER to "elevenlabs"
-          #     and add these three secrets ---
+          # --- byt till ElevenLabs: sätt TTS_PROVIDER till "elevenlabs"
+          #     och lägg till dessa tre secrets ---
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_A: ${{ secrets.ELEVENLABS_VOICE_A }}
           ELEVENLABS_VOICE_B: ${{ secrets.ELEVENLABS_VOICE_B }}
         run: python generate_report.py
 
-      - name: Commit and push
+      - name: Committa och pusha
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/ history.json
-          git commit -m "Bird report $(date -u +%Y-%m-%d)" || echo "Nothing to commit"
+          git commit -m "Bird report $(date -u +%Y-%m-%d)" || echo "Inget att committa"
           git push
