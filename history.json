@@ -1,0 +1,50 @@
+{
+  "first_run": "2026-06-29",
+  "species_ever": {
+    "Common Swift": "2026-06-29",
+    "Eurasian Jackdaw": "2026-06-29",
+    "Rook": "2026-06-29",
+    "Eurasian Magpie": "2026-06-29",
+    "Eurasian Blackbird": "2026-06-29",
+    "Common Wood-Pigeon": "2026-06-29",
+    "Eurasian Blue Tit": "2026-06-29",
+    "Eurasian Nuthatch": "2026-06-29",
+    "Eurasian Tree Sparrow": "2026-06-29",
+    "Hawfinch": "2026-06-29",
+    "European Goldfinch": "2026-06-29",
+    "Eurasian Siskin": "2026-06-29"
+  },
+  "recent_days": [
+    {
+      "date": "2026-06-29",
+      "total": 3353,
+      "species_count": 21,
+      "top": [
+        {
+          "name": "Common Swift",
+          "count": 1428
+        },
+        {
+          "name": "Eurasian Jackdaw",
+          "count": 518
+        },
+        {
+          "name": "Rook",
+          "count": 466
+        },
+        {
+          "name": "Eurasian Magpie",
+          "count": 463
+        },
+        {
+          "name": "Eurasian Blackbird",
+          "count": 181
+        },
+        {
+          "name": "Common Wood-Pigeon",
+          "count": 140
+        }
+      ]
+    }
+  ]
+}
