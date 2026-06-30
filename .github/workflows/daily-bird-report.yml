@@ -3,7 +3,7 @@ name: Daily bird report
 on:
   schedule:
     # GitHub cron är UTC. 04:00 UTC ≈ 06:00 svensk sommartid (CEST) / 05:00 vinter (CET).
-    - cron: "0 4 * * *"
+    - cron: "8 4 * * *"
   workflow_dispatch:        # manuell "Run workflow"-knapp i Actions-fliken
 
 permissions:
