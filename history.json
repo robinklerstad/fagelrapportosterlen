@@ -12,7 +12,11 @@
     "Eurasian Tree Sparrow": "2026-06-29",
     "Hawfinch": "2026-06-29",
     "European Goldfinch": "2026-06-29",
-    "Eurasian Siskin": "2026-06-29"
+    "Eurasian Siskin": "2026-06-29",
+    "Common Chiffchaff": "2026-06-30",
+    "House Sparrow": "2026-06-30",
+    "Great Tit": "2026-06-30",
+    "Eurasian Linnet": "2026-06-30"
   },
   "recent_days": [
     {
@@ -74,6 +78,37 @@
         {
           "name": "Common Wood-Pigeon",
           "count": 140
+        }
+      ]
+    },
+    {
+      "date": "2026-06-30",
+      "total": 4008,
+      "species_count": 20,
+      "top": [
+        {
+          "name": "Common Swift",
+          "count": 1531
+        },
+        {
+          "name": "Rook",
+          "count": 1080
+        },
+        {
+          "name": "Eurasian Magpie",
+          "count": 564
+        },
+        {
+          "name": "Eurasian Jackdaw",
+          "count": 472
+        },
+        {
+          "name": "Eurasian Blackbird",
+          "count": 126
+        },
+        {
+          "name": "Common Wood-Pigeon",
+          "count": 121
         }
       ]
     }
