@@ -143,6 +143,37 @@
           "count": 174
         }
       ]
+    },
+    {
+      "date": "2026-07-01",
+      "total": 4206,
+      "species_count": 20,
+      "top": [
+        {
+          "name": "Common Swift",
+          "count": 1526
+        },
+        {
+          "name": "Eurasian Jackdaw",
+          "count": 883
+        },
+        {
+          "name": "Rook",
+          "count": 750
+        },
+        {
+          "name": "Eurasian Magpie",
+          "count": 440
+        },
+        {
+          "name": "Common Wood-Pigeon",
+          "count": 213
+        },
+        {
+          "name": "Eurasian Blackbird",
+          "count": 167
+        }
+      ]
     }
   ]
 }
