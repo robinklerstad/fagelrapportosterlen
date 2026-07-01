@@ -16,7 +16,8 @@
     "Common Chiffchaff": "2026-06-30",
     "House Sparrow": "2026-06-30",
     "Great Tit": "2026-06-30",
-    "Eurasian Linnet": "2026-06-30"
+    "Eurasian Linnet": "2026-06-30",
+    "Greater Whitethroat": "2026-07-01"
   },
   "recent_days": [
     {
@@ -109,6 +110,37 @@
         {
           "name": "Common Wood-Pigeon",
           "count": 121
+        }
+      ]
+    },
+    {
+      "date": "2026-07-01",
+      "total": 4037,
+      "species_count": 17,
+      "top": [
+        {
+          "name": "Common Swift",
+          "count": 1666
+        },
+        {
+          "name": "Eurasian Jackdaw",
+          "count": 776
+        },
+        {
+          "name": "Rook",
+          "count": 687
+        },
+        {
+          "name": "Eurasian Magpie",
+          "count": 412
+        },
+        {
+          "name": "Common Wood-Pigeon",
+          "count": 175
+        },
+        {
+          "name": "Eurasian Blackbird",
+          "count": 174
         }
       ]
     }
