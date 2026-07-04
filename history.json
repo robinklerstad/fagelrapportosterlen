@@ -20,7 +20,9 @@
     "Greater Whitethroat": "2026-07-01",
     "Hooded Crow": "2026-07-02",
     "Rock Pigeon": "2026-07-02",
-    "European Pied Flycatcher": "2026-07-03"
+    "European Pied Flycatcher": "2026-07-03",
+    "European Greenfinch": "2026-07-04",
+    "Common Buzzard": "2026-07-04"
   },
   "recent_days": [
     {
@@ -237,6 +239,37 @@
         {
           "name": "Eurasian Blackbird",
           "count": 64
+        }
+      ]
+    },
+    {
+      "date": "2026-07-04",
+      "total": 1330,
+      "species_count": 12,
+      "top": [
+        {
+          "name": "Eurasian Magpie",
+          "count": 868
+        },
+        {
+          "name": "Eurasian Jackdaw",
+          "count": 102
+        },
+        {
+          "name": "Rook",
+          "count": 84
+        },
+        {
+          "name": "Eurasian Blackbird",
+          "count": 80
+        },
+        {
+          "name": "Common Swift",
+          "count": 70
+        },
+        {
+          "name": "Eurasian Tree Sparrow",
+          "count": 69
         }
       ]
     }
