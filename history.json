@@ -22,7 +22,9 @@
     "Rock Pigeon": "2026-07-02",
     "European Pied Flycatcher": "2026-07-03",
     "European Greenfinch": "2026-07-04",
-    "Common Buzzard": "2026-07-04"
+    "Common Buzzard": "2026-07-04",
+    "Eurasian Oystercatcher": "2026-07-05",
+    "Eurasian Skylark": "2026-07-05"
   },
   "recent_days": [
     {
@@ -270,6 +272,37 @@
         {
           "name": "Eurasian Tree Sparrow",
           "count": 69
+        }
+      ]
+    },
+    {
+      "date": "2026-07-05",
+      "total": 2874,
+      "species_count": 13,
+      "top": [
+        {
+          "name": "Common Swift",
+          "count": 1090
+        },
+        {
+          "name": "Eurasian Magpie",
+          "count": 775
+        },
+        {
+          "name": "Rook",
+          "count": 315
+        },
+        {
+          "name": "Eurasian Blackbird",
+          "count": 220
+        },
+        {
+          "name": "Eurasian Tree Sparrow",
+          "count": 208
+        },
+        {
+          "name": "Eurasian Jackdaw",
+          "count": 148
         }
       ]
     }
