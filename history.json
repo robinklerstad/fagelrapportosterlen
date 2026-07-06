@@ -24,7 +24,9 @@
     "European Greenfinch": "2026-07-04",
     "Common Buzzard": "2026-07-04",
     "Eurasian Oystercatcher": "2026-07-05",
-    "Eurasian Skylark": "2026-07-05"
+    "Eurasian Skylark": "2026-07-05",
+    "Canada Goose": "2026-07-06",
+    "Eurasian Curlew": "2026-07-06"
   },
   "recent_days": [
     {
@@ -303,6 +305,37 @@
         {
           "name": "Eurasian Jackdaw",
           "count": 148
+        }
+      ]
+    },
+    {
+      "date": "2026-07-06",
+      "total": 1991,
+      "species_count": 11,
+      "top": [
+        {
+          "name": "Eurasian Magpie",
+          "count": 797
+        },
+        {
+          "name": "Eurasian Jackdaw",
+          "count": 275
+        },
+        {
+          "name": "Rook",
+          "count": 248
+        },
+        {
+          "name": "Common Wood-Pigeon",
+          "count": 230
+        },
+        {
+          "name": "Eurasian Tree Sparrow",
+          "count": 145
+        },
+        {
+          "name": "Common Swift",
+          "count": 139
         }
       ]
     }
