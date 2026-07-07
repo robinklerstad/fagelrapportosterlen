@@ -26,7 +26,8 @@
     "Eurasian Oystercatcher": "2026-07-05",
     "Eurasian Skylark": "2026-07-05",
     "Canada Goose": "2026-07-06",
-    "Eurasian Curlew": "2026-07-06"
+    "Eurasian Curlew": "2026-07-06",
+    "Lesser Whitethroat": "2026-07-07"
   },
   "recent_days": [
     {
@@ -336,6 +337,37 @@
         {
           "name": "Common Swift",
           "count": 139
+        }
+      ]
+    },
+    {
+      "date": "2026-07-07",
+      "total": 749,
+      "species_count": 11,
+      "top": [
+        {
+          "name": "Eurasian Magpie",
+          "count": 343
+        },
+        {
+          "name": "Eurasian Jackdaw",
+          "count": 122
+        },
+        {
+          "name": "Common Wood-Pigeon",
+          "count": 122
+        },
+        {
+          "name": "Eurasian Blackbird",
+          "count": 89
+        },
+        {
+          "name": "Eurasian Tree Sparrow",
+          "count": 39
+        },
+        {
+          "name": "Rook",
+          "count": 20
         }
       ]
     }

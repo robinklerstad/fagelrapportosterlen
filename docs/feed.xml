@@ -8,6 +8,12 @@
     <itunes:author>BirdWeather</itunes:author>
     <itunes:explicit>false</itunes:explicit>
     <item>
+      <title>Morgonfåglar – 2026-07-07</title>
+      <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-07.mp3</guid>
+      <pubDate>Tue, 07 Jul 2026 06:00:00 +0000</pubDate>
+      <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-07.mp3" length="1504162" type="audio/mpeg"/>
+    </item>
+    <item>
       <title>Morgonfåglar – 2026-07-06</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-06.mp3</guid>
       <pubDate>Mon, 06 Jul 2026 06:00:00 +0000</pubDate>
