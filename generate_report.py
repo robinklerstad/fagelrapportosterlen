@@ -68,9 +68,9 @@ FEED_PATH    = DOCS_DIR / "feed.xml"
 INDEX_PATH   = DOCS_DIR / "index.html"
 HISTORY_PATH = Path("history.json")
 
-PODCAST_TITLE  = "Morgonfåglar"
-PODCAST_DESC   = "Daglig fågelrapport från min BirdWeather-station, med Astrid och Erik."
-PODCAST_AUTHOR = "BirdWeather"
+PODCAST_TITLE  = "Ö24 Bird Data"
+PODCAST_DESC   = "Daglig fågelrapport från vår BirdWeather-station, med Astrid och Erik."
+PODCAST_AUTHOR = "Ö24 Bird Data"
 PODCAST_LANG   = "sv"
 
 BW_GRAPHQL = "https://app.birdweather.com/graphql"
@@ -138,12 +138,29 @@ def fetch_birdweather():
         })
     all_species.sort(key=lambda x: x["count"], reverse=True)
 
+    # Grov aktivitetsnivå. OBS: antal detektioner speglar hur mycket LJUD som
+    # fångats (en pratsam individ ger hundratals), inte hur många fåglar eller
+    # hur intressant arten är. Nivån används därför bara som svag färg i manuset,
+    # aldrig som exakta siffror – och sällsynta arter (låga tal) filtreras ALDRIG
+    # bort, eftersom de ofta är det intressantaste.
+    max_count = all_species[0]["count"] if all_species else 0
+
+    def activity(c):
+        if max_count and c >= 0.5 * max_count:
+            return "ofta hord"
+        if max_count and c >= 0.15 * max_count:
+            return "hordes en del"
+        return "enstaka"
+
+    for s in all_species:
+        s["activity"] = activity(s["count"])
+
     return {
         "date": TODAY.isoformat(),
         "station_name": station.get("name"),
-        "total_detections": sum(s["count"] for s in all_species),
+        "total_detections": sum(s["count"] for s in all_species),  # internt, ej i manus
         "species_count": len(all_species),
-        "top_species": all_species[:12],
+        "top_species": all_species,   # ALLA arter – count används internt, ej i manus
     }
 
 
@@ -180,11 +197,12 @@ def derive_signals(today, history):
     yesterday = recent[-1] if recent else None
     vs_yesterday = None
     if yesterday:
+        # Jämför ARTRIKEDOM (antal olika arter) – det är meningsfullt, till
+        # skillnad från antal detektioner som mest speglar hur pratsamma
+        # fåglarna var.
         vs_yesterday = {
-            "yesterday_date": yesterday["date"],
-            "yesterday_total": yesterday.get("total"),
-            "today_total": today["total_detections"],
-            "yesterday_top": yesterday.get("top", [])[:3],
+            "artrikedom_igar": yesterday.get("species_count"),
+            "artrikedom_idag": today["species_count"],
         }
 
     return {
@@ -218,6 +236,21 @@ Returnera ENBART giltig JSON: lista av objekt med "speaker" ("{{HOST_A}}" eller
 "{{HOST_B}}") och "text". Ingen markdown, ingen text utanfor listan."""
 
 
+def _script_view(today):
+    # Vad modellen faktiskt får se. Medvetet UTAN råa antal/totaler: antal
+    # detektioner speglar hur mycket ljud som fångats, inte hur intressant något
+    # är. Vi ger arter + grov aktivitet + artrikedom, så manuset kan färglägga
+    # utan att recitera siffror.
+    return {
+        "datum": today["date"],
+        "artrikedom": today.get("species_count"),
+        "arter": [
+            {"art": s["name"], "aktivitet": s.get("activity", "enstaka")}
+            for s in today.get("top_species", [])
+        ],
+    }
+
+
 def build_prompt(today, signals):
     if PROMPT_PATH.exists():
         raw = PROMPT_PATH.read_text(encoding="utf-8")
@@ -237,7 +270,7 @@ def build_prompt(today, signals):
         template
         .replace("{{HOST_A}}", HOST_A)
         .replace("{{HOST_B}}", HOST_B)
-        .replace("{{DATA_JSON}}", json.dumps(today, ensure_ascii=False, indent=2))
+        .replace("{{DATA_JSON}}", json.dumps(_script_view(today), ensure_ascii=False, indent=2))
         .replace("{{SIGNALS_JSON}}", json.dumps(signals, ensure_ascii=False, indent=2))
     )
 
@@ -309,24 +342,29 @@ def tts_segment(text, voice, out_path):
             timeout=120,
         )
     else:
+        model = os.environ.get("OPENAI_TTS_MODEL", "gpt-4o-mini-tts")
+        body = {
+            "model": model,
+            "voice": voice,
+            "input": text,
+            "response_format": "mp3",
+        }
+        # Ton-styrning (instructions) stöds bara av gpt-4o-mini-tts,
+        # inte av de äldre tts-1 / tts-1-hd.
+        if "mini-tts" in model or "gpt-4o" in model:
+            body["instructions"] = (
+                "Tala som en levande, varm radiopratare pa svenska: naturligt "
+                "tempo med sma pauser, tydlig men avslappnad intonation och lite "
+                "variation i tonfallet. Lat engagerad och samtalande, aldrig "
+                "monoton eller upplasande."
+            )
         r = requests.post(
             "https://api.openai.com/v1/audio/speech",
             headers={
                 "Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}",
                 "Content-Type": "application/json",
             },
-            json={
-                "model": "gpt-4o-mini-tts",
-                "voice": voice,
-                "input": text,
-                "response_format": "mp3",
-                "instructions": (
-                    "Tala som en levande, varm radiopratare pa svenska: naturligt "
-                    "tempo med sma pauser, tydlig men avslappnad intonation och lite "
-                    "variation i tonfallet. Lat engagerad och samtalande, aldrig "
-                    "monoton eller upplasande."
-                ),
-            },
+            json=body,
             timeout=120,
         )
     r.raise_for_status()
@@ -486,15 +524,16 @@ def main():
     synthesize_dialogue(turns, out_path)
     print(f"  wrote {out_path} ({out_path.stat().st_size // 1024} KB)")
 
-    # Update history.
+    # Update history. Spara ALLA arter (bara namn) så att sällsynta arter –
+    # som ofta har lågt antal – registreras korrekt för "nytt/första för
+    # året/återvändande". Råa antal sparas inte; de är inte meningsfulla.
     species_ever = history.setdefault("species_ever", {})
     for name in [s["name"] for s in today["top_species"]]:
         species_ever.setdefault(name, today["date"])
     history.setdefault("recent_days", []).append({
         "date": today["date"],
-        "total": today["total_detections"],
         "species_count": today["species_count"],
-        "top": today["top_species"][:6],
+        "top": [{"name": s["name"]} for s in today["top_species"]],
     })
     history["recent_days"] = history["recent_days"][-KEEP_HISTORY:]
     save_history(history)
