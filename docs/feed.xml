@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
-    <title>Morgonfåglar</title>
+    <title>Ö24 Bird Data</title>
     <link> https://robinklerstad.github.io/fagelrapportosterlen</link>
     <language>sv</language>
-    <description>Daglig fågelrapport från min BirdWeather-station, med Astrid och Erik.</description>
-    <itunes:author>BirdWeather</itunes:author>
+    <description>Daglig fågelrapport från vår BirdWeather-station, med Astrid och Erik.</description>
+    <itunes:author>Ö24 Bird Data</itunes:author>
     <itunes:explicit>false</itunes:explicit>
     <item>
-      <title>Morgonfåglar – 2026-07-09</title>
+      <title>Ö24 Bird Data – 2026-07-09</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-09.mp3</guid>
       <pubDate>Thu, 09 Jul 2026 06:00:00 +0000</pubDate>
-      <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-09.mp3" length="1352273" type="audio/mpeg"/>
+      <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-09.mp3" length="1270366" type="audio/mpeg"/>
     </item>
     <item>
-      <title>Morgonfåglar – 2026-07-08</title>
+      <title>Ö24 Bird Data – 2026-07-08</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-08.mp3</guid>
       <pubDate>Wed, 08 Jul 2026 06:00:00 +0000</pubDate>
       <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-08.mp3" length="1270392" type="audio/mpeg"/>
     </item>
     <item>
-      <title>Morgonfåglar – 2026-07-07</title>
+      <title>Ö24 Bird Data – 2026-07-07</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-07.mp3</guid>
       <pubDate>Tue, 07 Jul 2026 06:00:00 +0000</pubDate>
       <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-07.mp3" length="1504162" type="audio/mpeg"/>
     </item>
     <item>
-      <title>Morgonfåglar – 2026-07-06</title>
+      <title>Ö24 Bird Data – 2026-07-06</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-06.mp3</guid>
       <pubDate>Mon, 06 Jul 2026 06:00:00 +0000</pubDate>
       <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-06.mp3" length="1446742" type="audio/mpeg"/>
     </item>
     <item>
-      <title>Morgonfåglar – 2026-07-05</title>
+      <title>Ö24 Bird Data – 2026-07-05</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-05.mp3</guid>
       <pubDate>Sun, 05 Jul 2026 06:00:00 +0000</pubDate>
       <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-05.mp3" length="1361962" type="audio/mpeg"/>
     </item>
     <item>
-      <title>Morgonfåglar – 2026-07-04</title>
+      <title>Ö24 Bird Data – 2026-07-04</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-04.mp3</guid>
       <pubDate>Sat, 04 Jul 2026 06:00:00 +0000</pubDate>
       <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-04.mp3" length="1395282" type="audio/mpeg"/>
     </item>
     <item>
-      <title>Morgonfåglar – 2026-07-03</title>
+      <title>Ö24 Bird Data – 2026-07-03</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-03.mp3</guid>
       <pubDate>Fri, 03 Jul 2026 06:00:00 +0000</pubDate>
       <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-03.mp3" length="1308451" type="audio/mpeg"/>
     </item>
     <item>
-      <title>Morgonfåglar – 2026-07-02</title>
+      <title>Ö24 Bird Data – 2026-07-02</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-02.mp3</guid>
       <pubDate>Thu, 02 Jul 2026 06:00:00 +0000</pubDate>
       <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-02.mp3" length="1401126" type="audio/mpeg"/>
     </item>
     <item>
-      <title>Morgonfåglar – 2026-07-01</title>
+      <title>Ö24 Bird Data – 2026-07-01</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-01.mp3</guid>
       <pubDate>Wed, 01 Jul 2026 06:00:00 +0000</pubDate>
       <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-01.mp3" length="1449088" type="audio/mpeg"/>
     </item>
     <item>
-      <title>Morgonfåglar – 2026-06-30</title>
+      <title>Ö24 Bird Data – 2026-06-30</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-06-30.mp3</guid>
       <pubDate>Tue, 30 Jun 2026 06:00:00 +0000</pubDate>
       <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-06-30.mp3" length="1473001" type="audio/mpeg"/>
     </item>
     <item>
-      <title>Morgonfåglar – 2026-06-29</title>
+      <title>Ö24 Bird Data – 2026-06-29</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-06-29.mp3</guid>
       <pubDate>Mon, 29 Jun 2026 06:00:00 +0000</pubDate>
       <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-06-29.mp3" length="1530722" type="audio/mpeg"/>
