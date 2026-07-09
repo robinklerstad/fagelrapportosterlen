@@ -43,6 +43,7 @@ import datetime as dt
 from email.utils import format_datetime
 from pathlib import Path
 from xml.sax.saxutils import escape
+from zoneinfo import ZoneInfo
 
 import requests
 
@@ -74,7 +75,9 @@ PODCAST_AUTHOR = "Ö24 Bird Data"
 PODCAST_LANG   = "sv"
 
 BW_GRAPHQL = "https://app.birdweather.com/graphql"
-TODAY      = dt.date.today()
+# Datumet ska följa svensk tid, inte runnerns UTC – annars blir ett avsnitt som
+# genereras sent på kvällen svensk tid daterat till gårdagen.
+TODAY      = dt.datetime.now(ZoneInfo("Europe/Stockholm")).date()
 
 
 # ---------------------------------------------------------------------------
@@ -270,6 +273,7 @@ def build_prompt(today, signals):
         template
         .replace("{{HOST_A}}", HOST_A)
         .replace("{{HOST_B}}", HOST_B)
+        .replace("{{PODD_NAMN}}", PODCAST_TITLE)
         .replace("{{DATA_JSON}}", json.dumps(_script_view(today), ensure_ascii=False, indent=2))
         .replace("{{SIGNALS_JSON}}", json.dumps(signals, ensure_ascii=False, indent=2))
     )
