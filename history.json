@@ -27,7 +27,8 @@
     "Eurasian Skylark": "2026-07-05",
     "Canada Goose": "2026-07-06",
     "Eurasian Curlew": "2026-07-06",
-    "Lesser Whitethroat": "2026-07-07"
+    "Lesser Whitethroat": "2026-07-07",
+    "Marsh Tit": "2026-07-09"
   },
   "recent_days": [
     {
@@ -399,6 +400,37 @@
         {
           "name": "Eurasian Blackbird",
           "count": 59
+        }
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "total": 5190,
+      "species_count": 14,
+      "top": [
+        {
+          "name": "Rook",
+          "count": 1958
+        },
+        {
+          "name": "Common Swift",
+          "count": 1678
+        },
+        {
+          "name": "Eurasian Magpie",
+          "count": 539
+        },
+        {
+          "name": "Eurasian Blackbird",
+          "count": 337
+        },
+        {
+          "name": "Eurasian Tree Sparrow",
+          "count": 320
+        },
+        {
+          "name": "Eurasian Jackdaw",
+          "count": 215
         }
       ]
     }
