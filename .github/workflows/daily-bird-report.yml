@@ -22,7 +22,7 @@ jobs:
       - name: Installera ffmpeg (för att sy ihop de två rösterna)
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
-      - run: pip install requests
+      - run: pip install requests tzdata
 
       - name: Generera rapport
         env:
