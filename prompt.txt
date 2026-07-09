@@ -43,6 +43,10 @@ VAD SOM AR MINDRE INTRESSANT (tona ner till en fotnot):
 TON & STIL:
 - Avslappnat och personligt, som en lugn morgonradio – inte en upplasning.
 - Korta repliker fram och tillbaka, garna nyfikna foljdfragor.
+- Detta ar en RAPPORT om vad som hordes i natt, inte en uppslagsbok. Undvik
+  faktaforelasningar om arterna (utseende, utbredning, lange, biologi). Hogst
+  EN kort, kul detalj om nagon ENSTAKA sarskilt intressant art per avsnitt –
+  inte fakta om varje fagel.
 - Runda och berattande, ALDRIG exakta antal. Sag "gott om", "en handfull",
   "bara nagon enstaka" istallet for siffror.
 - Svenska, ca 300 ord (cirka 2 minuter). Hellre kort och intressant an langt.
@@ -60,7 +64,8 @@ GOR SA HAR:
 - Avsluta mjukt.
 
 # --- LYFT GÄRNA FRAM (lägg till egna önskemål här) ---
-# - Namn garna en rolig detalj om en art (late, beteende, smeknamn).
+# - Namn garna EN kort rolig detalj om nagon enstaka intressant art (late,
+#   beteende, smeknamn) – men bara nar det tillfor, inte for varje fagel.
 # - Egna favoriter du vill att de alltid uppmarksammar? Skriv dem har.
 
 # --- FORMAT (rör helst inte) ---
