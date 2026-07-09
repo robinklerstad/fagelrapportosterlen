@@ -124,6 +124,99 @@
           "name": "Common Scoter"
         }
       ]
+    },
+    {
+      "date": "2026-07-10",
+      "species_count": 29,
+      "top": [
+        {
+          "name": "Common Swift"
+        },
+        {
+          "name": "Barn Swallow"
+        },
+        {
+          "name": "Common Gull"
+        },
+        {
+          "name": "Rook"
+        },
+        {
+          "name": "Eurasian Jackdaw"
+        },
+        {
+          "name": "Common Wood-Pigeon"
+        },
+        {
+          "name": "Common House-Martin"
+        },
+        {
+          "name": "Herring Gull"
+        },
+        {
+          "name": "Eurasian Blackbird"
+        },
+        {
+          "name": "House Sparrow"
+        },
+        {
+          "name": "Graylag Goose"
+        },
+        {
+          "name": "Gray Heron"
+        },
+        {
+          "name": "European Serin"
+        },
+        {
+          "name": "Eurasian Linnet"
+        },
+        {
+          "name": "Common Buzzard"
+        },
+        {
+          "name": "European Goldfinch"
+        },
+        {
+          "name": "Great Bittern"
+        },
+        {
+          "name": "Black-headed Gull"
+        },
+        {
+          "name": "Long-tailed Tit"
+        },
+        {
+          "name": "White Wagtail"
+        },
+        {
+          "name": "Eurasian Collared-Dove"
+        },
+        {
+          "name": "Eurasian Oystercatcher"
+        },
+        {
+          "name": "European Honey-buzzard"
+        },
+        {
+          "name": "Short-toed Treecreeper"
+        },
+        {
+          "name": "Black Woodpecker"
+        },
+        {
+          "name": "Eurasian Siskin"
+        },
+        {
+          "name": "Eurasian Wigeon"
+        },
+        {
+          "name": "Black Tern"
+        },
+        {
+          "name": "Common Scoter"
+        }
+      ]
     }
   ]
 }
