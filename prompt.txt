@@ -1,45 +1,64 @@
 # ============================================================================
-#  PROMPT FÖR FÅGELRAPPORT ÖSTERLEN  —  redigera fritt, committa, klart.
+#  PROMPT FÖR MORGONPODDEN  —  redigera fritt, committa, klart.
 #
 #  Rader som börjar med # är kommentarer till dig och skickas INTE till modellen.
 #  Behåll platshållarna nedan – skriptet byter ut dem vid varje körning:
 #     {{HOST_A}}        namnet på första värden (Astrid)
 #     {{HOST_B}}        namnet på andra värden (Erik)
-#     {{DATA_JSON}}     gårnattens fågeldata
+#     {{DATA_JSON}}     nattens arter med grov aktivitetsnivå + artrikedom
 #     {{SIGNALS_JSON}}  verifierade kontinuitetsfakta (nytt/återvändande/första för året)
 #
-#  Vill du justera tonen? Ändra raderna under "TON & STIL".
-#  Vill du lyfta fram något särskilt? Skriv in det under "LYFT GÄRNA FRAM".
+#  OBS om data: skriptet skickar INTE exakta antal detektioner, med flit.
+#  Antalet speglar hur mycket en fågel LÄT (en pratsam kaja kan ge hundratals
+#  registreringar), inte hur många fåglar eller hur intressant det är. Därför
+#  får du bara grova nivåer ("ofta hord", "hordes en del", "enstaka") och
+#  artrikedom (antal olika arter). Recitera aldrig siffror som vore de exakta.
 # ============================================================================
 
 Du skriver manus till en kort daglig morgonpodd om faglarna vid min tradgard.
 Tva programledare samtalar: {{HOST_A}} (nyfiken, varm) och {{HOST_B}} (lugn, kunnig).
 
-GARNATTENS DATA (JSON):
+NATTENS ARTER (JSON – arter, grov aktivitet, artrikedom):
 {{DATA_JSON}}
 
 KONTINUITET – verifierade fakta, anvand fritt men hitta INTE pa egna:
 {{SIGNALS_JSON}}
 
+# --- DET HÄR ÄR DET VIKTIGASTE: prioritera rätt ---
+VAD SOM AR INTRESSANT (lagg tyngden har):
+- Det ovanliga och sallsynta: arter markerade som nya, forsta for aret, eller
+  atervandande efter uppehall (se KONTINUITET). Det ar dagens verkliga historia.
+- Rovfaglar, ugglor och andra speciella gaster – lyft dem aven om de bara hordes
+  enstaka gang.
+- Forandring: nagot som dykt upp eller forsvunnit, eller om artrikedomen skiljer
+  sig tydligt fran igar.
+- Artrikedomen som helhet ("ett tjugotal arter i natt") ger en fin kansla for dagen.
+
+VAD SOM AR MINDRE INTRESSANT (tona ner till en fotnot):
+- Vanliga vardagsfaglar (kaja, skata, talgoxe, koltrast o.likn.) – namn dem
+  hogst i forbigaende, aven om de var "ofta horda". Att en kaja lat mycket ar
+  inte en nyhet.
+
 # --- TON & STIL (justera fritt) ---
 TON & STIL:
-- Avslappnat och personligt, som en lugn morgonradio – inte en upplasning av siffror.
-- Korta repliker fram och tillbaka, gärna med nyfikna följdfrågor.
-- Svenska, totalt ca 400 ord (cirka 3 minuter upplast).
+- Avslappnat och personligt, som en lugn morgonradio – inte en upplasning.
+- Korta repliker fram och tillbaka, garna nyfikna foljdfragor.
+- Runda och berattande, ALDRIG exakta antal. Sag "gott om", "en handfull",
+  "bara nagon enstaka" istallet for siffror.
+- Svenska, ca 300 ord (cirka 2 minuter). Hellre kort och intressant an langt.
 
 # --- INNEHÅLL ---
 GOR SA HAR:
 - Halsa god morgon och namn dagens datum naturligt.
-- Prata om de mest aktiva arterna.
-- Vav in kontinuiteten dar det passar (nya arter, forsta for aret, atervandande
-  arter, skillnad mot igar) – men BARA om listorna ovan faktiskt innehaller nagot.
+- Agna storst tid at det intressanta enligt ovan; svep forbi vardagsfaglarna.
+- Vav in kontinuiteten dar det passar – men BARA om listorna faktiskt innehaller
+  nagot. Finns inget ovanligt i natt, var arlig om att det var en lugn, vanlig
+  natt istallet for att overdriva.
 - Avsluta mjukt.
 
 # --- LYFT GÄRNA FRAM (lägg till egna önskemål här) ---
-# Exempel du kan avkommentera eller skriva om:
-# - Namn garna en rolig detalj om nagon art (late, beteende, smeknamn).
-# - Om en ugglas eller rovfagels detektion finns, lyft den lite extra.
-# - Undvik for mycket sifferexakthet; runda och berätta hellre.
+# - Namn garna en rolig detalj om en art (late, beteende, smeknamn).
+# - Egna favoriter du vill att de alltid uppmarksammar? Skriv dem har.
 
 # --- FORMAT (rör helst inte) ---
 Returnera ENBART giltig JSON: en lista av objekt med exakt faltet "speaker"
