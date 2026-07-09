@@ -50,6 +50,9 @@ TON & STIL:
 # --- INNEHÅLL ---
 GOR SA HAR:
 - Halsa god morgon och namn dagens datum naturligt.
+- Podden heter {{PODD_NAMN}}. Om ni namnger podden, anvand exakt det namnet –
+  hitta ALDRIG pa ett eget (som "tradgardspodden"). Ni behover inte tvunget
+  saga namnet, men gor ni det ska det vara ratt.
 - Agna storst tid at det intressanta enligt ovan; svep forbi vardagsfaglarna.
 - Vav in kontinuiteten dar det passar – men BARA om listorna faktiskt innehaller
   nagot. Finns inget ovanligt i natt, var arlig om att det var en lugn, vanlig
