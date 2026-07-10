@@ -73,6 +73,7 @@ PODCAST_TITLE  = "Ö24 Bird Data"
 PODCAST_DESC   = "Daglig fågelrapport från vår BirdWeather-station, med Astrid och Erik."
 PODCAST_AUTHOR = "Ö24 Bird Data"
 PODCAST_LANG   = "sv"
+COVER_FILE     = "cover.png"   # ligger i docs/ ; byt till cover.png om du använder PNG
 
 BW_GRAPHQL = "https://app.birdweather.com/graphql"
 # Datumet ska följa svensk tid, inte runnerns UTC – annars blir ett avsnitt som
@@ -102,12 +103,15 @@ def fetch_birdweather():
     # topSpecies over the last 24h gives per-species counts for the day; we sum
     # them for the total and count the list for species richness. A high limit
     # makes sure we capture every species heard, not just the very top ones.
+    # 8 timmar bakåt från körningen. Vid morgonkörning (~06) motsvarar det i
+    # praktiken natten (~22–06). OBS: fönstret räknas bakåt från NÄR jobbet kör,
+    # inte från fasta klockslag – kör du mitt på dagen blir det inte natt.
     query = """
     query ($id: ID!) {
       station(id: $id) {
         id
         name
-        topSpecies(limit: 200, period: {count: 24, unit: "hour"}) {
+        topSpecies(limit: 200, period: {count: 8, unit: "hour"}) {
           count
           species { commonName scientificName imageUrl }
         }
@@ -446,6 +450,7 @@ def build_feed(mp3s):
       <enclosure url="{escape(url)}" length="{mp3.stat().st_size}" type="audio/mpeg"/>
     </item>""")
 
+    cover_url = f"{SITE_BASE_URL}/{COVER_FILE}"
     FEED_PATH.write_text(f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
@@ -455,6 +460,12 @@ def build_feed(mp3s):
     <description>{escape(PODCAST_DESC)}</description>
     <itunes:author>{escape(PODCAST_AUTHOR)}</itunes:author>
     <itunes:explicit>false</itunes:explicit>
+    <itunes:image href="{escape(cover_url)}"/>
+    <image>
+      <url>{escape(cover_url)}</url>
+      <title>{escape(PODCAST_TITLE)}</title>
+      <link>{escape(SITE_BASE_URL)}</link>
+    </image>
 {chr(10).join(items)}
   </channel>
 </rss>
@@ -489,9 +500,12 @@ def build_index(mp3s):
   li {{ padding: 1rem 0; border-top: 1px solid #e3ded4; }}
   .date {{ display: block; font-weight: 600; margin-bottom: .4rem; }}
   audio {{ width: 100%; }}
+  .cover {{ display: block; width: 220px; max-width: 60%; height: auto;
+           border-radius: 12px; margin: 0 auto 1rem; }}
 </style>
 </head>
 <body>
+  <img class="cover" src="{escape(SITE_BASE_URL)}/{escape(COVER_FILE)}" alt="{escape(PODCAST_TITLE)}"/>
   <h1>{escape(PODCAST_TITLE)}</h1>
   <p class="sub">{escape(PODCAST_DESC)}</p>
   <a class="subscribe" href="{escape(feed_url)}">Prenumerera (RSS) i din poddapp</a>
