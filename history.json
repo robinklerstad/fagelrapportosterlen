@@ -1,0 +1,149 @@
+{
+  "first_run": "2026-07-10",
+  "species_ever": {
+    "Common Swift": "2026-07-10",
+    "Barn Swallow": "2026-07-10",
+    "Common Gull": "2026-07-10",
+    "Rook": "2026-07-10",
+    "Eurasian Jackdaw": "2026-07-10",
+    "Herring Gull": "2026-07-10",
+    "Common Wood-Pigeon": "2026-07-10",
+    "Common House-Martin": "2026-07-10",
+    "Eurasian Blackbird": "2026-07-10",
+    "Gray Heron": "2026-07-10",
+    "House Sparrow": "2026-07-10",
+    "Graylag Goose": "2026-07-10",
+    "European Serin": "2026-07-10",
+    "Great Bittern": "2026-07-10",
+    "European Goldfinch": "2026-07-10",
+    "Eurasian Linnet": "2026-07-10",
+    "Common Buzzard": "2026-07-10",
+    "Common Snipe": "2026-07-10",
+    "Black-headed Gull": "2026-07-10",
+    "Long-tailed Tit": "2026-07-10",
+    "Hooded Crow": "2026-07-10",
+    "Black Woodpecker": "2026-07-10",
+    "White Wagtail": "2026-07-10",
+    "Eurasian Wigeon": "2026-07-10",
+    "Eurasian Collared-Dove": "2026-07-10",
+    "Eurasian Oystercatcher": "2026-07-10",
+    "Crested Tit": "2026-07-10",
+    "European Honey-buzzard": "2026-07-10",
+    "Short-toed Treecreeper": "2026-07-10",
+    "Eurasian Siskin": "2026-07-10",
+    "Redwing": "2026-07-10",
+    "Lesser Black-backed Gull": "2026-07-10",
+    "Black Tern": "2026-07-10",
+    "Common Scoter": "2026-07-10"
+  },
+  "recent_days": [
+    {
+      "date": "2026-07-10",
+      "species_count": 34,
+      "top": [
+        {
+          "name": "Common Swift"
+        },
+        {
+          "name": "Barn Swallow"
+        },
+        {
+          "name": "Common Gull"
+        },
+        {
+          "name": "Rook"
+        },
+        {
+          "name": "Eurasian Jackdaw"
+        },
+        {
+          "name": "Herring Gull"
+        },
+        {
+          "name": "Common Wood-Pigeon"
+        },
+        {
+          "name": "Common House-Martin"
+        },
+        {
+          "name": "Eurasian Blackbird"
+        },
+        {
+          "name": "Gray Heron"
+        },
+        {
+          "name": "House Sparrow"
+        },
+        {
+          "name": "Graylag Goose"
+        },
+        {
+          "name": "European Serin"
+        },
+        {
+          "name": "Great Bittern"
+        },
+        {
+          "name": "European Goldfinch"
+        },
+        {
+          "name": "Eurasian Linnet"
+        },
+        {
+          "name": "Common Buzzard"
+        },
+        {
+          "name": "Common Snipe"
+        },
+        {
+          "name": "Black-headed Gull"
+        },
+        {
+          "name": "Long-tailed Tit"
+        },
+        {
+          "name": "Hooded Crow"
+        },
+        {
+          "name": "Black Woodpecker"
+        },
+        {
+          "name": "White Wagtail"
+        },
+        {
+          "name": "Eurasian Wigeon"
+        },
+        {
+          "name": "Eurasian Collared-Dove"
+        },
+        {
+          "name": "Eurasian Oystercatcher"
+        },
+        {
+          "name": "Crested Tit"
+        },
+        {
+          "name": "European Honey-buzzard"
+        },
+        {
+          "name": "Short-toed Treecreeper"
+        },
+        {
+          "name": "Eurasian Siskin"
+        },
+        {
+          "name": "Redwing"
+        },
+        {
+          "name": "Lesser Black-backed Gull"
+        },
+        {
+          "name": "Black Tern"
+        },
+        {
+          "name": "Common Scoter"
+        }
+      ]
+    }
+  ]
+}
