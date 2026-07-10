@@ -473,54 +473,69 @@ def build_feed(mp3s):
 """, encoding="utf-8")
 
 
+TEMPLATE_PATH = Path("template.html")
+
+# Minimal fallback om template.html saknas. Redigera template.html, inte denna.
+FALLBACK_TEMPLATE = """<!doctype html><html lang="sv"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>%%TITLE%%</title>
+</head><body><h1>%%TITLE%%</h1><p>%%DESC%%</p>
+<p><a href="%%FEED_URL%%">RSS</a> · <a href="%%APPLE_URL%%">Apple Podcasts</a>
+· <a href="%%BIRDTUNES_URL%%">Stationens data</a></p>
+<div>%%LATEST%%</div><h2>Tidigare avsnitt</h2><ul>%%ROWS%%</ul></body></html>"""
+
+
 def build_index(mp3s):
     feed_url = f"{SITE_BASE_URL}/feed.xml"
-    rows = []
-    for mp3 in mp3s:
-        url = f"{SITE_BASE_URL}/episodes/{mp3.name}"
-        txt_url = f"{SITE_BASE_URL}/episodes/{mp3.stem}.txt"
-        rows.append(f"""    <li>
-      <span class="date">{escape(mp3.stem)}</span>
-      <audio controls preload="none" src="{escape(url)}"></audio>
-      <a class="manus" href="{escape(txt_url)}">Visa manus</a>
-    </li>""")
+    apple_url = "podcast://" + feed_url.split("://", 1)[1]
+    cover_url = f"{SITE_BASE_URL}/{COVER_FILE}"
+    birdtunes_url = f"https://birdtunes.net/?station={BW_STATION_ID}&lang=sv"
 
-    INDEX_PATH.write_text(f"""<!doctype html>
-<html lang="sv">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{escape(PODCAST_TITLE)}</title>
-<style>
-  body {{ font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto;
-         padding: 0 1rem; color: #1a1a1a; background: #faf8f4; }}
-  h1 {{ margin-bottom: .2rem; }}
-  p.sub {{ color: #666; margin-top: 0; }}
-  .subscribe {{ display: inline-block; margin: 1rem 0; padding: .6rem 1rem;
-               background: #2e5d34; color: #fff; border-radius: 8px;
-               text-decoration: none; }}
-  ul {{ list-style: none; padding: 0; }}
-  li {{ padding: 1rem 0; border-top: 1px solid #e3ded4; }}
-  .date {{ display: block; font-weight: 600; margin-bottom: .4rem; }}
-  audio {{ width: 100%; }}
-  .manus {{ display: inline-block; margin-top: .4rem; font-size: .9rem;
-           color: #2e5d34; }}
-  .cover {{ display: block; width: 220px; max-width: 60%; height: auto;
-           border-radius: 12px; margin: 0 auto 1rem; }}
-</style>
-</head>
-<body>
-  <img class="cover" src="{escape(SITE_BASE_URL)}/{escape(COVER_FILE)}" alt="{escape(PODCAST_TITLE)}"/>
-  <h1>{escape(PODCAST_TITLE)}</h1>
-  <p class="sub">{escape(PODCAST_DESC)}</p>
-  <a class="subscribe" href="{escape(feed_url)}">Prenumerera (RSS) i din poddapp</a>
-  <p class="sub">Klistra in lanken ovan i valfri poddapp – eller lyssna direkt har nedan.</p>
-  <ul>
-{chr(10).join(rows)}
-  </ul>
-</body>
-</html>
-""", encoding="utf-8")
+    def episode_li(mp3):
+        url = f"{SITE_BASE_URL}/episodes/{mp3.name}"
+        txt = f"{SITE_BASE_URL}/episodes/{mp3.stem}.txt"
+        return (
+            f'    <li class="ep">\n'
+            f'      <span class="ep-date">{escape(mp3.stem)}</span>\n'
+            f'      <audio controls preload="none" src="{escape(url)}"></audio>\n'
+            f'      <a class="manus" href="{escape(txt)}">Visa manus</a>\n'
+            f'    </li>'
+        )
+
+    if mp3s:
+        latest = mp3s[0]
+        latest_url = f"{SITE_BASE_URL}/episodes/{latest.name}"
+        latest_txt = f"{SITE_BASE_URL}/episodes/{latest.stem}.txt"
+        latest_html = (
+            f'<span class="eyebrow">Senaste avsnittet</span>\n'
+            f'      <span class="latest-date">{escape(latest.stem)}</span>\n'
+            f'      <audio class="latest-audio" controls preload="auto" src="{escape(latest_url)}"></audio>\n'
+            f'      <a class="manus" href="{escape(latest_txt)}">Visa manus</a>'
+        )
+        older = mp3s[1:]
+        rows = "\n".join(episode_li(m) for m in older) or \
+            '    <li class="ep empty">Fler avsnitt dyker upp här.</li>'
+    else:
+        latest_html = '<span class="eyebrow">Snart</span>\n      <p>Första avsnittet är på väg.</p>'
+        rows = '    <li class="ep empty">Inga avsnitt än.</li>'
+
+    if TEMPLATE_PATH.exists():
+        template = TEMPLATE_PATH.read_text(encoding="utf-8")
+    else:
+        print("  (template.html saknas – använder inbyggd fallback-mall)")
+        template = FALLBACK_TEMPLATE
+
+    html = (
+        template
+        .replace("%%TITLE%%", escape(PODCAST_TITLE))
+        .replace("%%DESC%%", escape(PODCAST_DESC))
+        .replace("%%COVER_URL%%", escape(cover_url))
+        .replace("%%FEED_URL%%", escape(feed_url))
+        .replace("%%APPLE_URL%%", escape(apple_url))
+        .replace("%%BIRDTUNES_URL%%", escape(birdtunes_url))
+        .replace("%%LATEST%%", latest_html)
+        .replace("%%ROWS%%", rows)
+    )
+    INDEX_PATH.write_text(html, encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------
