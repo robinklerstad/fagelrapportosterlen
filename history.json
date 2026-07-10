@@ -76,6 +76,63 @@
           "name": "Common Crane"
         }
       ]
+    },
+    {
+      "date": "2026-07-11",
+      "species_count": 17,
+      "top": [
+        {
+          "name": "Common Gull"
+        },
+        {
+          "name": "Barn Swallow"
+        },
+        {
+          "name": "Common Swift"
+        },
+        {
+          "name": "Graylag Goose"
+        },
+        {
+          "name": "House Sparrow"
+        },
+        {
+          "name": "Eurasian Tree Sparrow"
+        },
+        {
+          "name": "Eurasian Jackdaw"
+        },
+        {
+          "name": "Herring Gull"
+        },
+        {
+          "name": "Common Wood-Pigeon"
+        },
+        {
+          "name": "Common House-Martin"
+        },
+        {
+          "name": "Gray Heron"
+        },
+        {
+          "name": "Eurasian Blackbird"
+        },
+        {
+          "name": "Common Buzzard"
+        },
+        {
+          "name": "Song Thrush"
+        },
+        {
+          "name": "European Goldfinch"
+        },
+        {
+          "name": "White Wagtail"
+        },
+        {
+          "name": "Common Crane"
+        }
+      ]
     }
   ]
 }
