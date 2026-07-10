@@ -1,0 +1,153 @@
+<!doctype html>
+<!--
+  Hemsidans mall för Ö24 Bird Data. Redigera fritt som vanlig HTML/CSS.
+  Skriptet fyller i dessa platshållare vid varje körning:
+    %%TITLE%%          poddens namn
+    %%DESC%%           kort beskrivning
+    %%COVER_URL%%      omslagsbildens URL
+    %%FEED_URL%%       RSS-feedens URL
+    %%APPLE_URL%%      podcast://-länk för Apple Podcasts
+    %%BIRDTUNES_URL%%  länk till birdtunes-dashboarden (byggs från station-ID)
+    %%LATEST%%         senaste avsnittets block (datum + spelare + manuslänk)
+    %%ROWS%%           listan med tidigare avsnitt
+  Lämna platshållarna intakta. Allt annat är fritt att ändra.
+-->
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>%%TITLE%%</title>
+<meta name="description" content="%%DESC%%">
+<link rel="icon" href="%%COVER_URL%%">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #F7F4EC;
+    --ink:     #22303C;
+    --olive:   #5B6B4A;
+    --olive-d: #445238;
+    --sand:    #D9C7A0;
+    --coast:   #A7C0CC;
+    --line:    #E4DDCB;
+    --muted:   #6C7566;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Hanken Grotesk", system-ui, sans-serif;
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 660px; margin: 0 auto; padding: 0 1.25rem; }
+  a { color: var(--olive-d); }
+
+  /* Hero */
+  .hero { text-align: center; padding: 3rem 1.25rem 0; }
+  .hero img { width: 180px; height: 180px; border-radius: 50%;
+              object-fit: cover; box-shadow: 0 8px 30px rgba(34,48,60,.12); }
+  h1 { font-family: "Fraunces", Georgia, serif; font-weight: 600;
+       font-size: 2.4rem; letter-spacing: -.01em; margin: 1.2rem 0 .3rem; }
+  .tagline { color: var(--muted); margin: 0 auto; max-width: 34ch; }
+
+  /* Subscribe */
+  .subscribe { display: flex; gap: .6rem; justify-content: center;
+               flex-wrap: wrap; margin: 1.6rem 0 .5rem; }
+  .btn { display: inline-block; padding: .6rem 1.1rem; border-radius: 999px;
+         text-decoration: none; font-weight: 500; font-size: .95rem; }
+  .btn-primary { background: var(--olive); color: #fff; }
+  .btn-primary:hover { background: var(--olive-d); }
+  .btn-ghost { border: 1.5px solid var(--sand); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--olive); }
+
+  /* Coast wave signature */
+  .wave { display: block; width: 100%; height: 56px; margin-top: 1.5rem; }
+
+  /* Sections */
+  section { padding: 2.4rem 0; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: 0; }
+  .eyebrow { display: inline-block; font-size: .78rem; letter-spacing: .14em;
+             text-transform: uppercase; color: var(--olive); font-weight: 600; }
+
+  /* Latest */
+  .latest-date { display: block; font-family: "Fraunces", serif;
+                 font-size: 1.5rem; margin: .3rem 0 .8rem; }
+  audio { width: 100%; margin: .2rem 0 .6rem; }
+  .manus { font-size: .9rem; text-decoration: none; border-bottom: 1px solid var(--sand); }
+  .manus:hover { border-color: var(--olive); }
+
+  /* About */
+  .about p { max-width: 56ch; }
+  .about .lead { font-family: "Fraunces", serif; font-size: 1.25rem;
+                 line-height: 1.5; color: var(--ink); }
+
+  /* Data card */
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 16px;
+          padding: 1.3rem 1.4rem; display: flex; align-items: center;
+          justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .card p { margin: 0; color: var(--muted); }
+
+  /* Episode list */
+  h2 { font-family: "Fraunces", serif; font-weight: 600; font-size: 1.35rem; }
+  ul { list-style: none; padding: 0; margin: 1rem 0 0; }
+  .ep { padding: 1.1rem 0; border-top: 1px solid var(--line); }
+  .ep-date { display: block; font-weight: 600; margin-bottom: .3rem; }
+  .empty { color: var(--muted); }
+
+  footer { text-align: center; color: var(--muted); font-size: .85rem;
+           padding: 2.5rem 1.25rem 3rem; }
+
+  a:focus-visible, .btn:focus-visible {
+    outline: 3px solid var(--coast); outline-offset: 2px; border-radius: 6px; }
+
+  .fade { animation: rise .7s ease both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .fade { animation: none; } }
+</style>
+</head>
+<body>
+  <header class="hero fade">
+    <img src="%%COVER_URL%%" alt="%%TITLE%%">
+    <h1>%%TITLE%%</h1>
+    <p class="tagline">%%DESC%%</p>
+    <div class="subscribe">
+      <a class="btn btn-primary" href="%%APPLE_URL%%">Öppna i Apple Podcasts</a>
+      <a class="btn btn-ghost" href="%%FEED_URL%%">RSS-länk</a>
+    </div>
+  </header>
+
+  <svg class="wave" viewBox="0 0 660 56" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,34 C110,10 220,54 330,34 C440,14 550,52 660,30 L660,56 L0,56 Z" fill="#A7C0CC" opacity=".35"/>
+    <path d="M0,42 C120,22 240,58 360,40 C480,24 560,50 660,40" fill="none" stroke="#5B6B4A" stroke-width="1.5" opacity=".5"/>
+  </svg>
+
+  <div class="wrap">
+    <section class="latest">
+      %%LATEST%%
+    </section>
+
+    <section class="about">
+      <span class="eyebrow">Om</span>
+      <p class="lead">Varje natt lyssnar en väderstation i trädgården på Östergatan 24 i Simrishamn efter fågelläten.</p>
+      <p>På morgonen sammanfattar Astrid och Erik – två AI-röster – vad som hördes under natten: de vanliga, de ovanliga och årets första. En kort rapport från Österlen, en ny varje dag.</p>
+    </section>
+
+    <section class="data">
+      <span class="eyebrow">Utforska</span>
+      <div class="card">
+        <p>Vill du gräva djupare i stationens arter och aktivitet i realtid?</p>
+        <a class="btn btn-ghost" href="%%BIRDTUNES_URL%%">Öppna stationens data</a>
+      </div>
+    </section>
+
+    <section class="episodes">
+      <h2>Tidigare avsnitt</h2>
+      <ul>
+%%ROWS%%
+      </ul>
+    </section>
+  </div>
+
+  <footer>%%TITLE%% · Östergatan 24, Simrishamn</footer>
+</body>
+</html>
