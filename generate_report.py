@@ -70,10 +70,10 @@ INDEX_PATH   = DOCS_DIR / "index.html"
 HISTORY_PATH = Path("history.json")
 
 PODCAST_TITLE  = "Ö24 Bird Data"
-PODCAST_DESC   = "Daglig fågelrapport från vår BirdWeather-station, med Astrid och Erik."
+PODCAST_DESC   = "Daglig fågelrapport från vår BirdWeather-station i Simrishamn – skriven och uppläst av AI-rösterna Astrid och Erik."
 PODCAST_AUTHOR = "Ö24 Bird Data"
 PODCAST_LANG   = "sv"
-COVER_FILE     = "cover.jpg"   # ligger i docs/ ; byt till cover.png om du använder PNG
+COVER_FILE     = "cover.png"   # ligger i docs/ ; byt till cover.jpg om du använder JPG
 
 BW_GRAPHQL = "https://app.birdweather.com/graphql"
 # Datumet ska följa svensk tid, inte runnerns UTC – annars blir ett avsnitt som
