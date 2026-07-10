@@ -73,7 +73,7 @@ PODCAST_TITLE  = "Ö24 Bird Data"
 PODCAST_DESC   = "Daglig fågelrapport från vår BirdWeather-station, med Astrid och Erik."
 PODCAST_AUTHOR = "Ö24 Bird Data"
 PODCAST_LANG   = "sv"
-COVER_FILE     = "cover.png"   # ligger i docs/ ; byt till cover.png om du använder PNG
+COVER_FILE     = "cover.jpg"   # ligger i docs/ ; byt till cover.png om du använder PNG
 
 BW_GRAPHQL = "https://app.birdweather.com/graphql"
 # Datumet ska följa svensk tid, inte runnerns UTC – annars blir ett avsnitt som
@@ -431,6 +431,7 @@ def episodes_on_disk():
     mp3s = sorted(EPISODES_DIR.glob("*.mp3"), reverse=True)
     for old in mp3s[KEEP_EPISODES:]:
         old.unlink()
+        old.with_suffix(".txt").unlink(missing_ok=True)   # ta även manuset
     return mp3s[:KEEP_EPISODES]
 
 
@@ -477,9 +478,11 @@ def build_index(mp3s):
     rows = []
     for mp3 in mp3s:
         url = f"{SITE_BASE_URL}/episodes/{mp3.name}"
+        txt_url = f"{SITE_BASE_URL}/episodes/{mp3.stem}.txt"
         rows.append(f"""    <li>
       <span class="date">{escape(mp3.stem)}</span>
       <audio controls preload="none" src="{escape(url)}"></audio>
+      <a class="manus" href="{escape(txt_url)}">Visa manus</a>
     </li>""")
 
     INDEX_PATH.write_text(f"""<!doctype html>
@@ -500,6 +503,8 @@ def build_index(mp3s):
   li {{ padding: 1rem 0; border-top: 1px solid #e3ded4; }}
   .date {{ display: block; font-weight: 600; margin-bottom: .4rem; }}
   audio {{ width: 100%; }}
+  .manus {{ display: inline-block; margin-top: .4rem; font-size: .9rem;
+           color: #2e5d34; }}
   .cover {{ display: block; width: 220px; max-width: 60%; height: auto;
            border-radius: 12px; margin: 0 auto 1rem; }}
 </style>
@@ -538,6 +543,15 @@ def main():
 
     EPISODES_DIR.mkdir(parents=True, exist_ok=True)
     out_path = EPISODES_DIR / f"{today['date']}.mp3"
+
+    # Spara manuset som läsbar text bredvid ljudet, för granskning/feedback.
+    script_path = EPISODES_DIR / f"{today['date']}.txt"
+    script_text = "\n\n".join(
+        f"{t.get('speaker', HOST_A)}: {t.get('text', '')}" for t in turns
+    )
+    script_path.write_text(script_text, encoding="utf-8")
+    print(f"  sparade manus: {script_path}")
+
     print(f"Synthesizing two-host audio via {TTS_PROVIDER}...")
     synthesize_dialogue(turns, out_path)
     print(f"  wrote {out_path} ({out_path.stat().st_size // 1024} KB)")
