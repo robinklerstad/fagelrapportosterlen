@@ -1,0 +1,89 @@
+{
+  "first_run": "2026-07-11",
+  "species_ever": {
+    "Common Wood-Pigeon": "2026-07-11",
+    "Eurasian Blackbird": "2026-07-11",
+    "Barn Swallow": "2026-07-11",
+    "Common Gull": "2026-07-11",
+    "House Sparrow": "2026-07-11",
+    "Eurasian Jackdaw": "2026-07-11",
+    "Graylag Goose": "2026-07-11",
+    "Herring Gull": "2026-07-11",
+    "Gray Heron": "2026-07-11",
+    "Eurasian Linnet": "2026-07-11",
+    "White Wagtail": "2026-07-11",
+    "Common Buzzard": "2026-07-11",
+    "Song Thrush": "2026-07-11",
+    "Eurasian Blue Tit": "2026-07-11",
+    "Common House-Martin": "2026-07-11",
+    "Eurasian Tree Sparrow": "2026-07-11",
+    "Common Swift": "2026-07-11",
+    "Black-headed Gull": "2026-07-11",
+    "Common Crane": "2026-07-11"
+  },
+  "recent_days": [
+    {
+      "date": "2026-07-11",
+      "species_count": 19,
+      "top": [
+        {
+          "name": "Common Wood-Pigeon"
+        },
+        {
+          "name": "Eurasian Blackbird"
+        },
+        {
+          "name": "Barn Swallow"
+        },
+        {
+          "name": "Common Gull"
+        },
+        {
+          "name": "House Sparrow"
+        },
+        {
+          "name": "Eurasian Jackdaw"
+        },
+        {
+          "name": "Graylag Goose"
+        },
+        {
+          "name": "Herring Gull"
+        },
+        {
+          "name": "Gray Heron"
+        },
+        {
+          "name": "Eurasian Linnet"
+        },
+        {
+          "name": "White Wagtail"
+        },
+        {
+          "name": "Common Buzzard"
+        },
+        {
+          "name": "Song Thrush"
+        },
+        {
+          "name": "Eurasian Blue Tit"
+        },
+        {
+          "name": "Common House-Martin"
+        },
+        {
+          "name": "Eurasian Tree Sparrow"
+        },
+        {
+          "name": "Common Swift"
+        },
+        {
+          "name": "Black-headed Gull"
+        },
+        {
+          "name": "Common Crane"
+        }
+      ]
+    }
+  ]
+}

@@ -4,12 +4,12 @@
     <title>Ö24 Bird Data</title>
     <link> https://robinklerstad.github.io/fagelrapportosterlen</link>
     <language>sv</language>
-    <description>Daglig fågelrapport från vår BirdWeather-station, med Astrid och Erik.</description>
+    <description>Daglig fågelrapport från vår BirdWeather-station i Simrishamn – skriven och uppläst av AI-rösterna Astrid och Erik.</description>
     <itunes:author>Ö24 Bird Data</itunes:author>
     <itunes:explicit>false</itunes:explicit>
-    <itunes:image href=" https://robinklerstad.github.io/fagelrapportosterlen/cover.jpg"/>
+    <itunes:image href=" https://robinklerstad.github.io/fagelrapportosterlen/cover.png"/>
     <image>
-      <url> https://robinklerstad.github.io/fagelrapportosterlen/cover.jpg</url>
+      <url> https://robinklerstad.github.io/fagelrapportosterlen/cover.png</url>
       <title>Ö24 Bird Data</title>
       <link> https://robinklerstad.github.io/fagelrapportosterlen</link>
     </image>
@@ -17,7 +17,7 @@
       <title>Ö24 Bird Data – 2026-07-11</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-11.mp3</guid>
       <pubDate>Sat, 11 Jul 2026 06:00:00 +0000</pubDate>
-      <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-11.mp3" length="1053009" type="audio/mpeg"/>
+      <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-11.mp3" length="952927" type="audio/mpeg"/>
     </item>
   </channel>
 </rss>
