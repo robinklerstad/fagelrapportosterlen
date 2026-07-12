@@ -19,7 +19,12 @@
     "Eurasian Tree Sparrow": "2026-07-11",
     "Common Swift": "2026-07-11",
     "Black-headed Gull": "2026-07-11",
-    "Common Crane": "2026-07-11"
+    "Common Crane": "2026-07-11",
+    "Hooded Crow": "2026-07-12",
+    "European Starling": "2026-07-12",
+    "Common Raven": "2026-07-12",
+    "Mallard": "2026-07-12",
+    "Lesser Whitethroat": "2026-07-12"
   },
   "recent_days": [
     {
@@ -82,6 +87,75 @@
         },
         {
           "name": "Common Crane"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-12",
+      "species_count": 21,
+      "top": [
+        {
+          "name": "House Sparrow"
+        },
+        {
+          "name": "Common Wood-Pigeon"
+        },
+        {
+          "name": "Common Swift"
+        },
+        {
+          "name": "Eurasian Blackbird"
+        },
+        {
+          "name": "Herring Gull"
+        },
+        {
+          "name": "Eurasian Blue Tit"
+        },
+        {
+          "name": "Eurasian Jackdaw"
+        },
+        {
+          "name": "Common Gull"
+        },
+        {
+          "name": "Barn Swallow"
+        },
+        {
+          "name": "Eurasian Linnet"
+        },
+        {
+          "name": "Hooded Crow"
+        },
+        {
+          "name": "Common House-Martin"
+        },
+        {
+          "name": "Graylag Goose"
+        },
+        {
+          "name": "European Starling"
+        },
+        {
+          "name": "Gray Heron"
+        },
+        {
+          "name": "Common Buzzard"
+        },
+        {
+          "name": "Common Raven"
+        },
+        {
+          "name": "White Wagtail"
+        },
+        {
+          "name": "Mallard"
+        },
+        {
+          "name": "Black-headed Gull"
+        },
+        {
+          "name": "Lesser Whitethroat"
         }
       ]
     }
