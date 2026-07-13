@@ -24,7 +24,10 @@
     "European Starling": "2026-07-12",
     "Common Raven": "2026-07-12",
     "Mallard": "2026-07-12",
-    "Lesser Whitethroat": "2026-07-12"
+    "Lesser Whitethroat": "2026-07-12",
+    "Common Redshank": "2026-07-13",
+    "Spotted Flycatcher": "2026-07-13",
+    "Eurasian Coot": "2026-07-13"
   },
   "recent_days": [
     {
@@ -156,6 +159,63 @@
         },
         {
           "name": "Lesser Whitethroat"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-13",
+      "species_count": 17,
+      "top": [
+        {
+          "name": "House Sparrow"
+        },
+        {
+          "name": "Eurasian Blackbird"
+        },
+        {
+          "name": "Common Wood-Pigeon"
+        },
+        {
+          "name": "Eurasian Blue Tit"
+        },
+        {
+          "name": "Graylag Goose"
+        },
+        {
+          "name": "Eurasian Jackdaw"
+        },
+        {
+          "name": "Herring Gull"
+        },
+        {
+          "name": "Common Swift"
+        },
+        {
+          "name": "Barn Swallow"
+        },
+        {
+          "name": "Common Gull"
+        },
+        {
+          "name": "Black-headed Gull"
+        },
+        {
+          "name": "Common Buzzard"
+        },
+        {
+          "name": "Hooded Crow"
+        },
+        {
+          "name": "Common Redshank"
+        },
+        {
+          "name": "Spotted Flycatcher"
+        },
+        {
+          "name": "Eurasian Linnet"
+        },
+        {
+          "name": "Eurasian Coot"
         }
       ]
     }
