@@ -27,7 +27,8 @@
     "Lesser Whitethroat": "2026-07-12",
     "Common Redshank": "2026-07-13",
     "Spotted Flycatcher": "2026-07-13",
-    "Eurasian Coot": "2026-07-13"
+    "Eurasian Coot": "2026-07-13",
+    "Great Black-backed Gull": "2026-07-14"
   },
   "recent_days": [
     {
@@ -216,6 +217,66 @@
         },
         {
           "name": "Eurasian Coot"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-14",
+      "species_count": 18,
+      "top": [
+        {
+          "name": "House Sparrow"
+        },
+        {
+          "name": "Eurasian Blackbird"
+        },
+        {
+          "name": "Common Wood-Pigeon"
+        },
+        {
+          "name": "Eurasian Jackdaw"
+        },
+        {
+          "name": "Common Swift"
+        },
+        {
+          "name": "Common Gull"
+        },
+        {
+          "name": "Barn Swallow"
+        },
+        {
+          "name": "Eurasian Blue Tit"
+        },
+        {
+          "name": "Herring Gull"
+        },
+        {
+          "name": "Song Thrush"
+        },
+        {
+          "name": "European Starling"
+        },
+        {
+          "name": "Eurasian Tree Sparrow"
+        },
+        {
+          "name": "Black-headed Gull"
+        },
+        {
+          "name": "Great Black-backed Gull"
+        },
+        {
+          "name": "Hooded Crow"
+        },
+        {
+          "name": "Gray Heron"
+        },
+        {
+          "name": "White Wagtail"
+        },
+        {
+          "name": "Common House-Martin"
         }
       ]
     }
