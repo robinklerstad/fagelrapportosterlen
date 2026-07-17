@@ -409,6 +409,60 @@
           "name": "Common House-Martin"
         }
       ]
+    },
+    {
+      "date": "2026-07-17",
+      "species_count": 16,
+      "top": [
+        {
+          "name": "Common Wood-Pigeon"
+        },
+        {
+          "name": "House Sparrow"
+        },
+        {
+          "name": "Eurasian Blackbird"
+        },
+        {
+          "name": "Barn Swallow"
+        },
+        {
+          "name": "Graylag Goose"
+        },
+        {
+          "name": "Common Swift"
+        },
+        {
+          "name": "Herring Gull"
+        },
+        {
+          "name": "Eurasian Jackdaw"
+        },
+        {
+          "name": "Eurasian Blue Tit"
+        },
+        {
+          "name": "Gray Heron"
+        },
+        {
+          "name": "Common House-Martin"
+        },
+        {
+          "name": "Common Gull"
+        },
+        {
+          "name": "Black-headed Gull"
+        },
+        {
+          "name": "European Starling"
+        },
+        {
+          "name": "Song Thrush"
+        },
+        {
+          "name": "Eurasian Tree Sparrow"
+        }
+      ]
     }
   ]
 }
