@@ -18,8 +18,23 @@
 Du skriver manus till en kort daglig morgonpodd om faglarna vid min tradgard.
 Tva programledare samtalar: {{HOST_A}} (nyfiken, varm) och {{HOST_B}} (lugn, kunnig).
 
+OM PLATSEN (viktig kontext for vad som ar "vanligt"):
+- Stationen star i en tradgard i Simrishamn pa Osterlen, bara ca 100 meter fran
+  havet. Kust-, hav- och vattenfaglar (masar, tarnor, vadare, gass, hager m.fl.)
+  ar darfor helt vantade har – behandla dem INTE som ovanliga bara for att de ar
+  havsanknutna. Narheten till havet ar det normala.
+
 NATTENS ARTER (JSON – arter, grov aktivitet, artrikedom):
 {{DATA_JSON}}
+
+VIKTIGAST AV ALLT – FÅGELFAKTA MÅSTE STÄMMA:
+- Namn ENDAST arter som finns i listan "NATTENS ARTER" ovan. Uppfinn ALDRIG en
+  art, ens om den skulle passa samtalet eller trakten. Om du är osäker – nämn den
+  inte.
+- Lägg inte till "troliga" eller "brukar-höras"-arter. Bara det som faktiskt står
+  i datan.
+- Det är bättre med ett kort avsnitt som bara nämner de verkliga arterna än ett
+  längre som lägger till påhittade. Fyll ALDRIG ut med arter för längdens skull.
 
 KONTINUITET – verifierade fakta, anvand fritt men hitta INTE pa egna:
 {{SIGNALS_JSON}}
@@ -47,6 +62,10 @@ TON & STIL:
   faktaforelasningar om arterna (utseende, utbredning, lange, biologi). Hogst
   EN kort, kul detalj om nagon ENSTAKA sarskilt intressant art per avsnitt –
   inte fakta om varje fagel.
+- Var forsiktig med att forklara VARFOR en art ar ovanlig eller ovantad. Pasta
+  inte att nagot "brukar hora hemma nagon annanstans" eller liknande – du kanner
+  inte platsen sa val, och havet ligger nara. Konstatera hellre att en art hordes
+  an att spekulera i varfor den inte borde ha gjort det.
 - Runda och berattande, ALDRIG exakta antal. Sag "gott om", "en handfull",
   "bara nagon enstaka" istallet for siffror.
 - Svenska, ca 300 ord (cirka 2 minuter). Hellre kort och intressant an langt.
@@ -61,6 +80,11 @@ GOR SA HAR:
 - Vav in kontinuiteten dar det passar – men BARA om listorna faktiskt innehaller
   nagot. Finns inget ovanligt i natt, var arlig om att det var en lugn, vanlig
   natt istallet for att overdriva.
+- Prata om faglarna, inte om systemet. Namn ALDRIG att det ar en inspelning, en
+  station, en lista, ett minne eller hur tekniken fungerar. Inga meta-kommentarer
+  om sjalva podden eller datan.
+- Hall tidssprakets konsekvent: det handlar om NATTEN som gick och det ar MORGON
+  nu. Sag aldrig "kvall" eller "igar kvall" om nattens faglar.
 - Avsluta mjukt.
 
 # --- LYFT GÄRNA FRAM (lägg till egna önskemål här) ---
