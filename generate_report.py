@@ -37,6 +37,7 @@ Requires ffmpeg on PATH (the workflow installs it).
 import os
 import sys
 import json
+import re
 import subprocess
 import tempfile
 import datetime as dt
@@ -63,11 +64,20 @@ RETURN_GAP    = 14
 HOST_A = "Astrid"
 HOST_B = "Erik"
 
-DOCS_DIR     = Path("docs")
+# Sätt TEST_OUTPUT_DIR för att köra lokalt mot en testmapp utan att röra docs/
+# eller history.json. Ex: TEST_OUTPUT_DIR=test_output python generate_report.py
+_TEST_DIR = os.environ.get("TEST_OUTPUT_DIR")
+if _TEST_DIR:
+    DOCS_DIR     = Path(_TEST_DIR)
+    HISTORY_PATH = Path(_TEST_DIR) / "history.json"
+    print(f"** TESTLÄGE: skriver till {_TEST_DIR}/ (rör inte docs/ eller history.json) **")
+else:
+    DOCS_DIR     = Path("docs")
+    HISTORY_PATH = Path("history.json")
+
 EPISODES_DIR = DOCS_DIR / "episodes"
 FEED_PATH    = DOCS_DIR / "feed.xml"
 INDEX_PATH   = DOCS_DIR / "index.html"
-HISTORY_PATH = Path("history.json")
 
 PODCAST_TITLE  = "Ö24 Bird Data"
 PODCAST_DESC   = "Daglig fågelrapport från vår BirdWeather-station i Simrishamn – skriven och uppläst av AI-rösterna Astrid och Erik."
@@ -228,7 +238,8 @@ def derive_signals(today, history):
 # The wording/tone lives in an editable file (prompt.txt) so it can be tuned
 # without touching this code. Lines starting with # there are treated as
 # comments and stripped. Placeholders below are filled in at runtime.
-PROMPT_PATH = Path("prompt.txt")
+PROMPT_PATH        = Path("prompt.txt")
+PROMPT_DIALOG_PATH = Path("prompt_dialog.txt")   # används när TTS_PROVIDER=elevenlabs
 
 # Minimal built-in fallback, only used if prompt.txt is missing.
 # Edit prompt.txt, NOT this string.
@@ -259,10 +270,14 @@ def _script_view(today):
 
 
 def build_prompt(today, signals):
-    if PROMPT_PATH.exists():
+    # I ElevenLabs-läge används den samtalsanpassade dialog-prompten om den finns;
+    # annars faller vi tillbaka på den vanliga prompten (och sist på inbyggd default).
+    if TTS_PROVIDER == "elevenlabs" and PROMPT_DIALOG_PATH.exists():
+        raw = PROMPT_DIALOG_PATH.read_text(encoding="utf-8")
+    elif PROMPT_PATH.exists():
         raw = PROMPT_PATH.read_text(encoding="utf-8")
     else:
-        print("  (prompt.txt saknas – använder inbyggd standardprompt)")
+        print("  (ingen promptfil hittad – använder inbyggd standardprompt)")
         raw = DEFAULT_PROMPT
 
     # Drop comment lines (those starting with #) so they aren't sent to the model.
@@ -271,7 +286,7 @@ def build_prompt(today, signals):
 
     for marker in ("{{DATA_JSON}}", "{{SIGNALS_JSON}}"):
         if marker not in template:
-            print(f"  VARNING: platshållaren {marker} saknas i prompt.txt")
+            print(f"  VARNING: platshållaren {marker} saknas i promptfilen")
 
     return (
         template
@@ -406,7 +421,8 @@ def stitch(segment_paths, out_path):
     subprocess.run(cmd, check=True, capture_output=True)
 
 
-def synthesize_dialogue(turns, out_path):
+def synthesize_openai_dialogue(turns, out_path):
+    """OpenAI: en TTS-snutt per replik, ihopsydda med ffmpeg (per-replik)."""
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
         silence = tmp / "silence.mp3"
@@ -421,6 +437,78 @@ def synthesize_dialogue(turns, out_path):
                 segments.append(silence)   # small gap between speakers
 
         stitch(segments, out_path)
+
+
+# --- ElevenLabs v3 Text-to-Dialogue: hela samtalet vävs i ett svep ---
+EL_DIALOGUE_URL = "https://api.elevenlabs.io/v1/text-to-dialogue"
+EL_MODEL        = "eleven_v3"
+EL_MAX_CHARS    = 1900   # v3-gräns är 2000/anrop; håll marginal
+
+
+def _el_inputs(turns):
+    return [
+        {"text": t["text"], "voice_id": voice_for(t.get("speaker", HOST_A))}
+        for t in turns
+    ]
+
+
+def _el_chunks(turns, limit=EL_MAX_CHARS):
+    """Dela dialogen i grupper vars sammanlagda text håller sig under gränsen."""
+    chunks, cur, count = [], [], 0
+    for t in turns:
+        n = len(t["text"])
+        if cur and count + n > limit:
+            chunks.append(cur)
+            cur, count = [], 0
+        cur.append(t)
+        count += n
+    if cur:
+        chunks.append(cur)
+    return chunks
+
+
+def _el_call(turns_chunk, out_path):
+    r = requests.post(
+        EL_DIALOGUE_URL,
+        headers={
+            "xi-api-key": os.environ["ELEVENLABS_API_KEY"],
+            "Content-Type": "application/json",
+        },
+        json={
+            "inputs": _el_inputs(turns_chunk),
+            "model_id": EL_MODEL,
+            "language_code": "sv",
+        },
+        timeout=180,
+    )
+    if r.status_code != 200:
+        print(f"  ElevenLabs {r.status_code}: {r.text[:400]}", file=sys.stderr)
+    r.raise_for_status()
+    out_path.write_bytes(r.content)
+
+
+def synthesize_elevenlabs_dialogue(turns, out_path):
+    """ElevenLabs v3: skicka hela dialogen (chunkad vid behov) till
+    text-to-dialogue, så rösterna delar kontext och flödet blir naturligt."""
+    chunks = _el_chunks(turns)
+    if len(chunks) == 1:
+        _el_call(chunks[0], out_path)
+        return
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        parts = []
+        for i, ch in enumerate(chunks):
+            p = tmp / f"part_{i:02d}.mp3"
+            _el_call(ch, p)
+            parts.append(p)
+        stitch(parts, out_path)
+
+
+def synthesize_dialogue(turns, out_path):
+    if TTS_PROVIDER == "elevenlabs":
+        synthesize_elevenlabs_dialogue(turns, out_path)
+    else:
+        synthesize_openai_dialogue(turns, out_path)
 
 
 # ---------------------------------------------------------------------------
@@ -561,9 +649,12 @@ def main():
     out_path = EPISODES_DIR / f"{today['date']}.mp3"
 
     # Spara manuset som läsbar text bredvid ljudet, för granskning/feedback.
+    # Ev. v3-audio-taggar ([warmly] osv.) strippas så transkriptionen blir ren.
+    def _clean(s):
+        return re.sub(r"\s{2,}", " ", re.sub(r"\[[^\]]*\]", "", s)).strip()
     script_path = EPISODES_DIR / f"{today['date']}.txt"
     script_text = "\n\n".join(
-        f"{t.get('speaker', HOST_A)}: {t.get('text', '')}" for t in turns
+        f"{t.get('speaker', HOST_A)}: {_clean(t.get('text', ''))}" for t in turns
     )
     script_path.write_text(script_text, encoding="utf-8")
     print(f"  sparade manus: {script_path}")
