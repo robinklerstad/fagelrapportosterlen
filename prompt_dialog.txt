@@ -10,76 +10,103 @@
 #  Platshållare: {{HOST_A}} {{HOST_B}} {{PODD_NAMN}} {{DATA_JSON}} {{SIGNALS_JSON}}
 # ============================================================================
 
-Du skriver manus till en kort daglig morgonpodd om faglarna vid min tradgard.
-Tva programledare samtalar: {{HOST_A}} (nyfiken, varm) och {{HOST_B}} (lugn, kunnig).
+Du skriver manus till en kort daglig morgonpodd om fåglarna vid min trädgård.
+Två programledare samtalar: {{HOST_A}} (nyfiken, varm) och {{HOST_B}} (lugn, kunnig).
 
-OM PLATSEN (viktig kontext for vad som ar "vanligt"):
-- Stationen star i en tradgard i Simrishamn pa Osterlen, bara ca 100 meter fran
-  havet. Kust-, hav- och vattenfaglar (masar, tarnor, vadare, gass, hager m.fl.)
-  ar darfor helt vantade har – behandla dem INTE som ovanliga bara for att de ar
-  havsanknutna. Narheten till havet ar det normala.
+OM PLATSEN (viktig kontext för vad som är "vanligt"):
+- Stationen står i en trädgård i Simrishamn på Österlen, bara ca 100 meter från
+  havet. Kust-, hav- och vattenfåglar (måsar, tärnor, vadare, gäss, häger m.fl.)
+  är därför helt väntade här – behandla dem INTE som ovanliga bara för att de är
+  havsanknutna. Närheten till havet är det normala.
+- MEN: allt hörs från EN enda station i trädgården. Placera ALDRIG ut fåglarna
+  geografiskt och antyd aldrig att något hördes från en annan plats. Skriv
+  ALDRIG "nere vid kusten", "kring kusten", "uppe i luften", "vid vattnet" e.d. –
+  det finns bara en lyssningspunkt och du vet inte var fågeln fysiskt var. Säg
+  bara att arten hördes. Platsinfon ovan är BARA till för att avgöra vad som är
+  vanligt, inte för att beskriva var något befann sig.
 
 NATTENS ARTER (JSON – arter, grov aktivitet, artrikedom):
 {{DATA_JSON}}
 
 VIKTIGAST AV ALLT – FÅGELFAKTA MÅSTE STÄMMA:
-- Namn ENDAST arter som finns i listan "NATTENS ARTER" ovan. Uppfinn ALDRIG en
-  art, ens om den skulle passa samtalet eller trakten. Om du är osäker – nämn den
-  inte.
-- Lägg inte till "troliga" eller "brukar-höras"-arter. Bara det som faktiskt står
-  i datan.
-- Det är bättre med ett kort avsnitt som bara nämner de verkliga arterna än ett
-  längre som lägger till påhittade. Fyll ALDRIG ut med arter för längdens skull.
+- ENDAST-DATAN-REGELN: Du får bara påstå saker som faktiskt står i "NATTENS
+  ARTER" eller "KONTINUITET". Allt annat som låter som fakta är FÖRBJUDET om det
+  inte står i datan – särskilt: VÄDER, temperatur, vind, moln; PLATS och geografi
+  utöver det som redan givits; fåglarnas BETEENDE, flyttning, häckning, föda;
+  FÖRKLARINGAR till varför något är vanligt/ovanligt. Påstå ALDRIG att du
+  "kollade", "såg" eller "vet" något – du har bara datan nedan. Samtalstonen får
+  ALDRIG bli en ursäkt för att hitta på fakta.
+- Nämn ENDAST arter som finns i listan. Uppfinn ALDRIG en art. Om du är osäker –
+  nämn den inte.
+- Använd EXAKT artnamnet i fältet "art" som det står – översätt, böj eller
+  ändra det ALDRIG. Står det ett vetenskapligt namn (när "har_svenskt_namn" är
+  false) – använd det som det är eller beskriv arten neutralt, men HITTA INTE PÅ
+  ett svenskt namn.
+- Det är bättre med ett kort, torrt avsnitt som bara nämner de verkliga arterna
+  än ett längre som lägger till påhittade detaljer. Hellre lite tystare än osant.
 
-KONTINUITET – verifierade fakta, anvand fritt men hitta INTE pa egna:
+KONTINUITET – verifierade fakta, använd fritt men hitta INTE på egna:
 {{SIGNALS_JSON}}
 
 # --- PRIORITERING ---
-VAD SOM AR INTRESSANT (lagg tyngden har):
-- Det ovanliga och sallsynta: nya arter, forsta for aret, atervandande efter
-  uppehall (se KONTINUITET). Det ar dagens verkliga historia.
-- Rovfaglar, ugglor och andra speciella gaster – lyft dem aven om de bara hordes
-  enstaka gang.
-- Forandring mot igar, och artrikedomen som helhet ("ett tjugotal arter i natt").
+VAD SOM ÄR INTRESSANT (lägg tyngden här):
+- Det ovanliga och sällsynta: nya arter, första för året, återvändande efter
+  uppehåll (se KONTINUITET). Det är dagens verkliga historia.
+- Rovfåglar, ugglor och andra speciella gäster – lyft dem även om de bara hördes
+  enstaka gång.
+- Förändring mot igår, och artrikedomen som helhet ("ett tjugotal arter i natt").
 
-VAD SOM AR MINDRE INTRESSANT (tona ner till en fotnot):
-- Vanliga vardagsfaglar (kaja, skata, talgoxe, koltrast o.likn.) – namn dem
-  hogst i forbigaende. Att en kaja lat mycket ar inte en nyhet.
+VAD SOM ÄR MINDRE INTRESSANT (tona ner till en fotnot):
+- Vanliga vardagsfåglar (kaja, skata, talgoxe, koltrast o.likn.) – nämn dem
+  högst i förbigående. Att en kaja lät mycket är inte en nyhet.
 
-# --- SAMTALSTON (det som skiljer denna prompt fran den vanliga) ---
-SKRIV SOM ETT SAMTAL, INTE VAXELVIS UPPLASNING:
-- Repliker far vara ofardiga och ga in i varandra. En vard far avbryta, fylla i
-  eller haka pa den andras mening.
-- Stro in korta bekraftelser mitt i flodet: "mm", "ja precis", "just det", "nej
-  men" – sant en manniska sager nar den lyssnar.
-- Variera repliklangden kraftigt. Ibland en enda reaktion ("En trana!"), ibland
-  ett par meningar. Jamnlanga repliker later som upplasning – undvik det.
-- Undvik att varje replik ar en prydlig, komplett mening.
+# --- SAMTALSTON (det som skiljer denna prompt från den vanliga) ---
+SKRIV SOM ETT SAMTAL, INTE VÄXELVIS UPPLÄSNING:
+- Håll replikerna KORTA och REAKTIVA. Värdarna svarar på varandra med äkta
+  reaktioner ("Åh, den gillar jag"), följdfrågor och medhåll – inte långa
+  välformulerade stycken.
+- Skriv ändå ALLTID korrekt, naturlig svenska: hela och begripliga meningar,
+  rätt böjningar, och BARA riktiga svenska ord. Hitta ALDRIG på ord eller
+  sammansättningar (t.ex. "svallanatt") och böj räkneord och datum rätt
+  ("nittonde", inte "nittoende"). Låter en formulering det minsta konstig –
+  välj ett enklare, korrekt uttryck. Korrekt språk går före allt annat.
+- Variera repliklängden: ibland ett kort utrop eller en följdfråga, ibland ett
+  par meningar. Jämnlånga, lika långa repliker låter som uppläsning.
+- Låt det kännas som att de lyssnar på varandra och reagerar.
 
-ANVAND v3:s AUDIO-TAGGAR SPARSAMT (for varme och pauser):
-- Tillatna taggar i hakparentes fore en replik eller mitt i: [warmly],
-  [thoughtful], [softly], [chuckles], [laughs]. Pauser skrivs med "..." .
-- Hogst en handfull taggar i HELA avsnittet, bara dar de tillfor. ALDRIG en tagg
-  pa varje replik – overanvandning later teatraliskt.
-- Exempel: {{HOST_B}}: [warmly] Ormvrak direkt pa forsta natten.
+ANVÄND v3:s AUDIO-TAGGAR FRIKOSTIGT (de gör leveransen levande):
+- Tillåtna taggar i hakparentes: [warmly], [thoughtful], [softly], [chuckles],
+  [laughs], [surprised], [curious], [sighs]. Pauser skrivs med "..." .
+- Sikta på en tagg i ungefär varannan till var tredje replik, där den tillför
+  känsla eller reaktion. Väv gärna in dem MITT i en replik, inte bara i början.
+- Variera taggarna – upprepa inte samma. Undvik bara att sätta en tagg på VARENDA
+  replik (då blir det teatraliskt); målet är levande, inte överspelat.
+- Exempel:
+    {{HOST_A}}: [curious] Och gråhägern då, hörde du den?
+    {{HOST_B}}: [warmly] Mm... [chuckles] den där urtidsrösten, ja.
 
 # --- TON & REGLER ---
-- Lugn morgonradio. Detta ar en RAPPORT om natten, inte en uppslagsbok. Undvik
-  faktaforelasningar; hogst EN kort kul detalj om nagon enstaka intressant art.
-- Var forsiktig med att forklara VARFOR en art ar ovanlig – spekulera inte, havet
-  ligger nara. Konstatera hellre att den hordes.
-- Runda och berattande, ALDRIG exakta antal ("gott om", "en handfull", "nagon
+- Lugn morgonradio. Detta är en RAPPORT om natten, inte en uppslagsbok. Undvik
+  faktaföreläsningar; högst EN kort kul detalj om någon enstaka intressant art.
+- Var försiktig med att förklara VARFÖR en art är ovanlig – spekulera inte, havet
+  ligger nära. Konstatera hellre att den hördes.
+- Runda och berättande, ALDRIG exakta antal ("gott om", "en handfull", "någon
   enstaka").
-- Svenska, ca 300 ord (cirka 2 minuter). Hellre kort och levande an langt.
-- Halsa god morgon och namn dagens datum naturligt.
-- Podden heter {{PODD_NAMN}}. Om ni namnger den, anvand exakt det namnet – hitta
-  ALDRIG pa ett eget.
-- Prata om faglarna, inte om systemet. Inga meta-kommentarer om inspelning,
+- VARIERA hur du beskriver hur ofta en art hördes – papegoja inte datans ord
+  (som "enstaka" eller "ofta hörd") gång på gång. Väx gärna mellan uttryck som
+  "hördes flitigt", "gott om", "en och annan", "bara någon gång", "dök upp kort".
+  (Detta gäller just aktivitetsuttrycken – vanliga ord i övrigt får så klart
+  återkomma naturligt.)
+- Svenska, ca 300 ord (cirka 2 minuter). Hellre kort och levande än långt.
+- Hälsa god morgon och nämn dagens datum naturligt.
+- Podden heter {{PODD_NAMN}}. Om ni namnger den, använd exakt det namnet – hitta
+  ALDRIG på ett eget.
+- Prata om fåglarna, inte om systemet. Inga meta-kommentarer om inspelning,
   station, lista eller teknik.
-- Det handlar om NATTEN som gick och det ar MORGON nu. Sag aldrig "kvall".
+- Det handlar om NATTEN som gick och det är MORGON nu. Säg aldrig "kväll".
 - Avsluta mjukt.
 
 # --- FORMAT (rör helst inte) ---
-Returnera ENBART giltig JSON: en lista av objekt med exakt faltet "speaker"
+Returnera ENBART giltig JSON: en lista av objekt med exakt fältet "speaker"
 (antingen "{{HOST_A}}" eller "{{HOST_B}}") och "text". Audio-taggar skrivs inuti
-"text"-faltet. Ingen markdown, inga kodstaket, ingen text utanfor JSON-listan.
+"text"-fältet. Ingen markdown, inga kodstaket, ingen text utanför JSON-listan.
