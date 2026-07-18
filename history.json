@@ -32,7 +32,8 @@
     "Eurasian Oystercatcher": "2026-07-15",
     "Common Tern": "2026-07-15",
     "Common Chiffchaff": "2026-07-15",
-    "Sandwich Tern": "2026-07-16"
+    "Sandwich Tern": "2026-07-16",
+    "Great Spotted Woodpecker": "2026-07-18"
   },
   "recent_days": [
     {
@@ -461,6 +462,69 @@
         },
         {
           "name": "Eurasian Tree Sparrow"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-18",
+      "species_count": 19,
+      "top": [
+        {
+          "name": "House Sparrow"
+        },
+        {
+          "name": "Common Wood-Pigeon"
+        },
+        {
+          "name": "Barn Swallow"
+        },
+        {
+          "name": "Eurasian Blackbird"
+        },
+        {
+          "name": "Herring Gull"
+        },
+        {
+          "name": "Eurasian Jackdaw"
+        },
+        {
+          "name": "Common Gull"
+        },
+        {
+          "name": "Common Swift"
+        },
+        {
+          "name": "Gray Heron"
+        },
+        {
+          "name": "White Wagtail"
+        },
+        {
+          "name": "Graylag Goose"
+        },
+        {
+          "name": "Eurasian Tree Sparrow"
+        },
+        {
+          "name": "Eurasian Blue Tit"
+        },
+        {
+          "name": "Common Raven"
+        },
+        {
+          "name": "Common House-Martin"
+        },
+        {
+          "name": "Hooded Crow"
+        },
+        {
+          "name": "Great Spotted Woodpecker"
+        },
+        {
+          "name": "Song Thrush"
+        },
+        {
+          "name": "Eurasian Coot"
         }
       ]
     }
