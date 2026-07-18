@@ -38,6 +38,9 @@ jobs:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_A: ${{ secrets.ELEVENLABS_VOICE_A }}
           ELEVENLABS_VOICE_B: ${{ secrets.ELEVENLABS_VOICE_B }}
+          # Ljud-efterbehandling (pausklippning + normalisering). 0.5 = lite luft
+          # mellan replikerna (default i koden är 0.35).
+          EL_PAUSE_KEEP: "0.5"
           # OpenAI (backup – används om TTS_PROVIDER sätts till "openai" ovan)
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_TTS_MODEL: gpt-4o-mini-tts
