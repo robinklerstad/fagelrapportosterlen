@@ -78,6 +78,7 @@ else:
 EPISODES_DIR = DOCS_DIR / "episodes"
 FEED_PATH    = DOCS_DIR / "feed.xml"
 INDEX_PATH   = DOCS_DIR / "index.html"
+SV_NAMES_PATH = Path("species_sv.json")   # cache: vetenskapligt namn -> svenskt namn
 
 PODCAST_TITLE  = "Ö24 Bird Data"
 PODCAST_DESC   = "Daglig fågelrapport från vår BirdWeather-station i Simrishamn – skriven och uppläst av AI-rösterna Astrid och Erik."
@@ -107,6 +108,80 @@ def save_history(history):
 
 
 # ---------------------------------------------------------------------------
+# Svenska artnamn via GBIF (deterministiskt uppslag – INGEN översättning av LLM)
+# ---------------------------------------------------------------------------
+def _load_sv_cache():
+    if SV_NAMES_PATH.exists():
+        try:
+            return json.loads(SV_NAMES_PATH.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, ValueError):
+            return {}
+    return {}
+
+
+def _save_sv_cache(cache):
+    SV_NAMES_PATH.write_text(
+        json.dumps(cache, ensure_ascii=False, indent=2, sort_keys=True),
+        encoding="utf-8",
+    )
+
+
+def _gbif_swedish_name(scientific):
+    """Slå upp svenskt trivialnamn för ett vetenskapligt namn via GBIF.
+    Föredrar poster märkta 'preferred'; annars det vanligaste namnet bland
+    de svenska träffarna (skyddar mot enstaka udda stavningar). None om inget."""
+    try:
+        m = requests.get(
+            "https://api.gbif.org/v1/species/match",
+            params={"name": scientific}, timeout=20,
+        )
+        m.raise_for_status()
+        key = m.json().get("usageKey")
+        if not key:
+            return None
+        v = requests.get(
+            f"https://api.gbif.org/v1/species/{key}/vernacularNames",
+            params={"limit": 200}, timeout=20,
+        )
+        v.raise_for_status()
+        rows = [
+            r for r in v.json().get("results", [])
+            if r.get("language") == "swe" and r.get("vernacularName")
+        ]
+        if not rows:
+            return None
+
+        # 1) Föredra en post som är märkt 'preferred'.
+        for r in rows:
+            if r.get("preferred"):
+                return r["vernacularName"].strip().lower()
+
+        # 2) Annars: rösta fram det vanligaste namnet (skyddar mot "hus-swala").
+        from collections import Counter
+        counts = Counter(r["vernacularName"].strip().lower() for r in rows)
+        return counts.most_common(1)[0][0]
+    except requests.RequestException:
+        return None
+
+
+def swedish_names_for(species):
+    """Fyll i svenskt namn per art (via cache + GBIF). Muterar listan in-place."""
+    cache = _load_sv_cache()
+    changed = False
+    for s in species:
+        sci = s.get("scientific") or ""
+        if not sci:
+            continue
+        if sci not in cache:
+            cache[sci] = _gbif_swedish_name(sci) or ""   # "" = sökt men inget svenskt namn
+            changed = True
+        if cache[sci]:
+            s["name_sv"] = cache[sci]
+    if changed:
+        _save_sv_cache(cache)
+
+
+# ---------------------------------------------------------------------------
 # 1. Fetch last night's data via the public GraphQL API (no token needed)
 # ---------------------------------------------------------------------------
 def fetch_birdweather():
@@ -123,7 +198,11 @@ def fetch_birdweather():
         name
         topSpecies(limit: 200, period: {count: 8, unit: "hour"}) {
           count
-          species { commonName scientificName imageUrl }
+          species {
+            commonName
+            scientificName
+            imageUrl
+          }
         }
       }
     }
@@ -151,6 +230,7 @@ def fetch_birdweather():
         sp = item.get("species") or {}
         all_species.append({
             "name": sp.get("commonName") or sp.get("scientificName") or "Okand art",
+            "scientific": sp.get("scientificName") or "",
             "count": item.get("count") or 0,
         })
     all_species.sort(key=lambda x: x["count"], reverse=True)
@@ -172,6 +252,15 @@ def fetch_birdweather():
     for s in all_species:
         s["activity"] = activity(s["count"])
 
+    # Fyll i korrekt svenskt namn per art (GBIF + cache). Deterministiskt –
+    # ingen LLM-översättning. Arter utan svenskt namn behåller bara sci/engelskt.
+    swedish_names_for(all_species)
+
+    # Kanoniskt visningsnamn som används överallt nedströms (manus, signaler,
+    # historik) så allt är konsekvent: svenskt namn först, annars vetenskapligt.
+    for s in all_species:
+        s["display"] = s.get("name_sv") or s.get("scientific") or s["name"]
+
     return {
         "date": TODAY.isoformat(),
         "station_name": station.get("name"),
@@ -187,7 +276,7 @@ def fetch_birdweather():
 def derive_signals(today, history):
     species_ever = history.get("species_ever", {})
     recent       = history.get("recent_days", [])
-    today_names  = [s["name"] for s in today["top_species"]]
+    today_names  = [s.get("display") or s["name"] for s in today["top_species"]]
 
     new_species = [n for n in today_names if n not in species_ever]
 
@@ -255,17 +344,22 @@ Returnera ENBART giltig JSON: lista av objekt med "speaker" ("{{HOST_A}}" eller
 
 
 def _script_view(today):
-    # Vad modellen faktiskt får se. Medvetet UTAN råa antal/totaler: antal
-    # detektioner speglar hur mycket ljud som fångats, inte hur intressant något
-    # är. Vi ger arter + grov aktivitet + artrikedom, så manuset kan färglägga
-    # utan att recitera siffror.
+    # Vad modellen faktiskt får se. Medvetet UTAN råa antal/totaler. När ett
+    # svenskt namn finns (från GBIF) ges det som "art" och modellen ska bara
+    # anvanda det – ingen oversattning. Saknas svenskt namn ges vetenskapligt
+    # som fallback.
+    arter = []
+    for s in today.get("top_species", []):
+        arter.append({
+            "art": s.get("display") or s["name"],
+            "har_svenskt_namn": bool(s.get("name_sv")),
+            "vetenskapligt": s.get("scientific", ""),
+            "aktivitet": s.get("activity", "enstaka"),
+        })
     return {
         "datum": today["date"],
         "artrikedom": today.get("species_count"),
-        "arter": [
-            {"art": s["name"], "aktivitet": s.get("activity", "enstaka")}
-            for s in today.get("top_species", [])
-        ],
+        "arter": arter,
     }
 
 
@@ -444,6 +538,52 @@ EL_DIALOGUE_URL = "https://api.elevenlabs.io/v1/text-to-dialogue"
 EL_MODEL        = "eleven_v3"
 EL_MAX_CHARS    = 1900   # v3-gräns är 2000/anrop; håll marginal
 
+# Efterbehandling: korta ner de långa pauserna som text-to-dialogue lägger vid
+# talarbyten. silenceremove behåller EL_PAUSE_KEEP sekunder tystnad och klipper
+# bort överskottet. Justera via env om det blir för aggressivt/för milt.
+EL_TRIM_PAUSES  = os.environ.get("EL_TRIM_PAUSES", "1") not in ("0", "false", "no")
+EL_PAUSE_KEEP   = os.environ.get("EL_PAUSE_KEEP", "0.35")    # sekunder att behålla
+EL_PAUSE_THRESH = os.environ.get("EL_PAUSE_THRESH", "-40dB")  # tystnadströskel
+
+# Normalisering: jämnar ut volymskillnaden MELLAN rösterna (dynaudnorm justerar
+# nivån dynamiskt över tid), så de inte låter som olika inspelningar. Dämpar
+# "olika rum"-känslan – men bara volymdelen, inte rumsklang/timbre.
+EL_NORMALIZE    = os.environ.get("EL_NORMALIZE", "1") not in ("0", "false", "no")
+
+
+def _run_ffmpeg_filter(path, filt, label):
+    """Kör ett ffmpeg-ljudfilter in-place. Misslyckas det behålls originalet."""
+    tmp = path.with_name(path.stem + "_f.mp3")
+    try:
+        subprocess.run(
+            ["ffmpeg", "-y", "-i", str(path), "-af", filt,
+             "-c:a", "libmp3lame", "-q:a", "4", str(tmp)],
+            check=True, capture_output=True,
+        )
+        tmp.replace(path)
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"  ({label} hoppades över: {e.stderr.decode(errors='ignore')[:200]})",
+              file=sys.stderr)
+        if tmp.exists():
+            tmp.unlink()
+        return False
+
+
+def _trim_pauses(path):
+    """Korta ner långa tystnader (talarbytes-pauser) till ~EL_PAUSE_KEEP sek."""
+    filt = (
+        f"silenceremove=stop_periods=-1:"
+        f"stop_duration={EL_PAUSE_KEEP}:stop_threshold={EL_PAUSE_THRESH}"
+    )
+    _run_ffmpeg_filter(path, filt, "pausklippning")
+
+
+def _normalize(path):
+    """Jämna ut volym mellan rösterna så de inte låter som olika inspelningar.
+    m=5 begränsar hur mycket tysta partier lyfts (undviker att brus pumpas upp)."""
+    _run_ffmpeg_filter(path, "dynaudnorm=f=500:g=31:m=5:p=0.95", "normalisering")
+
 
 def _el_inputs(turns):
     return [
@@ -489,19 +629,27 @@ def _el_call(turns_chunk, out_path):
 
 def synthesize_elevenlabs_dialogue(turns, out_path):
     """ElevenLabs v3: skicka hela dialogen (chunkad vid behov) till
-    text-to-dialogue, så rösterna delar kontext och flödet blir naturligt."""
+    text-to-dialogue, så rösterna delar kontext och flödet blir naturligt.
+    Kortar sedan ner de långa talarbytes-pauserna (om EL_TRIM_PAUSES)."""
     chunks = _el_chunks(turns)
     if len(chunks) == 1:
         _el_call(chunks[0], out_path)
-        return
-    with tempfile.TemporaryDirectory() as tmp:
-        tmp = Path(tmp)
-        parts = []
-        for i, ch in enumerate(chunks):
-            p = tmp / f"part_{i:02d}.mp3"
-            _el_call(ch, p)
-            parts.append(p)
-        stitch(parts, out_path)
+    else:
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            parts = []
+            for i, ch in enumerate(chunks):
+                p = tmp / f"part_{i:02d}.mp3"
+                _el_call(ch, p)
+                parts.append(p)
+            stitch(parts, out_path)
+
+    if EL_TRIM_PAUSES:
+        _trim_pauses(out_path)
+        print(f"  pauser nedkortade (behåller ~{EL_PAUSE_KEEP}s)")
+    if EL_NORMALIZE:
+        _normalize(out_path)
+        print("  röster normaliserade (utjämnad volym)")
 
 
 def synthesize_dialogue(turns, out_path):
@@ -670,7 +818,8 @@ def main():
         "Arter i datan (namn + aktivitet):",
     ]
     data_lines += [
-        f"  - {s['name']} ({s.get('activity', '?')})" for s in today["top_species"]
+        f"  - {s['name']}  [{s.get('scientific','?')}]  ({s.get('activity', '?')})"
+        for s in today["top_species"]
     ]
     data_path.write_text("\n".join(data_lines), encoding="utf-8")
     print(f"  sparade rådata: {data_path}")
@@ -683,12 +832,12 @@ def main():
     # som ofta har lågt antal – registreras korrekt för "nytt/första för
     # året/återvändande". Råa antal sparas inte; de är inte meningsfulla.
     species_ever = history.setdefault("species_ever", {})
-    for name in [s["name"] for s in today["top_species"]]:
+    for name in [s.get("display") or s["name"] for s in today["top_species"]]:
         species_ever.setdefault(name, today["date"])
     history.setdefault("recent_days", []).append({
         "date": today["date"],
         "species_count": today["species_count"],
-        "top": [{"name": s["name"]} for s in today["top_species"]],
+        "top": [{"name": s.get("display") or s["name"]} for s in today["top_species"]],
     })
     history["recent_days"] = history["recent_days"][-KEEP_HISTORY:]
     save_history(history)
