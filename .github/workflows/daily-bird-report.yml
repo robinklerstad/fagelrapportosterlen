@@ -31,17 +31,18 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_MODEL: claude-sonnet-4-6   # textmodell som skriver dialogen
           SITE_BASE_URL: ${{ secrets.SITE_BASE_URL }}
-          # --- TTS: openai (standard), två röster ---
-          TTS_PROVIDER: openai
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_TTS_MODEL: gpt-4o-mini-tts   # prova "tts-1-hd" (men då bara gamla röster, ej marin/cedar)
-          OPENAI_VOICE_A: marin   # Astrid
-          OPENAI_VOICE_B: cedar   # Erik
-          # --- byt till ElevenLabs: sätt TTS_PROVIDER till "elevenlabs"
-          #     och lägg till dessa tre secrets ---
+          # --- VÄLJ RÖSTMOTOR: "elevenlabs" (bäst kvalitet) eller "openai" (billig backup) ---
+          TTS_PROVIDER: elevenlabs
+          # ElevenLabs (v3 text-to-dialogue). Röst-ID sätts som secrets:
+          #   ELEVENLABS_VOICE_A = kvinna (Astrid), ELEVENLABS_VOICE_B = man (Erik)
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_A: ${{ secrets.ELEVENLABS_VOICE_A }}
           ELEVENLABS_VOICE_B: ${{ secrets.ELEVENLABS_VOICE_B }}
+          # OpenAI (backup – används om TTS_PROVIDER sätts till "openai" ovan)
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_TTS_MODEL: gpt-4o-mini-tts
+          OPENAI_VOICE_A: marin   # Astrid
+          OPENAI_VOICE_B: cedar   # Erik
         run: python generate_report.py
 
       - name: Committa och pusha
