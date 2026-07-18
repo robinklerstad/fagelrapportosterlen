@@ -431,7 +431,8 @@ def episodes_on_disk():
     mp3s = sorted(EPISODES_DIR.glob("*.mp3"), reverse=True)
     for old in mp3s[KEEP_EPISODES:]:
         old.unlink()
-        old.with_suffix(".txt").unlink(missing_ok=True)   # ta även manuset
+        old.with_suffix(".txt").unlink(missing_ok=True)              # ta även manuset
+        old.with_name(f"{old.stem}.data.txt").unlink(missing_ok=True)  # och rådatan
     return mp3s[:KEEP_EPISODES]
 
 
@@ -566,6 +567,22 @@ def main():
     )
     script_path.write_text(script_text, encoding="utf-8")
     print(f"  sparade manus: {script_path}")
+
+    # Spara EXAKT de arter som hämtades från API:t, så manuset kan verifieras
+    # mot faktisk data (för att skilja hallucination från vy-/tidsfönster-skillnad).
+    data_path = EPISODES_DIR / f"{today['date']}.data.txt"
+    data_lines = [
+        f"Hämtat {today['date']} – fönster: senaste 8 timmarna",
+        f"Station: {today.get('station_name')}",
+        f"Artrikedom: {today['species_count']}",
+        "",
+        "Arter i datan (namn + aktivitet):",
+    ]
+    data_lines += [
+        f"  - {s['name']} ({s.get('activity', '?')})" for s in today["top_species"]
+    ]
+    data_path.write_text("\n".join(data_lines), encoding="utf-8")
+    print(f"  sparade rådata: {data_path}")
 
     print(f"Synthesizing two-host audio via {TTS_PROVIDER}...")
     synthesize_dialogue(turns, out_path)
