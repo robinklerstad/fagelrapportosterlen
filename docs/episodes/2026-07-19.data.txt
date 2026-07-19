@@ -1,0 +1,23 @@
+Hämtat 2026-07-19 – fönster: senaste 8 timmarna
+Station: Ö24 Simrishamn 
+Artrikedom: 18
+
+Arter i datan (namn + aktivitet):
+  - House Sparrow  [Passer domesticus]  (ofta hord)
+  - Barn Swallow  [Hirundo rustica]  (ofta hord)
+  - Common Wood-Pigeon  [Columba palumbus]  (hordes en del)
+  - Eurasian Blackbird  [Turdus merula]  (hordes en del)
+  - Eurasian Jackdaw  [Corvus monedula]  (hordes en del)
+  - Common House-Martin  [Delichon urbicum]  (enstaka)
+  - Common Swift  [Apus apus]  (enstaka)
+  - Herring Gull  [Larus argentatus]  (enstaka)
+  - Eurasian Tree Sparrow  [Passer montanus]  (enstaka)
+  - Gray Heron  [Ardea cinerea]  (enstaka)
+  - White Wagtail  [Motacilla alba]  (enstaka)
+  - Song Thrush  [Turdus philomelos]  (enstaka)
+  - Graylag Goose  [Anser anser]  (enstaka)
+  - Hooded Crow  [Corvus cornix]  (enstaka)
+  - Eurasian Blue Tit  [Cyanistes caeruleus]  (enstaka)
+  - Common Gull  [Larus canus]  (enstaka)
+  - Yellow-legged Gull  [Larus michahellis]  (enstaka)
+  - Great Egret  [Ardea alba]  (enstaka)

@@ -33,7 +33,25 @@
     "Common Tern": "2026-07-15",
     "Common Chiffchaff": "2026-07-15",
     "Sandwich Tern": "2026-07-16",
-    "Great Spotted Woodpecker": "2026-07-18"
+    "Great Spotted Woodpecker": "2026-07-18",
+    "gråsparv": "2026-07-19",
+    "ladusvala": "2026-07-19",
+    "ringduva": "2026-07-19",
+    "koltrast": "2026-07-19",
+    "kaja": "2026-07-19",
+    "hussvala": "2026-07-19",
+    "tornseglare": "2026-07-19",
+    "gråtrut": "2026-07-19",
+    "pilfink": "2026-07-19",
+    "gråhäger": "2026-07-19",
+    "sädesärla": "2026-07-19",
+    "taltrast": "2026-07-19",
+    "grågås": "2026-07-19",
+    "kråka": "2026-07-19",
+    "blåmes": "2026-07-19",
+    "fiskmås": "2026-07-19",
+    "medelhavstrut": "2026-07-19",
+    "ägretthäger": "2026-07-19"
   },
   "recent_days": [
     {
@@ -525,6 +543,66 @@
         },
         {
           "name": "Eurasian Coot"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-19",
+      "species_count": 18,
+      "top": [
+        {
+          "name": "gråsparv"
+        },
+        {
+          "name": "ladusvala"
+        },
+        {
+          "name": "ringduva"
+        },
+        {
+          "name": "koltrast"
+        },
+        {
+          "name": "kaja"
+        },
+        {
+          "name": "hussvala"
+        },
+        {
+          "name": "tornseglare"
+        },
+        {
+          "name": "gråtrut"
+        },
+        {
+          "name": "pilfink"
+        },
+        {
+          "name": "gråhäger"
+        },
+        {
+          "name": "sädesärla"
+        },
+        {
+          "name": "taltrast"
+        },
+        {
+          "name": "grågås"
+        },
+        {
+          "name": "kråka"
+        },
+        {
+          "name": "blåmes"
+        },
+        {
+          "name": "fiskmås"
+        },
+        {
+          "name": "medelhavstrut"
+        },
+        {
+          "name": "ägretthäger"
         }
       ]
     }
