@@ -28,22 +28,42 @@ OM PLATSEN (viktig kontext för vad som är "vanligt"):
 NATTENS ARTER (JSON – arter, grov aktivitet, artrikedom):
 {{DATA_JSON}}
 
-VIKTIGAST AV ALLT – FÅGELFAKTA MÅSTE STÄMMA:
-- ENDAST-DATAN-REGELN: Du får bara påstå saker som faktiskt står i "NATTENS
-  ARTER" eller "KONTINUITET". Allt annat som låter som fakta är FÖRBJUDET om det
-  inte står i datan – särskilt: VÄDER, temperatur, vind, moln; PLATS och geografi
-  utöver det som redan givits; fåglarnas BETEENDE, flyttning, häckning, föda;
-  FÖRKLARINGAR till varför något är vanligt/ovanligt. Påstå ALDRIG att du
-  "kollade", "såg" eller "vet" något – du har bara datan nedan. Samtalstonen får
-  ALDRIG bli en ursäkt för att hitta på fakta.
+VIKTIGAST AV ALLT – SKILJ PÅ TVÅ SORTERS FAKTA:
+
+(1) VAD SOM HÄNDE I NATT / PÅ PLATSEN – detta får du ALDRIG hitta på. Förbjudet
+    om det inte uttryckligen står i "NATTENS ARTER" eller "KONTINUITET":
+    - väder, temperatur, vind, moln
+    - vad en fågel GJORDE i natt: flög, åt, häckade, drog, sträckte, var på väg
+    - riktning, eller var fågeln fysiskt befann sig (det finns EN lyssningspunkt)
+    - exakta antal detektioner
+    Påstå ALDRIG att du "kollade", "såg" eller "hörde att den gjorde" något – du
+    har bara arterna och kontinuiteten nedan. Det här är omöjligt att veta.
+
+(2) ALLMÄN ARTKUNSKAP – detta FÅR du använda för att låta kunnig, eftersom det är
+    sant OAVSETT natten:
+    - vilken familj eller grupp arten tillhör ("gråhägern hör till hägrarna",
+      "tornseglaren är en seglare, inte en svala")
+    - om arten SOM ART är flyttfågel eller stannfågel, kort- eller långflyttare
+    - hur artens läte brukar beskrivas
+    - en kort, kul och korrekt detalj om arten
+    Formulera det ALLTID som allmän kunskap om arten ("tornseglare är kända för
+    att...", "koltrasten är en av våra vanligaste flyttfåglar"), ALDRIG som något
+    du observerat i natt ("den flög...", "jag hörde att den gjorde...").
+
+    SKYDDSRÄCKE för (2): ta bara med sådant som är väletablerat och som du är
+    SÄKER på. Är du det minsta osäker på ett faktum – hoppa det hellre än att
+    gissa. Ett kort avsnitt med bara sant slår ett längre med ett självsäkert
+    fel. Blanda ALDRIG ihop artkunskap (tillåtet) med påståenden om vad som hände
+    i natt (förbjudet). Var särskilt försiktig med svensk-specifika detaljer och
+    exakta namn – har du minsta tvekan, beskriv arten neutralt i stället.
+
+ARTNAMN (gäller alltid):
 - Nämn ENDAST arter som finns i listan. Uppfinn ALDRIG en art. Om du är osäker –
   nämn den inte.
 - Använd EXAKT artnamnet i fältet "art" som det står – översätt, böj eller
   ändra det ALDRIG. Står det ett vetenskapligt namn (när "har_svenskt_namn" är
   false) – använd det som det är eller beskriv arten neutralt, men HITTA INTE PÅ
   ett svenskt namn.
-- Det är bättre med ett kort, torrt avsnitt som bara nämner de verkliga arterna
-  än ett längre som lägger till påhittade detaljer. Hellre lite tystare än osant.
 
 KONTINUITET – verifierade fakta, använd fritt men hitta INTE på egna:
 {{SIGNALS_JSON}}
@@ -55,6 +75,17 @@ VAD SOM ÄR INTRESSANT (lägg tyngden här):
 - Rovfåglar, ugglor och andra speciella gäster – lyft dem även om de bara hördes
   enstaka gång.
 - Förändring mot igår, och artrikedomen som helhet ("ett tjugotal arter i natt").
+
+ANVÄND KONTINUITETENS KONKRETA SIFFROR (de låter kunniga OCH är sanna):
+- "returning_details" ger exakt uppehåll i dagar – säg det gärna konkret
+  ("tillbaka efter drygt tre veckors tystnad", "första gången på nästan en månad").
+- "streaks" listar arter som hörts flera dagar i rad – "tredje natten i rad" ger
+  en fin känsla av rytm och att ni följer fåglarna över tid.
+- "artrikedom_kontext" jämför nattens artrikedom med tidigare – lyft det när det
+  är ovanligt högt/lågt, eller ett nytt rekord ("en av de artrikaste nätterna
+  hittills sedan vi började").
+Använd BARA dessa när fälten faktiskt innehåller något – hitta ALDRIG på siffror,
+uppehåll eller sviter som inte står i datan.
 
 VAD SOM ÄR MINDRE INTRESSANT (tona ner till en fotnot):
 - Vanliga vardagsfåglar (kaja, skata, talgoxe, koltrast o.likn.) – nämn dem
@@ -86,8 +117,10 @@ ANVÄND v3:s AUDIO-TAGGAR FRIKOSTIGT (de gör leveransen levande):
     {{HOST_B}}: [warmly] Mm... [chuckles] den där urtidsrösten, ja.
 
 # --- TON & REGLER ---
-- Lugn morgonradio. Detta är en RAPPORT om natten, inte en uppslagsbok. Undvik
-  faktaföreläsningar; högst EN kort kul detalj om någon enstaka intressant art.
+- Lugn, kunnig morgonradio. Väv gärna in artkunskapen (kategori 2 ovan) så
+  värdarna låter pålästa – men det är fortfarande ett SAMTAL, inte en uppslagsbok.
+  Ett par korta, korrekta detaljer om de intressanta arterna räcker; rada inte
+  upp fakta om varje fågel, och låt aldrig kunskapen bli en föreläsning.
 - Var försiktig med att förklara VARFÖR en art är ovanlig – spekulera inte, havet
   ligger nära. Konstatera hellre att den hördes.
 - Runda och berättande, ALDRIG exakta antal ("gott om", "en handfull", "någon
