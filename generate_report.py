@@ -57,9 +57,18 @@ SITE_BASE_URL     = os.environ["SITE_BASE_URL"].rstrip("/")
 TTS_PROVIDER      = os.environ.get("TTS_PROVIDER", "openai").lower()
 
 CLAUDE_MODEL  = os.environ.get("CLAUDE_MODEL", "claude-sonnet-4-6")  # set in the workflow
-KEEP_EPISODES = 30
-KEEP_HISTORY  = 30
-RETURN_GAP    = 14
+
+# Avsnitt (mp3-filer) och historik (artminne) är två OLIKA knappar – blanda dem inte:
+#  - KEEP_EPISODES: hur många mp3-filer som ligger kvar i repot/Pages. Håll litet;
+#    varje avsnitt är ~1 MB, så ett år vore ~365 MB och sväller repot i onödan.
+#  - KEEP_HISTORY: hur många DAGAR av artminne som sparas. Datan är pytteliten
+#    (bara namn + antal per dag, storleksordning 100–200 KB/år), så ett par år är i
+#    praktiken gratis – och nödvändigt för årscykel-logiken ("första för året",
+#    återvändande efter uppehåll). Default ~2,2 år.
+# Båda kan överstyras via miljövariabel i workflowen (driftsvärden bor där).
+KEEP_EPISODES = int(os.environ.get("KEEP_EPISODES", "30"))
+KEEP_HISTORY  = int(os.environ.get("KEEP_HISTORY", "800"))
+RETURN_GAP    = int(os.environ.get("RETURN_GAP", "14"))
 
 HOST_A = "Astrid"
 HOST_B = "Erik"
@@ -105,6 +114,73 @@ def save_history(history):
     HISTORY_PATH.write_text(
         json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+
+
+# ---------------------------------------------------------------------------
+# Historik-nycklar. ALLT nycklas på VETENSKAPLIGT namn – det är språkoberoende
+# och stabilt. Visningsnamnet (svenskt) kan ändras över tid (nytt GBIF-namn, en
+# art som saknar svenskt namn en dag och får ett senare); gör det ALDRIG till
+# nyckel, annars tappar minnet matchning. (Det var exakt buggen 2026-07 när
+# nycklarna gick från engelska till svenska namn och allt såg "nytt" ut.)
+# ---------------------------------------------------------------------------
+def _sci_key(s):
+    """Kanonisk, stabil nyckel för en art: vetenskapligt namn (fallback: namn)."""
+    return s.get("scientific") or s.get("display") or s.get("name")
+
+
+def _day_keys(day):
+    """Artnycklar för en historikdag. Klarar både nytt schema (t['sci']) och
+    gammalt (t['name'])."""
+    return {t.get("sci") or t.get("name") for t in day.get("top", [])}
+
+
+def _reverse_sv_map():
+    """{svenskt namn (gemener) -> vetenskapligt} byggt ur species_sv.json, för
+    att migrera gamla display-nycklar tillbaka till vetenskapliga."""
+    rev = {}
+    for sci, sv in _load_sv_cache().items():
+        if sv:
+            rev[sv.strip().lower()] = sci
+    return rev
+
+
+def migrate_history(history):
+    """Uppgradera gammal display-nycklad historik till vetenskapliga nycklar.
+    Idempotent: redan migrerad data lämnas orörd. Svenska namn mappas via
+    species_sv.json; namn som inte kan mappas (t.ex. gamla engelska) behålls som
+    de är och matchar då först när arten hörs på nytt."""
+    rev = _reverse_sv_map()
+
+    def to_sci(name):
+        return rev.get(name.strip().lower(), name) if name else name
+
+    old_ever = history.get("species_ever", {})
+    new_ever = {}
+    for name, date in old_ever.items():
+        key = to_sci(name)
+        # behåll tidigaste datum om två gamla namn mappar till samma art
+        if key not in new_ever or date < new_ever[key]:
+            new_ever[key] = date
+    history["species_ever"] = new_ever
+
+    for day in history.get("recent_days", []):
+        for t in day.get("top", []):
+            if "sci" not in t:
+                t["sci"] = to_sci(t.get("name"))
+    return history
+
+
+def reset_today(history, today_iso):
+    """Ta bort ev. redan sparad post för DAGENS datum (omkörning samma dag), så
+    signaler räknas korrekt och historiken inte dubbellagras. Tar även bort
+    arter som fick sitt förstasett-datum satt till idag av en tidigare körning."""
+    history["recent_days"] = [
+        d for d in history.get("recent_days", []) if d.get("date") != today_iso
+    ]
+    ever = history.get("species_ever", {})
+    for k in [k for k, v in ever.items() if v == today_iso]:
+        del ever[k]
+    return history
 
 
 # ---------------------------------------------------------------------------
@@ -276,28 +352,36 @@ def fetch_birdweather():
 def derive_signals(today, history):
     species_ever = history.get("species_ever", {})
     recent       = history.get("recent_days", [])
-    today_names  = [s.get("display") or s["name"] for s in today["top_species"]]
 
-    new_species = [n for n in today_names if n not in species_ever]
+    today_species = today["top_species"]
+    today_keys    = [_sci_key(s) for s in today_species]
+    # nyckel (vetenskapligt) -> svenskt visningsnamn (det som ska stå i manuset)
+    display = {_sci_key(s): (s.get("display") or s["name"]) for s in today_species}
 
-    first_this_year = []
+    # Helt nya arter (någonsin): saknas i species_ever, som är obegränsat
+    # all-time-minne och därför oberoende av KEEP_HISTORY.
+    new_keys = [k for k in today_keys if k not in species_ever]
+
+    # Första för året: hörd tidigare, men inte tidigare i ÅR. Kräver dagsdata som
+    # täcker hela året – därför hålls KEEP_HISTORY stort.
     year_prefix = f"{TODAY.year}-"
     seen_this_year = set()
     for day in recent:
         if day["date"].startswith(year_prefix):
-            seen_this_year.update(s["name"] for s in day.get("top", []))
-    for n in today_names:
-        if n not in new_species and n not in seen_this_year:
-            first_this_year.append(n)
+            seen_this_year |= _day_keys(day)
+    first_this_year = [
+        k for k in today_keys if k not in new_keys and k not in seen_this_year
+    ]
 
+    # Återvändande: inte hörd de senaste RETURN_GAP dagarna.
     recently_seen = set()
     cutoff = (TODAY - dt.timedelta(days=RETURN_GAP)).isoformat()
     for day in recent:
         if day["date"] > cutoff:
-            recently_seen.update(s["name"] for s in day.get("top", []))
+            recently_seen |= _day_keys(day)
     returning = [
-        n for n in today_names
-        if n not in new_species and n not in first_this_year and n not in recently_seen
+        k for k in today_keys
+        if k not in new_keys and k not in first_this_year and k not in recently_seen
     ]
 
     yesterday = recent[-1] if recent else None
@@ -311,13 +395,15 @@ def derive_signals(today, history):
             "artrikedom_idag": today["species_count"],
         }
 
+    # Signalerna innehåller SVENSKA visningsnamn (inte de vetenskapliga nycklarna)
+    # så prompten får rätt namn precis som förut.
     return {
-        "new_species": new_species,
-        "first_this_year": first_this_year,
-        "returning_after_gap": returning,
-        "vs_yesterday": vs_yesterday,
-        "days_recorded": len(recent) + 1,
-        "total_species_ever": len(species_ever) + len(new_species),
+        "new_species":         [display[k] for k in new_keys],
+        "first_this_year":     [display[k] for k in first_this_year],
+        "returning_after_gap": [display[k] for k in returning],
+        "vs_yesterday":        vs_yesterday,
+        "days_recorded":       len(recent) + 1,
+        "total_species_ever":  len(species_ever) + len(new_keys),
     }
 
 
@@ -542,7 +628,7 @@ EL_MAX_CHARS    = 1900   # v3-gräns är 2000/anrop; håll marginal
 # talarbyten. silenceremove behåller EL_PAUSE_KEEP sekunder tystnad och klipper
 # bort överskottet. Justera via env om det blir för aggressivt/för milt.
 EL_TRIM_PAUSES  = os.environ.get("EL_TRIM_PAUSES", "1") not in ("0", "false", "no")
-EL_PAUSE_KEEP   = os.environ.get("EL_PAUSE_KEEP", "0.35")    # sekunder att behålla
+EL_PAUSE_KEEP   = os.environ.get("EL_PAUSE_KEEP", "0.5")    # sekunder att behålla
 EL_PAUSE_THRESH = os.environ.get("EL_PAUSE_THRESH", "-40dB")  # tystnadströskel
 
 # Normalisering: jämnar ut volymskillnaden MELLAN rösterna (dynaudnorm justerar
@@ -780,6 +866,8 @@ def build_index(mp3s):
 # ---------------------------------------------------------------------------
 def main():
     history = load_history()
+    migrate_history(history)                  # uppgradera ev. gammalt (display-nycklat) schema
+    reset_today(history, TODAY.isoformat())   # rensa ev. omkörning samma dag
 
     print("Fetching BirdWeather data...")
     today = fetch_birdweather()
@@ -818,7 +906,7 @@ def main():
         "Arter i datan (namn + aktivitet):",
     ]
     data_lines += [
-        f"  - {s['name']}  [{s.get('scientific','?')}]  ({s.get('activity', '?')})"
+        f"  - {s.get('display') or s['name']}  [{s.get('scientific','?')}]  ({s.get('activity', '?')})"
         for s in today["top_species"]
     ]
     data_path.write_text("\n".join(data_lines), encoding="utf-8")
@@ -828,16 +916,20 @@ def main():
     synthesize_dialogue(turns, out_path)
     print(f"  wrote {out_path} ({out_path.stat().st_size // 1024} KB)")
 
-    # Update history. Spara ALLA arter (bara namn) så att sällsynta arter –
-    # som ofta har lågt antal – registreras korrekt för "nytt/första för
-    # året/återvändande". Råa antal sparas inte; de är inte meningsfulla.
+    # Update history. Spara ALLA arter så att sällsynta arter – som ofta har lågt
+    # antal – registreras korrekt för "nytt/första för året/återvändande". Nyckeln
+    # är VETENSKAPLIGT namn (stabilt); svenska visningsnamnet sparas bredvid för
+    # läsbarhet. Råa antal sparas inte; de är inte meningsfulla.
     species_ever = history.setdefault("species_ever", {})
-    for name in [s.get("display") or s["name"] for s in today["top_species"]]:
-        species_ever.setdefault(name, today["date"])
+    for s in today["top_species"]:
+        species_ever.setdefault(_sci_key(s), today["date"])
     history.setdefault("recent_days", []).append({
         "date": today["date"],
         "species_count": today["species_count"],
-        "top": [{"name": s.get("display") or s["name"]} for s in today["top_species"]],
+        "top": [
+            {"sci": _sci_key(s), "name": s.get("display") or s["name"]}
+            for s in today["top_species"]
+        ],
     })
     history["recent_days"] = history["recent_days"][-KEEP_HISTORY:]
     save_history(history)
