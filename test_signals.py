@@ -171,6 +171,91 @@ def test_rerun_same_day_recomputes_new_species(monkeypatch):
     assert sig["new_species"] == ["trana"]
 
 
+# --- rikare signaler: uppehåll, svit, artrikedomsrekord -------------------
+def test_returning_details_gap(monkeypatch):
+    set_today(monkeypatch, "2026-07-20")
+    history = {
+        "species_ever": {"Ardea cinerea": "2026-05-01"},
+        "recent_days": [day("2026-06-27", ["Ardea cinerea"])],   # 23 dagar sedan
+    }
+    today = today_payload([sp("Ardea cinerea", "gråhäger")])
+    sig = gr.derive_signals(today, history)
+    assert sig["returning_after_gap"] == ["gråhäger"]
+    assert sig["returning_details"] == [{"art": "gråhäger", "dagars_uppehall": 23}]
+
+
+def test_streak_counts_consecutive_days(monkeypatch):
+    set_today(monkeypatch, "2026-07-20")
+    history = {
+        "species_ever": {"Apus apus": "2026-07-01"},
+        "recent_days": [
+            day("2026-07-17", ["Apus apus"]),
+            day("2026-07-18", ["Apus apus"]),
+            day("2026-07-19", ["Apus apus"]),
+        ],
+    }
+    today = today_payload([sp("Apus apus", "tornseglare")])
+    sig = gr.derive_signals(today, history)
+    assert sig["streaks"] == [{"art": "tornseglare", "dagar_i_rad": 4}]
+
+
+def test_no_streak_under_three(monkeypatch):
+    set_today(monkeypatch, "2026-07-20")
+    history = {
+        "species_ever": {"Apus apus": "2026-07-01"},
+        "recent_days": [day("2026-07-19", ["Apus apus"])],   # bara igår -> svit 2
+    }
+    today = today_payload([sp("Apus apus", "tornseglare")])
+    sig = gr.derive_signals(today, history)
+    assert sig["streaks"] == []
+
+
+def test_streak_breaks_on_missing_day(monkeypatch):
+    """Ett hoppat dygn (07-18 saknas) bryter sviten – vi påstår inte 'i rad'."""
+    set_today(monkeypatch, "2026-07-20")
+    history = {
+        "species_ever": {"Apus apus": "2026-07-01"},
+        "recent_days": [
+            day("2026-07-16", ["Apus apus"]),
+            day("2026-07-17", ["Apus apus"]),
+            day("2026-07-19", ["Apus apus"]),   # 07-18 saknas
+        ],
+    }
+    today = today_payload([sp("Apus apus", "tornseglare")])
+    sig = gr.derive_signals(today, history)
+    # bara 07-19 + idag = 2 i rad -> ingen svit
+    assert sig["streaks"] == []
+
+
+def test_richness_record(monkeypatch):
+    set_today(monkeypatch, "2026-07-20")
+    history = {
+        "species_ever": {},
+        "recent_days": [
+            {"date": "2026-07-18", "species_count": 15, "top": []},
+            {"date": "2026-07-19", "species_count": 12, "top": []},
+        ],
+    }
+    today = {"date": "2026-07-20", "species_count": 17,
+             "top_species": [sp("Apus apus", "tornseglare")]}
+    sig = gr.derive_signals(today, history)
+    assert sig["artrikedom_kontext"] == {
+        "idag": 17, "rekord_tidigare": 15, "nytt_rekord": True,
+    }
+
+
+def test_richness_no_record(monkeypatch):
+    set_today(monkeypatch, "2026-07-20")
+    history = {
+        "species_ever": {},
+        "recent_days": [{"date": "2026-07-19", "species_count": 20, "top": []}],
+    }
+    today = {"date": "2026-07-20", "species_count": 12,
+             "top_species": [sp("Apus apus", "tornseglare")]}
+    sig = gr.derive_signals(today, history)
+    assert sig["artrikedom_kontext"]["nytt_rekord"] is False
+
+
 # --- migrate_history ------------------------------------------------------
 def test_migrate_swedish_display_keys_to_scientific(monkeypatch):
     """Gammalt schema med svenska display-nycklar migreras till vetenskapliga
