@@ -1,0 +1,11 @@
+Hämtat 2026-07-20 – fönster: senaste 8 timmarna
+Station: Ö24 Simrishamn 
+Artrikedom: 6
+
+Arter i datan (namn + aktivitet):
+  - Herring Gull  [Larus argentatus]  (ofta hord)
+  - Graylag Goose  [Anser anser]  (ofta hord)
+  - Gray Heron  [Ardea cinerea]  (hordes en del)
+  - House Sparrow  [Passer domesticus]  (enstaka)
+  - Eurasian Jackdaw  [Corvus monedula]  (enstaka)
+  - Yellow-legged Gull  [Larus michahellis]  (enstaka)

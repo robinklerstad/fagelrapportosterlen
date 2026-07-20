@@ -605,6 +605,30 @@
           "name": "ägretthäger"
         }
       ]
+    },
+    {
+      "date": "2026-07-20",
+      "species_count": 6,
+      "top": [
+        {
+          "name": "gråtrut"
+        },
+        {
+          "name": "grågås"
+        },
+        {
+          "name": "gråhäger"
+        },
+        {
+          "name": "gråsparv"
+        },
+        {
+          "name": "kaja"
+        },
+        {
+          "name": "medelhavstrut"
+        }
+      ]
     }
   ]
 }
