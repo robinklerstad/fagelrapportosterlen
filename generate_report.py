@@ -56,6 +56,12 @@ ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 SITE_BASE_URL     = os.environ["SITE_BASE_URL"].rstrip("/")
 TTS_PROVIDER      = os.environ.get("TTS_PROVIDER", "openai").lower()
 
+# SKIP_TTS=1: generera och spara MANUSET (Claude körs), men hoppa över
+# röstläggningen helt – och rör inte historik/feed/sida. Syfte: iterera på
+# persona/prompt utan att bränna ElevenLabs-credits. Kombinera gärna med
+# TEST_OUTPUT_DIR för att skriva till en testmapp. Ingen mp3 skapas.
+SKIP_TTS = os.environ.get("SKIP_TTS", "") not in ("", "0", "false", "no")
+
 CLAUDE_MODEL  = os.environ.get("CLAUDE_MODEL", "claude-sonnet-4-6")  # set in the workflow
 
 # Avsnitt (mp3-filer) och historik (artminne) är två OLIKA knappar – blanda dem inte:
@@ -395,12 +401,51 @@ def derive_signals(today, history):
             "artrikedom_idag": today["species_count"],
         }
 
+    # --- Rikare, DATA-GRUNDADE expert-krokar. Allt nedan är RÄKNAT ur den
+    # verkliga historiken – inga påståenden om beteende/väder/plats. Ger värdarna
+    # konkreta, sanna detaljer att låta kunniga på ("efter 23 dagars tystnad",
+    # "tredje natten i rad", "en av de artrikaste nätterna hittills"). ---------
+    by_date = {d["date"]: _day_keys(d) for d in recent}
+
+    # Uppehållets längd i dagar för varje återvändande art (sedan senast hörd).
+    returning_details = []
+    for k in returning:
+        prev_dates = [dstr for dstr, keys in by_date.items() if k in keys]
+        if prev_dates:
+            gap = (TODAY - dt.date.fromisoformat(max(prev_dates))).days
+            returning_details.append({"art": display[k], "dagars_uppehall": gap})
+
+    # Svit: hur många dagar i följd (inkl. i natt) arten hörts. Bara >=3 är värt
+    # att nämna. Kräver att historiken faktiskt har posterna för mellandagarna –
+    # ett missat dygn bryter sviten (ärligt: då vet vi inte att den var i rad).
+    streaks = []
+    for k in today_keys:
+        n, d = 1, TODAY - dt.timedelta(days=1)
+        while k in by_date.get(d.isoformat(), set()):
+            n += 1
+            d -= dt.timedelta(days=1)
+        if n >= 3:
+            streaks.append({"art": display[k], "dagar_i_rad": n})
+
+    # Artrikedom i kontext: dagens antal arter mot tidigare rekord.
+    prev_counts = [d.get("species_count", 0) for d in recent]
+    rekord_tidigare = max(prev_counts) if prev_counts else None
+    artrikedom_kontext = {
+        "idag": today["species_count"],
+        "rekord_tidigare": rekord_tidigare,
+        "nytt_rekord": rekord_tidigare is not None
+        and today["species_count"] > rekord_tidigare,
+    }
+
     # Signalerna innehåller SVENSKA visningsnamn (inte de vetenskapliga nycklarna)
     # så prompten får rätt namn precis som förut.
     return {
         "new_species":         [display[k] for k in new_keys],
         "first_this_year":     [display[k] for k in first_this_year],
         "returning_after_gap": [display[k] for k in returning],
+        "returning_details":   returning_details,
+        "streaks":             streaks,
+        "artrikedom_kontext":  artrikedom_kontext,
         "vs_yesterday":        vs_yesterday,
         "days_recorded":       len(recent) + 1,
         "total_species_ever":  len(species_ever) + len(new_keys),
@@ -911,6 +956,15 @@ def main():
     ]
     data_path.write_text("\n".join(data_lines), encoding="utf-8")
     print(f"  sparade rådata: {data_path}")
+
+    if SKIP_TTS:
+        # Persona-/prompt-iteration: manus klart, ingen röst, ingen mp3, och vi
+        # rör INTE historik/feed/sida (så experiment inte förorenar minnet eller
+        # publicerar ett avsnitt utan ljud). Skriv ut manuset direkt för snabb läsning.
+        print("\n** SKIP_TTS: hoppar över röstläggning, historik och feed/sida. **")
+        print(f"** Manus sparat: {script_path} **\n")
+        print(script_text)
+        return
 
     print(f"Synthesizing two-host audio via {TTS_PROVIDER}...")
     synthesize_dialogue(turns, out_path)
