@@ -1,0 +1,9 @@
+Hämtat 2026-07-21 – fönster: senaste 8 timmarna
+Station: Ö24 Simrishamn 
+Artrikedom: 4
+
+Arter i datan (namn + aktivitet):
+  - gråsparv  [Passer domesticus]  (ofta hord)
+  - pilfink  [Passer montanus]  (hordes en del)
+  - taltrast  [Turdus philomelos]  (hordes en del)
+  - kaja  [Corvus monedula]  (hordes en del)

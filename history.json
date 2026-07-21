@@ -51,7 +51,11 @@
     "blåmes": "2026-07-19",
     "fiskmås": "2026-07-19",
     "medelhavstrut": "2026-07-19",
-    "ägretthäger": "2026-07-19"
+    "ägretthäger": "2026-07-19",
+    "Passer domesticus": "2026-07-21",
+    "Passer montanus": "2026-07-21",
+    "Turdus philomelos": "2026-07-21",
+    "Corvus monedula": "2026-07-21"
   },
   "recent_days": [
     {
@@ -59,61 +63,80 @@
       "species_count": 19,
       "top": [
         {
-          "name": "Common Wood-Pigeon"
+          "name": "Common Wood-Pigeon",
+          "sci": "Common Wood-Pigeon"
         },
         {
-          "name": "Eurasian Blackbird"
+          "name": "Eurasian Blackbird",
+          "sci": "Eurasian Blackbird"
         },
         {
-          "name": "Barn Swallow"
+          "name": "Barn Swallow",
+          "sci": "Barn Swallow"
         },
         {
-          "name": "Common Gull"
+          "name": "Common Gull",
+          "sci": "Common Gull"
         },
         {
-          "name": "House Sparrow"
+          "name": "House Sparrow",
+          "sci": "House Sparrow"
         },
         {
-          "name": "Eurasian Jackdaw"
+          "name": "Eurasian Jackdaw",
+          "sci": "Eurasian Jackdaw"
         },
         {
-          "name": "Graylag Goose"
+          "name": "Graylag Goose",
+          "sci": "Graylag Goose"
         },
         {
-          "name": "Herring Gull"
+          "name": "Herring Gull",
+          "sci": "Herring Gull"
         },
         {
-          "name": "Gray Heron"
+          "name": "Gray Heron",
+          "sci": "Gray Heron"
         },
         {
-          "name": "Eurasian Linnet"
+          "name": "Eurasian Linnet",
+          "sci": "Eurasian Linnet"
         },
         {
-          "name": "White Wagtail"
+          "name": "White Wagtail",
+          "sci": "White Wagtail"
         },
         {
-          "name": "Common Buzzard"
+          "name": "Common Buzzard",
+          "sci": "Common Buzzard"
         },
         {
-          "name": "Song Thrush"
+          "name": "Song Thrush",
+          "sci": "Song Thrush"
         },
         {
-          "name": "Eurasian Blue Tit"
+          "name": "Eurasian Blue Tit",
+          "sci": "Eurasian Blue Tit"
         },
         {
-          "name": "Common House-Martin"
+          "name": "Common House-Martin",
+          "sci": "Common House-Martin"
         },
         {
-          "name": "Eurasian Tree Sparrow"
+          "name": "Eurasian Tree Sparrow",
+          "sci": "Eurasian Tree Sparrow"
         },
         {
-          "name": "Common Swift"
+          "name": "Common Swift",
+          "sci": "Common Swift"
         },
         {
-          "name": "Black-headed Gull"
+          "name": "Black-headed Gull",
+          "sci": "Black-headed Gull"
         },
         {
-          "name": "Common Crane"
+          "name": "Common Crane",
+          "sci": "Common Crane"
         }
       ]
     },
@@ -122,67 +145,88 @@
       "species_count": 21,
       "top": [
         {
-          "name": "House Sparrow"
+          "name": "House Sparrow",
+          "sci": "House Sparrow"
         },
         {
-          "name": "Common Wood-Pigeon"
+          "name": "Common Wood-Pigeon",
+          "sci": "Common Wood-Pigeon"
         },
         {
-          "name": "Common Swift"
+          "name": "Common Swift",
+          "sci": "Common Swift"
         },
         {
-          "name": "Eurasian Blackbird"
+          "name": "Eurasian Blackbird",
+          "sci": "Eurasian Blackbird"
         },
         {
-          "name": "Herring Gull"
+          "name": "Herring Gull",
+          "sci": "Herring Gull"
         },
         {
-          "name": "Eurasian Blue Tit"
+          "name": "Eurasian Blue Tit",
+          "sci": "Eurasian Blue Tit"
         },
         {
-          "name": "Eurasian Jackdaw"
+          "name": "Eurasian Jackdaw",
+          "sci": "Eurasian Jackdaw"
         },
         {
-          "name": "Common Gull"
+          "name": "Common Gull",
+          "sci": "Common Gull"
         },
         {
-          "name": "Barn Swallow"
+          "name": "Barn Swallow",
+          "sci": "Barn Swallow"
         },
         {
-          "name": "Eurasian Linnet"
+          "name": "Eurasian Linnet",
+          "sci": "Eurasian Linnet"
         },
         {
-          "name": "Hooded Crow"
+          "name": "Hooded Crow",
+          "sci": "Hooded Crow"
         },
         {
-          "name": "Common House-Martin"
+          "name": "Common House-Martin",
+          "sci": "Common House-Martin"
         },
         {
-          "name": "Graylag Goose"
+          "name": "Graylag Goose",
+          "sci": "Graylag Goose"
         },
         {
-          "name": "European Starling"
+          "name": "European Starling",
+          "sci": "European Starling"
         },
         {
-          "name": "Gray Heron"
+          "name": "Gray Heron",
+          "sci": "Gray Heron"
         },
         {
-          "name": "Common Buzzard"
+          "name": "Common Buzzard",
+          "sci": "Common Buzzard"
         },
         {
-          "name": "Common Raven"
+          "name": "Common Raven",
+          "sci": "Common Raven"
         },
         {
-          "name": "White Wagtail"
+          "name": "White Wagtail",
+          "sci": "White Wagtail"
         },
         {
-          "name": "Mallard"
+          "name": "Mallard",
+          "sci": "Mallard"
         },
         {
-          "name": "Black-headed Gull"
+          "name": "Black-headed Gull",
+          "sci": "Black-headed Gull"
         },
         {
-          "name": "Lesser Whitethroat"
+          "name": "Lesser Whitethroat",
+          "sci": "Lesser Whitethroat"
         }
       ]
     },
@@ -191,55 +235,72 @@
       "species_count": 17,
       "top": [
         {
-          "name": "House Sparrow"
+          "name": "House Sparrow",
+          "sci": "House Sparrow"
         },
         {
-          "name": "Eurasian Blackbird"
+          "name": "Eurasian Blackbird",
+          "sci": "Eurasian Blackbird"
         },
         {
-          "name": "Common Wood-Pigeon"
+          "name": "Common Wood-Pigeon",
+          "sci": "Common Wood-Pigeon"
         },
         {
-          "name": "Eurasian Blue Tit"
+          "name": "Eurasian Blue Tit",
+          "sci": "Eurasian Blue Tit"
         },
         {
-          "name": "Graylag Goose"
+          "name": "Graylag Goose",
+          "sci": "Graylag Goose"
         },
         {
-          "name": "Eurasian Jackdaw"
+          "name": "Eurasian Jackdaw",
+          "sci": "Eurasian Jackdaw"
         },
         {
-          "name": "Herring Gull"
+          "name": "Herring Gull",
+          "sci": "Herring Gull"
         },
         {
-          "name": "Common Swift"
+          "name": "Common Swift",
+          "sci": "Common Swift"
         },
         {
-          "name": "Barn Swallow"
+          "name": "Barn Swallow",
+          "sci": "Barn Swallow"
         },
         {
-          "name": "Common Gull"
+          "name": "Common Gull",
+          "sci": "Common Gull"
         },
         {
-          "name": "Black-headed Gull"
+          "name": "Black-headed Gull",
+          "sci": "Black-headed Gull"
         },
         {
-          "name": "Common Buzzard"
+          "name": "Common Buzzard",
+          "sci": "Common Buzzard"
         },
         {
-          "name": "Hooded Crow"
+          "name": "Hooded Crow",
+          "sci": "Hooded Crow"
         },
         {
-          "name": "Common Redshank"
+          "name": "Common Redshank",
+          "sci": "Common Redshank"
         },
         {
-          "name": "Spotted Flycatcher"
+          "name": "Spotted Flycatcher",
+          "sci": "Spotted Flycatcher"
         },
         {
-          "name": "Eurasian Linnet"
+          "name": "Eurasian Linnet",
+          "sci": "Eurasian Linnet"
         },
         {
-          "name": "Eurasian Coot"
+          "name": "Eurasian Coot",
+          "sci": "Eurasian Coot"
         }
       ]
     },
@@ -248,58 +309,76 @@
       "species_count": 18,
       "top": [
         {
-          "name": "House Sparrow"
+          "name": "House Sparrow",
+          "sci": "House Sparrow"
         },
         {
-          "name": "Eurasian Blackbird"
+          "name": "Eurasian Blackbird",
+          "sci": "Eurasian Blackbird"
         },
         {
-          "name": "Common Wood-Pigeon"
+          "name": "Common Wood-Pigeon",
+          "sci": "Common Wood-Pigeon"
         },
         {
-          "name": "Eurasian Jackdaw"
+          "name": "Eurasian Jackdaw",
+          "sci": "Eurasian Jackdaw"
         },
         {
-          "name": "Common Swift"
+          "name": "Common Swift",
+          "sci": "Common Swift"
         },
         {
-          "name": "Common Gull"
+          "name": "Common Gull",
+          "sci": "Common Gull"
         },
         {
-          "name": "Barn Swallow"
+          "name": "Barn Swallow",
+          "sci": "Barn Swallow"
         },
         {
-          "name": "Eurasian Blue Tit"
+          "name": "Eurasian Blue Tit",
+          "sci": "Eurasian Blue Tit"
         },
         {
-          "name": "Herring Gull"
+          "name": "Herring Gull",
+          "sci": "Herring Gull"
         },
         {
-          "name": "Song Thrush"
+          "name": "Song Thrush",
+          "sci": "Song Thrush"
         },
         {
-          "name": "European Starling"
+          "name": "European Starling",
+          "sci": "European Starling"
         },
         {
-          "name": "Eurasian Tree Sparrow"
+          "name": "Eurasian Tree Sparrow",
+          "sci": "Eurasian Tree Sparrow"
         },
         {
-          "name": "Black-headed Gull"
+          "name": "Black-headed Gull",
+          "sci": "Black-headed Gull"
         },
         {
-          "name": "Great Black-backed Gull"
+          "name": "Great Black-backed Gull",
+          "sci": "Great Black-backed Gull"
         },
         {
-          "name": "Hooded Crow"
+          "name": "Hooded Crow",
+          "sci": "Hooded Crow"
         },
         {
-          "name": "Gray Heron"
+          "name": "Gray Heron",
+          "sci": "Gray Heron"
         },
         {
-          "name": "White Wagtail"
+          "name": "White Wagtail",
+          "sci": "White Wagtail"
         },
         {
-          "name": "Common House-Martin"
+          "name": "Common House-Martin",
+          "sci": "Common House-Martin"
         }
       ]
     },
@@ -308,70 +387,92 @@
       "species_count": 22,
       "top": [
         {
-          "name": "House Sparrow"
+          "name": "House Sparrow",
+          "sci": "House Sparrow"
         },
         {
-          "name": "Eurasian Blackbird"
+          "name": "Eurasian Blackbird",
+          "sci": "Eurasian Blackbird"
         },
         {
-          "name": "Common Wood-Pigeon"
+          "name": "Common Wood-Pigeon",
+          "sci": "Common Wood-Pigeon"
         },
         {
-          "name": "Barn Swallow"
+          "name": "Barn Swallow",
+          "sci": "Barn Swallow"
         },
         {
-          "name": "Herring Gull"
+          "name": "Herring Gull",
+          "sci": "Herring Gull"
         },
         {
-          "name": "Eurasian Linnet"
+          "name": "Eurasian Linnet",
+          "sci": "Eurasian Linnet"
         },
         {
-          "name": "Common Swift"
+          "name": "Common Swift",
+          "sci": "Common Swift"
         },
         {
-          "name": "Eurasian Blue Tit"
+          "name": "Eurasian Blue Tit",
+          "sci": "Eurasian Blue Tit"
         },
         {
-          "name": "Eurasian Jackdaw"
+          "name": "Eurasian Jackdaw",
+          "sci": "Eurasian Jackdaw"
         },
         {
-          "name": "Eurasian Oystercatcher"
+          "name": "Eurasian Oystercatcher",
+          "sci": "Eurasian Oystercatcher"
         },
         {
-          "name": "Graylag Goose"
+          "name": "Graylag Goose",
+          "sci": "Graylag Goose"
         },
         {
-          "name": "Common Tern"
+          "name": "Common Tern",
+          "sci": "Common Tern"
         },
         {
-          "name": "Hooded Crow"
+          "name": "Hooded Crow",
+          "sci": "Hooded Crow"
         },
         {
-          "name": "Common Gull"
+          "name": "Common Gull",
+          "sci": "Common Gull"
         },
         {
-          "name": "Common Chiffchaff"
+          "name": "Common Chiffchaff",
+          "sci": "Common Chiffchaff"
         },
         {
-          "name": "European Starling"
+          "name": "European Starling",
+          "sci": "European Starling"
         },
         {
-          "name": "Song Thrush"
+          "name": "Song Thrush",
+          "sci": "Song Thrush"
         },
         {
-          "name": "Gray Heron"
+          "name": "Gray Heron",
+          "sci": "Gray Heron"
         },
         {
-          "name": "Eurasian Coot"
+          "name": "Eurasian Coot",
+          "sci": "Eurasian Coot"
         },
         {
-          "name": "Black-headed Gull"
+          "name": "Black-headed Gull",
+          "sci": "Black-headed Gull"
         },
         {
-          "name": "Eurasian Tree Sparrow"
+          "name": "Eurasian Tree Sparrow",
+          "sci": "Eurasian Tree Sparrow"
         },
         {
-          "name": "Common Crane"
+          "name": "Common Crane",
+          "sci": "Common Crane"
         }
       ]
     },
@@ -380,52 +481,68 @@
       "species_count": 16,
       "top": [
         {
-          "name": "House Sparrow"
+          "name": "House Sparrow",
+          "sci": "House Sparrow"
         },
         {
-          "name": "Eurasian Blackbird"
+          "name": "Eurasian Blackbird",
+          "sci": "Eurasian Blackbird"
         },
         {
-          "name": "Common Wood-Pigeon"
+          "name": "Common Wood-Pigeon",
+          "sci": "Common Wood-Pigeon"
         },
         {
-          "name": "Common Swift"
+          "name": "Common Swift",
+          "sci": "Common Swift"
         },
         {
-          "name": "Eurasian Jackdaw"
+          "name": "Eurasian Jackdaw",
+          "sci": "Eurasian Jackdaw"
         },
         {
-          "name": "Barn Swallow"
+          "name": "Barn Swallow",
+          "sci": "Barn Swallow"
         },
         {
-          "name": "Herring Gull"
+          "name": "Herring Gull",
+          "sci": "Herring Gull"
         },
         {
-          "name": "Graylag Goose"
+          "name": "Graylag Goose",
+          "sci": "Graylag Goose"
         },
         {
-          "name": "Common Gull"
+          "name": "Common Gull",
+          "sci": "Common Gull"
         },
         {
-          "name": "Mallard"
+          "name": "Mallard",
+          "sci": "Mallard"
         },
         {
-          "name": "Eurasian Blue Tit"
+          "name": "Eurasian Blue Tit",
+          "sci": "Eurasian Blue Tit"
         },
         {
-          "name": "Sandwich Tern"
+          "name": "Sandwich Tern",
+          "sci": "Sandwich Tern"
         },
         {
-          "name": "European Starling"
+          "name": "European Starling",
+          "sci": "European Starling"
         },
         {
-          "name": "Song Thrush"
+          "name": "Song Thrush",
+          "sci": "Song Thrush"
         },
         {
-          "name": "Eurasian Coot"
+          "name": "Eurasian Coot",
+          "sci": "Eurasian Coot"
         },
         {
-          "name": "Common House-Martin"
+          "name": "Common House-Martin",
+          "sci": "Common House-Martin"
         }
       ]
     },
@@ -434,52 +551,68 @@
       "species_count": 16,
       "top": [
         {
-          "name": "Common Wood-Pigeon"
+          "name": "Common Wood-Pigeon",
+          "sci": "Common Wood-Pigeon"
         },
         {
-          "name": "House Sparrow"
+          "name": "House Sparrow",
+          "sci": "House Sparrow"
         },
         {
-          "name": "Eurasian Blackbird"
+          "name": "Eurasian Blackbird",
+          "sci": "Eurasian Blackbird"
         },
         {
-          "name": "Barn Swallow"
+          "name": "Barn Swallow",
+          "sci": "Barn Swallow"
         },
         {
-          "name": "Graylag Goose"
+          "name": "Graylag Goose",
+          "sci": "Graylag Goose"
         },
         {
-          "name": "Common Swift"
+          "name": "Common Swift",
+          "sci": "Common Swift"
         },
         {
-          "name": "Herring Gull"
+          "name": "Herring Gull",
+          "sci": "Herring Gull"
         },
         {
-          "name": "Eurasian Jackdaw"
+          "name": "Eurasian Jackdaw",
+          "sci": "Eurasian Jackdaw"
         },
         {
-          "name": "Eurasian Blue Tit"
+          "name": "Eurasian Blue Tit",
+          "sci": "Eurasian Blue Tit"
         },
         {
-          "name": "Gray Heron"
+          "name": "Gray Heron",
+          "sci": "Gray Heron"
         },
         {
-          "name": "Common House-Martin"
+          "name": "Common House-Martin",
+          "sci": "Common House-Martin"
         },
         {
-          "name": "Common Gull"
+          "name": "Common Gull",
+          "sci": "Common Gull"
         },
         {
-          "name": "Black-headed Gull"
+          "name": "Black-headed Gull",
+          "sci": "Black-headed Gull"
         },
         {
-          "name": "European Starling"
+          "name": "European Starling",
+          "sci": "European Starling"
         },
         {
-          "name": "Song Thrush"
+          "name": "Song Thrush",
+          "sci": "Song Thrush"
         },
         {
-          "name": "Eurasian Tree Sparrow"
+          "name": "Eurasian Tree Sparrow",
+          "sci": "Eurasian Tree Sparrow"
         }
       ]
     },
@@ -488,61 +621,80 @@
       "species_count": 19,
       "top": [
         {
-          "name": "House Sparrow"
+          "name": "House Sparrow",
+          "sci": "House Sparrow"
         },
         {
-          "name": "Common Wood-Pigeon"
+          "name": "Common Wood-Pigeon",
+          "sci": "Common Wood-Pigeon"
         },
         {
-          "name": "Barn Swallow"
+          "name": "Barn Swallow",
+          "sci": "Barn Swallow"
         },
         {
-          "name": "Eurasian Blackbird"
+          "name": "Eurasian Blackbird",
+          "sci": "Eurasian Blackbird"
         },
         {
-          "name": "Herring Gull"
+          "name": "Herring Gull",
+          "sci": "Herring Gull"
         },
         {
-          "name": "Eurasian Jackdaw"
+          "name": "Eurasian Jackdaw",
+          "sci": "Eurasian Jackdaw"
         },
         {
-          "name": "Common Gull"
+          "name": "Common Gull",
+          "sci": "Common Gull"
         },
         {
-          "name": "Common Swift"
+          "name": "Common Swift",
+          "sci": "Common Swift"
         },
         {
-          "name": "Gray Heron"
+          "name": "Gray Heron",
+          "sci": "Gray Heron"
         },
         {
-          "name": "White Wagtail"
+          "name": "White Wagtail",
+          "sci": "White Wagtail"
         },
         {
-          "name": "Graylag Goose"
+          "name": "Graylag Goose",
+          "sci": "Graylag Goose"
         },
         {
-          "name": "Eurasian Tree Sparrow"
+          "name": "Eurasian Tree Sparrow",
+          "sci": "Eurasian Tree Sparrow"
         },
         {
-          "name": "Eurasian Blue Tit"
+          "name": "Eurasian Blue Tit",
+          "sci": "Eurasian Blue Tit"
         },
         {
-          "name": "Common Raven"
+          "name": "Common Raven",
+          "sci": "Common Raven"
         },
         {
-          "name": "Common House-Martin"
+          "name": "Common House-Martin",
+          "sci": "Common House-Martin"
         },
         {
-          "name": "Hooded Crow"
+          "name": "Hooded Crow",
+          "sci": "Hooded Crow"
         },
         {
-          "name": "Great Spotted Woodpecker"
+          "name": "Great Spotted Woodpecker",
+          "sci": "Great Spotted Woodpecker"
         },
         {
-          "name": "Song Thrush"
+          "name": "Song Thrush",
+          "sci": "Song Thrush"
         },
         {
-          "name": "Eurasian Coot"
+          "name": "Eurasian Coot",
+          "sci": "Eurasian Coot"
         }
       ]
     },
@@ -551,58 +703,76 @@
       "species_count": 18,
       "top": [
         {
-          "name": "gråsparv"
+          "name": "gråsparv",
+          "sci": "gråsparv"
         },
         {
-          "name": "ladusvala"
+          "name": "ladusvala",
+          "sci": "ladusvala"
         },
         {
-          "name": "ringduva"
+          "name": "ringduva",
+          "sci": "ringduva"
         },
         {
-          "name": "koltrast"
+          "name": "koltrast",
+          "sci": "koltrast"
         },
         {
-          "name": "kaja"
+          "name": "kaja",
+          "sci": "kaja"
         },
         {
-          "name": "hussvala"
+          "name": "hussvala",
+          "sci": "hussvala"
         },
         {
-          "name": "tornseglare"
+          "name": "tornseglare",
+          "sci": "tornseglare"
         },
         {
-          "name": "gråtrut"
+          "name": "gråtrut",
+          "sci": "gråtrut"
         },
         {
-          "name": "pilfink"
+          "name": "pilfink",
+          "sci": "pilfink"
         },
         {
-          "name": "gråhäger"
+          "name": "gråhäger",
+          "sci": "gråhäger"
         },
         {
-          "name": "sädesärla"
+          "name": "sädesärla",
+          "sci": "sädesärla"
         },
         {
-          "name": "taltrast"
+          "name": "taltrast",
+          "sci": "taltrast"
         },
         {
-          "name": "grågås"
+          "name": "grågås",
+          "sci": "grågås"
         },
         {
-          "name": "kråka"
+          "name": "kråka",
+          "sci": "kråka"
         },
         {
-          "name": "blåmes"
+          "name": "blåmes",
+          "sci": "blåmes"
         },
         {
-          "name": "fiskmås"
+          "name": "fiskmås",
+          "sci": "fiskmås"
         },
         {
-          "name": "medelhavstrut"
+          "name": "medelhavstrut",
+          "sci": "medelhavstrut"
         },
         {
-          "name": "ägretthäger"
+          "name": "ägretthäger",
+          "sci": "ägretthäger"
         }
       ]
     },
@@ -611,22 +781,50 @@
       "species_count": 6,
       "top": [
         {
-          "name": "gråtrut"
+          "name": "gråtrut",
+          "sci": "gråtrut"
         },
         {
-          "name": "grågås"
+          "name": "grågås",
+          "sci": "grågås"
         },
         {
-          "name": "gråhäger"
+          "name": "gråhäger",
+          "sci": "gråhäger"
         },
         {
+          "name": "gråsparv",
+          "sci": "gråsparv"
+        },
+        {
+          "name": "kaja",
+          "sci": "kaja"
+        },
+        {
+          "name": "medelhavstrut",
+          "sci": "medelhavstrut"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-21",
+      "species_count": 4,
+      "top": [
+        {
+          "sci": "Passer domesticus",
           "name": "gråsparv"
         },
         {
-          "name": "kaja"
+          "sci": "Passer montanus",
+          "name": "pilfink"
         },
         {
-          "name": "medelhavstrut"
+          "sci": "Turdus philomelos",
+          "name": "taltrast"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
         }
       ]
     }
