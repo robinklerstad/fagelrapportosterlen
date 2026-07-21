@@ -1,61 +1,41 @@
 {
   "first_run": "2026-07-11",
   "species_ever": {
-    "Common Wood-Pigeon": "2026-07-11",
-    "Eurasian Blackbird": "2026-07-11",
-    "Barn Swallow": "2026-07-11",
-    "Common Gull": "2026-07-11",
-    "House Sparrow": "2026-07-11",
-    "Eurasian Jackdaw": "2026-07-11",
-    "Graylag Goose": "2026-07-11",
-    "Herring Gull": "2026-07-11",
-    "Gray Heron": "2026-07-11",
-    "Eurasian Linnet": "2026-07-11",
-    "White Wagtail": "2026-07-11",
-    "Common Buzzard": "2026-07-11",
-    "Song Thrush": "2026-07-11",
-    "Eurasian Blue Tit": "2026-07-11",
-    "Common House-Martin": "2026-07-11",
-    "Eurasian Tree Sparrow": "2026-07-11",
-    "Common Swift": "2026-07-11",
-    "Black-headed Gull": "2026-07-11",
-    "Common Crane": "2026-07-11",
-    "Hooded Crow": "2026-07-12",
-    "European Starling": "2026-07-12",
-    "Common Raven": "2026-07-12",
-    "Mallard": "2026-07-12",
-    "Lesser Whitethroat": "2026-07-12",
-    "Common Redshank": "2026-07-13",
-    "Spotted Flycatcher": "2026-07-13",
-    "Eurasian Coot": "2026-07-13",
-    "Great Black-backed Gull": "2026-07-14",
-    "Eurasian Oystercatcher": "2026-07-15",
-    "Common Tern": "2026-07-15",
-    "Common Chiffchaff": "2026-07-15",
-    "Sandwich Tern": "2026-07-16",
-    "Great Spotted Woodpecker": "2026-07-18",
-    "gråsparv": "2026-07-19",
-    "ladusvala": "2026-07-19",
-    "ringduva": "2026-07-19",
-    "koltrast": "2026-07-19",
-    "kaja": "2026-07-19",
-    "hussvala": "2026-07-19",
-    "tornseglare": "2026-07-19",
-    "gråtrut": "2026-07-19",
-    "pilfink": "2026-07-19",
-    "gråhäger": "2026-07-19",
-    "sädesärla": "2026-07-19",
-    "taltrast": "2026-07-19",
-    "grågås": "2026-07-19",
-    "kråka": "2026-07-19",
-    "blåmes": "2026-07-19",
-    "fiskmås": "2026-07-19",
-    "medelhavstrut": "2026-07-19",
-    "ägretthäger": "2026-07-19",
-    "Passer domesticus": "2026-07-21",
-    "Passer montanus": "2026-07-21",
-    "Turdus philomelos": "2026-07-21",
-    "Corvus monedula": "2026-07-21"
+    "Columba palumbus": "2026-07-11",
+    "Turdus merula": "2026-07-11",
+    "Hirundo rustica": "2026-07-11",
+    "Larus canus": "2026-07-11",
+    "Passer domesticus": "2026-07-11",
+    "Corvus monedula": "2026-07-11",
+    "Anser anser": "2026-07-11",
+    "Larus argentatus": "2026-07-11",
+    "Ardea cinerea": "2026-07-11",
+    "Linaria cannabina": "2026-07-11",
+    "Motacilla alba": "2026-07-11",
+    "Buteo buteo": "2026-07-11",
+    "Turdus philomelos": "2026-07-11",
+    "Cyanistes caeruleus": "2026-07-11",
+    "Delichon urbicum": "2026-07-11",
+    "Passer montanus": "2026-07-11",
+    "Apus apus": "2026-07-11",
+    "Chroicocephalus ridibundus": "2026-07-11",
+    "Grus grus": "2026-07-11",
+    "Corvus cornix": "2026-07-12",
+    "Sturnus vulgaris": "2026-07-12",
+    "Corvus corax": "2026-07-12",
+    "Anas platyrhynchos": "2026-07-12",
+    "Curruca curruca": "2026-07-12",
+    "Tringa totanus": "2026-07-13",
+    "Muscicapa striata": "2026-07-13",
+    "Fulica atra": "2026-07-13",
+    "Larus marinus": "2026-07-14",
+    "Haematopus ostralegus": "2026-07-15",
+    "Sterna hirundo": "2026-07-15",
+    "Phylloscopus collybita": "2026-07-15",
+    "Thalasseus sandvicensis": "2026-07-16",
+    "Dendrocopos major": "2026-07-18",
+    "Larus michahellis": "2026-07-19",
+    "Ardea alba": "2026-07-19"
   },
   "recent_days": [
     {
@@ -64,79 +44,79 @@
       "top": [
         {
           "name": "Common Wood-Pigeon",
-          "sci": "Common Wood-Pigeon"
+          "sci": "Columba palumbus"
         },
         {
           "name": "Eurasian Blackbird",
-          "sci": "Eurasian Blackbird"
+          "sci": "Turdus merula"
         },
         {
           "name": "Barn Swallow",
-          "sci": "Barn Swallow"
+          "sci": "Hirundo rustica"
         },
         {
           "name": "Common Gull",
-          "sci": "Common Gull"
+          "sci": "Larus canus"
         },
         {
           "name": "House Sparrow",
-          "sci": "House Sparrow"
+          "sci": "Passer domesticus"
         },
         {
           "name": "Eurasian Jackdaw",
-          "sci": "Eurasian Jackdaw"
+          "sci": "Corvus monedula"
         },
         {
           "name": "Graylag Goose",
-          "sci": "Graylag Goose"
+          "sci": "Anser anser"
         },
         {
           "name": "Herring Gull",
-          "sci": "Herring Gull"
+          "sci": "Larus argentatus"
         },
         {
           "name": "Gray Heron",
-          "sci": "Gray Heron"
+          "sci": "Ardea cinerea"
         },
         {
           "name": "Eurasian Linnet",
-          "sci": "Eurasian Linnet"
+          "sci": "Linaria cannabina"
         },
         {
           "name": "White Wagtail",
-          "sci": "White Wagtail"
+          "sci": "Motacilla alba"
         },
         {
           "name": "Common Buzzard",
-          "sci": "Common Buzzard"
+          "sci": "Buteo buteo"
         },
         {
           "name": "Song Thrush",
-          "sci": "Song Thrush"
+          "sci": "Turdus philomelos"
         },
         {
           "name": "Eurasian Blue Tit",
-          "sci": "Eurasian Blue Tit"
+          "sci": "Cyanistes caeruleus"
         },
         {
           "name": "Common House-Martin",
-          "sci": "Common House-Martin"
+          "sci": "Delichon urbicum"
         },
         {
           "name": "Eurasian Tree Sparrow",
-          "sci": "Eurasian Tree Sparrow"
+          "sci": "Passer montanus"
         },
         {
           "name": "Common Swift",
-          "sci": "Common Swift"
+          "sci": "Apus apus"
         },
         {
           "name": "Black-headed Gull",
-          "sci": "Black-headed Gull"
+          "sci": "Chroicocephalus ridibundus"
         },
         {
           "name": "Common Crane",
-          "sci": "Common Crane"
+          "sci": "Grus grus"
         }
       ]
     },
@@ -146,87 +126,87 @@
       "top": [
         {
           "name": "House Sparrow",
-          "sci": "House Sparrow"
+          "sci": "Passer domesticus"
         },
         {
           "name": "Common Wood-Pigeon",
-          "sci": "Common Wood-Pigeon"
+          "sci": "Columba palumbus"
         },
         {
           "name": "Common Swift",
-          "sci": "Common Swift"
+          "sci": "Apus apus"
         },
         {
           "name": "Eurasian Blackbird",
-          "sci": "Eurasian Blackbird"
+          "sci": "Turdus merula"
         },
         {
           "name": "Herring Gull",
-          "sci": "Herring Gull"
+          "sci": "Larus argentatus"
         },
         {
           "name": "Eurasian Blue Tit",
-          "sci": "Eurasian Blue Tit"
+          "sci": "Cyanistes caeruleus"
         },
         {
           "name": "Eurasian Jackdaw",
-          "sci": "Eurasian Jackdaw"
+          "sci": "Corvus monedula"
         },
         {
           "name": "Common Gull",
-          "sci": "Common Gull"
+          "sci": "Larus canus"
         },
         {
           "name": "Barn Swallow",
-          "sci": "Barn Swallow"
+          "sci": "Hirundo rustica"
         },
         {
           "name": "Eurasian Linnet",
-          "sci": "Eurasian Linnet"
+          "sci": "Linaria cannabina"
         },
         {
           "name": "Hooded Crow",
-          "sci": "Hooded Crow"
+          "sci": "Corvus cornix"
         },
         {
           "name": "Common House-Martin",
-          "sci": "Common House-Martin"
+          "sci": "Delichon urbicum"
         },
         {
           "name": "Graylag Goose",
-          "sci": "Graylag Goose"
+          "sci": "Anser anser"
         },
         {
           "name": "European Starling",
-          "sci": "European Starling"
+          "sci": "Sturnus vulgaris"
         },
         {
           "name": "Gray Heron",
-          "sci": "Gray Heron"
+          "sci": "Ardea cinerea"
         },
         {
           "name": "Common Buzzard",
-          "sci": "Common Buzzard"
+          "sci": "Buteo buteo"
         },
         {
           "name": "Common Raven",
-          "sci": "Common Raven"
+          "sci": "Corvus corax"
         },
         {
           "name": "White Wagtail",
-          "sci": "White Wagtail"
+          "sci": "Motacilla alba"
         },
         {
           "name": "Mallard",
-          "sci": "Mallard"
+          "sci": "Anas platyrhynchos"
         },
         {
           "name": "Black-headed Gull",
-          "sci": "Black-headed Gull"
+          "sci": "Chroicocephalus ridibundus"
         },
         {
           "name": "Lesser Whitethroat",
-          "sci": "Lesser Whitethroat"
+          "sci": "Curruca curruca"
         }
       ]
     },
@@ -236,71 +216,71 @@
       "top": [
         {
           "name": "House Sparrow",
-          "sci": "House Sparrow"
+          "sci": "Passer domesticus"
         },
         {
           "name": "Eurasian Blackbird",
-          "sci": "Eurasian Blackbird"
+          "sci": "Turdus merula"
         },
         {
           "name": "Common Wood-Pigeon",
-          "sci": "Common Wood-Pigeon"
+          "sci": "Columba palumbus"
         },
         {
           "name": "Eurasian Blue Tit",
-          "sci": "Eurasian Blue Tit"
+          "sci": "Cyanistes caeruleus"
         },
         {
           "name": "Graylag Goose",
-          "sci": "Graylag Goose"
+          "sci": "Anser anser"
         },
         {
           "name": "Eurasian Jackdaw",
-          "sci": "Eurasian Jackdaw"
+          "sci": "Corvus monedula"
         },
         {
           "name": "Herring Gull",
-          "sci": "Herring Gull"
+          "sci": "Larus argentatus"
         },
         {
           "name": "Common Swift",
-          "sci": "Common Swift"
+          "sci": "Apus apus"
         },
         {
           "name": "Barn Swallow",
-          "sci": "Barn Swallow"
+          "sci": "Hirundo rustica"
         },
         {
           "name": "Common Gull",
-          "sci": "Common Gull"
+          "sci": "Larus canus"
         },
         {
           "name": "Black-headed Gull",
-          "sci": "Black-headed Gull"
+          "sci": "Chroicocephalus ridibundus"
         },
         {
           "name": "Common Buzzard",
-          "sci": "Common Buzzard"
+          "sci": "Buteo buteo"
         },
         {
           "name": "Hooded Crow",
-          "sci": "Hooded Crow"
+          "sci": "Corvus cornix"
         },
         {
           "name": "Common Redshank",
-          "sci": "Common Redshank"
+          "sci": "Tringa totanus"
         },
         {
           "name": "Spotted Flycatcher",
-          "sci": "Spotted Flycatcher"
+          "sci": "Muscicapa striata"
         },
         {
           "name": "Eurasian Linnet",
-          "sci": "Eurasian Linnet"
+          "sci": "Linaria cannabina"
         },
         {
           "name": "Eurasian Coot",
-          "sci": "Eurasian Coot"
+          "sci": "Fulica atra"
         }
       ]
     },
@@ -310,75 +290,75 @@
       "top": [
         {
           "name": "House Sparrow",
-          "sci": "House Sparrow"
+          "sci": "Passer domesticus"
         },
         {
           "name": "Eurasian Blackbird",
-          "sci": "Eurasian Blackbird"
+          "sci": "Turdus merula"
         },
         {
           "name": "Common Wood-Pigeon",
-          "sci": "Common Wood-Pigeon"
+          "sci": "Columba palumbus"
         },
         {
           "name": "Eurasian Jackdaw",
-          "sci": "Eurasian Jackdaw"
+          "sci": "Corvus monedula"
         },
         {
           "name": "Common Swift",
-          "sci": "Common Swift"
+          "sci": "Apus apus"
         },
         {
           "name": "Common Gull",
-          "sci": "Common Gull"
+          "sci": "Larus canus"
         },
         {
           "name": "Barn Swallow",
-          "sci": "Barn Swallow"
+          "sci": "Hirundo rustica"
         },
         {
           "name": "Eurasian Blue Tit",
-          "sci": "Eurasian Blue Tit"
+          "sci": "Cyanistes caeruleus"
         },
         {
           "name": "Herring Gull",
-          "sci": "Herring Gull"
+          "sci": "Larus argentatus"
         },
         {
           "name": "Song Thrush",
-          "sci": "Song Thrush"
+          "sci": "Turdus philomelos"
         },
         {
           "name": "European Starling",
-          "sci": "European Starling"
+          "sci": "Sturnus vulgaris"
         },
         {
           "name": "Eurasian Tree Sparrow",
-          "sci": "Eurasian Tree Sparrow"
+          "sci": "Passer montanus"
         },
         {
           "name": "Black-headed Gull",
-          "sci": "Black-headed Gull"
+          "sci": "Chroicocephalus ridibundus"
         },
         {
           "name": "Great Black-backed Gull",
-          "sci": "Great Black-backed Gull"
+          "sci": "Larus marinus"
         },
         {
           "name": "Hooded Crow",
-          "sci": "Hooded Crow"
+          "sci": "Corvus cornix"
         },
         {
           "name": "Gray Heron",
-          "sci": "Gray Heron"
+          "sci": "Ardea cinerea"
         },
         {
           "name": "White Wagtail",
-          "sci": "White Wagtail"
+          "sci": "Motacilla alba"
         },
         {
           "name": "Common House-Martin",
-          "sci": "Common House-Martin"
+          "sci": "Delichon urbicum"
         }
       ]
     },
@@ -388,91 +368,91 @@
       "top": [
         {
           "name": "House Sparrow",
-          "sci": "House Sparrow"
+          "sci": "Passer domesticus"
         },
         {
           "name": "Eurasian Blackbird",
-          "sci": "Eurasian Blackbird"
+          "sci": "Turdus merula"
         },
         {
           "name": "Common Wood-Pigeon",
-          "sci": "Common Wood-Pigeon"
+          "sci": "Columba palumbus"
         },
         {
           "name": "Barn Swallow",
-          "sci": "Barn Swallow"
+          "sci": "Hirundo rustica"
         },
         {
           "name": "Herring Gull",
-          "sci": "Herring Gull"
+          "sci": "Larus argentatus"
         },
         {
           "name": "Eurasian Linnet",
-          "sci": "Eurasian Linnet"
+          "sci": "Linaria cannabina"
         },
         {
           "name": "Common Swift",
-          "sci": "Common Swift"
+          "sci": "Apus apus"
         },
         {
           "name": "Eurasian Blue Tit",
-          "sci": "Eurasian Blue Tit"
+          "sci": "Cyanistes caeruleus"
         },
         {
           "name": "Eurasian Jackdaw",
-          "sci": "Eurasian Jackdaw"
+          "sci": "Corvus monedula"
         },
         {
           "name": "Eurasian Oystercatcher",
-          "sci": "Eurasian Oystercatcher"
+          "sci": "Haematopus ostralegus"
         },
         {
           "name": "Graylag Goose",
-          "sci": "Graylag Goose"
+          "sci": "Anser anser"
         },
         {
           "name": "Common Tern",
-          "sci": "Common Tern"
+          "sci": "Sterna hirundo"
         },
         {
           "name": "Hooded Crow",
-          "sci": "Hooded Crow"
+          "sci": "Corvus cornix"
         },
         {
           "name": "Common Gull",
-          "sci": "Common Gull"
+          "sci": "Larus canus"
         },
         {
           "name": "Common Chiffchaff",
-          "sci": "Common Chiffchaff"
+          "sci": "Phylloscopus collybita"
         },
         {
           "name": "European Starling",
-          "sci": "European Starling"
+          "sci": "Sturnus vulgaris"
         },
         {
           "name": "Song Thrush",
-          "sci": "Song Thrush"
+          "sci": "Turdus philomelos"
         },
         {
           "name": "Gray Heron",
-          "sci": "Gray Heron"
+          "sci": "Ardea cinerea"
         },
         {
           "name": "Eurasian Coot",
-          "sci": "Eurasian Coot"
+          "sci": "Fulica atra"
         },
         {
           "name": "Black-headed Gull",
-          "sci": "Black-headed Gull"
+          "sci": "Chroicocephalus ridibundus"
         },
         {
           "name": "Eurasian Tree Sparrow",
-          "sci": "Eurasian Tree Sparrow"
+          "sci": "Passer montanus"
         },
         {
           "name": "Common Crane",
-          "sci": "Common Crane"
+          "sci": "Grus grus"
         }
       ]
     },
@@ -482,67 +462,67 @@
       "top": [
         {
           "name": "House Sparrow",
-          "sci": "House Sparrow"
+          "sci": "Passer domesticus"
         },
         {
           "name": "Eurasian Blackbird",
-          "sci": "Eurasian Blackbird"
+          "sci": "Turdus merula"
         },
         {
           "name": "Common Wood-Pigeon",
-          "sci": "Common Wood-Pigeon"
+          "sci": "Columba palumbus"
         },
         {
           "name": "Common Swift",
-          "sci": "Common Swift"
+          "sci": "Apus apus"
         },
         {
           "name": "Eurasian Jackdaw",
-          "sci": "Eurasian Jackdaw"
+          "sci": "Corvus monedula"
         },
         {
           "name": "Barn Swallow",
-          "sci": "Barn Swallow"
+          "sci": "Hirundo rustica"
         },
         {
           "name": "Herring Gull",
-          "sci": "Herring Gull"
+          "sci": "Larus argentatus"
         },
         {
           "name": "Graylag Goose",
-          "sci": "Graylag Goose"
+          "sci": "Anser anser"
         },
         {
           "name": "Common Gull",
-          "sci": "Common Gull"
+          "sci": "Larus canus"
         },
         {
           "name": "Mallard",
-          "sci": "Mallard"
+          "sci": "Anas platyrhynchos"
         },
         {
           "name": "Eurasian Blue Tit",
-          "sci": "Eurasian Blue Tit"
+          "sci": "Cyanistes caeruleus"
         },
         {
           "name": "Sandwich Tern",
-          "sci": "Sandwich Tern"
+          "sci": "Thalasseus sandvicensis"
         },
         {
           "name": "European Starling",
-          "sci": "European Starling"
+          "sci": "Sturnus vulgaris"
         },
         {
           "name": "Song Thrush",
-          "sci": "Song Thrush"
+          "sci": "Turdus philomelos"
         },
         {
           "name": "Eurasian Coot",
-          "sci": "Eurasian Coot"
+          "sci": "Fulica atra"
         },
         {
           "name": "Common House-Martin",
-          "sci": "Common House-Martin"
+          "sci": "Delichon urbicum"
         }
       ]
     },
@@ -552,67 +532,67 @@
       "top": [
         {
           "name": "Common Wood-Pigeon",
-          "sci": "Common Wood-Pigeon"
+          "sci": "Columba palumbus"
         },
         {
           "name": "House Sparrow",
-          "sci": "House Sparrow"
+          "sci": "Passer domesticus"
         },
         {
           "name": "Eurasian Blackbird",
-          "sci": "Eurasian Blackbird"
+          "sci": "Turdus merula"
         },
         {
           "name": "Barn Swallow",
-          "sci": "Barn Swallow"
+          "sci": "Hirundo rustica"
         },
         {
           "name": "Graylag Goose",
-          "sci": "Graylag Goose"
+          "sci": "Anser anser"
         },
         {
           "name": "Common Swift",
-          "sci": "Common Swift"
+          "sci": "Apus apus"
         },
         {
           "name": "Herring Gull",
-          "sci": "Herring Gull"
+          "sci": "Larus argentatus"
         },
         {
           "name": "Eurasian Jackdaw",
-          "sci": "Eurasian Jackdaw"
+          "sci": "Corvus monedula"
         },
         {
           "name": "Eurasian Blue Tit",
-          "sci": "Eurasian Blue Tit"
+          "sci": "Cyanistes caeruleus"
         },
         {
           "name": "Gray Heron",
-          "sci": "Gray Heron"
+          "sci": "Ardea cinerea"
         },
         {
           "name": "Common House-Martin",
-          "sci": "Common House-Martin"
+          "sci": "Delichon urbicum"
         },
         {
           "name": "Common Gull",
-          "sci": "Common Gull"
+          "sci": "Larus canus"
         },
         {
           "name": "Black-headed Gull",
-          "sci": "Black-headed Gull"
+          "sci": "Chroicocephalus ridibundus"
         },
         {
           "name": "European Starling",
-          "sci": "European Starling"
+          "sci": "Sturnus vulgaris"
         },
         {
           "name": "Song Thrush",
-          "sci": "Song Thrush"
+          "sci": "Turdus philomelos"
         },
         {
           "name": "Eurasian Tree Sparrow",
-          "sci": "Eurasian Tree Sparrow"
+          "sci": "Passer montanus"
         }
       ]
     },
@@ -622,79 +602,79 @@
       "top": [
         {
           "name": "House Sparrow",
-          "sci": "House Sparrow"
+          "sci": "Passer domesticus"
         },
         {
           "name": "Common Wood-Pigeon",
-          "sci": "Common Wood-Pigeon"
+          "sci": "Columba palumbus"
         },
         {
           "name": "Barn Swallow",
-          "sci": "Barn Swallow"
+          "sci": "Hirundo rustica"
         },
         {
           "name": "Eurasian Blackbird",
-          "sci": "Eurasian Blackbird"
+          "sci": "Turdus merula"
         },
         {
           "name": "Herring Gull",
-          "sci": "Herring Gull"
+          "sci": "Larus argentatus"
         },
         {
           "name": "Eurasian Jackdaw",
-          "sci": "Eurasian Jackdaw"
+          "sci": "Corvus monedula"
         },
         {
           "name": "Common Gull",
-          "sci": "Common Gull"
+          "sci": "Larus canus"
         },
         {
           "name": "Common Swift",
-          "sci": "Common Swift"
+          "sci": "Apus apus"
         },
         {
           "name": "Gray Heron",
-          "sci": "Gray Heron"
+          "sci": "Ardea cinerea"
         },
         {
           "name": "White Wagtail",
-          "sci": "White Wagtail"
+          "sci": "Motacilla alba"
         },
         {
           "name": "Graylag Goose",
-          "sci": "Graylag Goose"
+          "sci": "Anser anser"
         },
         {
           "name": "Eurasian Tree Sparrow",
-          "sci": "Eurasian Tree Sparrow"
+          "sci": "Passer montanus"
         },
         {
           "name": "Eurasian Blue Tit",
-          "sci": "Eurasian Blue Tit"
+          "sci": "Cyanistes caeruleus"
         },
         {
           "name": "Common Raven",
-          "sci": "Common Raven"
+          "sci": "Corvus corax"
         },
         {
           "name": "Common House-Martin",
-          "sci": "Common House-Martin"
+          "sci": "Delichon urbicum"
         },
         {
           "name": "Hooded Crow",
-          "sci": "Hooded Crow"
+          "sci": "Corvus cornix"
         },
         {
           "name": "Great Spotted Woodpecker",
-          "sci": "Great Spotted Woodpecker"
+          "sci": "Dendrocopos major"
         },
         {
           "name": "Song Thrush",
-          "sci": "Song Thrush"
+          "sci": "Turdus philomelos"
         },
         {
           "name": "Eurasian Coot",
-          "sci": "Eurasian Coot"
+          "sci": "Fulica atra"
         }
       ]
     },
@@ -704,75 +684,75 @@
       "top": [
         {
           "name": "gråsparv",
-          "sci": "gråsparv"
+          "sci": "Passer domesticus"
         },
         {
           "name": "ladusvala",
-          "sci": "ladusvala"
+          "sci": "Hirundo rustica"
         },
         {
           "name": "ringduva",
-          "sci": "ringduva"
+          "sci": "Columba palumbus"
         },
         {
           "name": "koltrast",
-          "sci": "koltrast"
+          "sci": "Turdus merula"
         },
         {
           "name": "kaja",
-          "sci": "kaja"
+          "sci": "Corvus monedula"
         },
         {
           "name": "hussvala",
-          "sci": "hussvala"
+          "sci": "Delichon urbicum"
         },
         {
           "name": "tornseglare",
-          "sci": "tornseglare"
+          "sci": "Apus apus"
         },
         {
           "name": "gråtrut",
-          "sci": "gråtrut"
+          "sci": "Larus argentatus"
         },
         {
           "name": "pilfink",
-          "sci": "pilfink"
+          "sci": "Passer montanus"
         },
         {
           "name": "gråhäger",
-          "sci": "gråhäger"
+          "sci": "Ardea cinerea"
         },
         {
           "name": "sädesärla",
-          "sci": "sädesärla"
+          "sci": "Motacilla alba"
         },
         {
           "name": "taltrast",
-          "sci": "taltrast"
+          "sci": "Turdus philomelos"
         },
         {
           "name": "grågås",
-          "sci": "grågås"
+          "sci": "Anser anser"
         },
         {
           "name": "kråka",
-          "sci": "kråka"
+          "sci": "Corvus cornix"
         },
         {
           "name": "blåmes",
-          "sci": "blåmes"
+          "sci": "Cyanistes caeruleus"
         },
         {
           "name": "fiskmås",
-          "sci": "fiskmås"
+          "sci": "Larus canus"
         },
         {
           "name": "medelhavstrut",
-          "sci": "medelhavstrut"
+          "sci": "Larus michahellis"
         },
         {
           "name": "ägretthäger",
-          "sci": "ägretthäger"
+          "sci": "Ardea alba"
         }
       ]
     },
@@ -782,27 +762,27 @@
       "top": [
         {
           "name": "gråtrut",
-          "sci": "gråtrut"
+          "sci": "Larus argentatus"
         },
         {
           "name": "grågås",
-          "sci": "grågås"
+          "sci": "Anser anser"
         },
         {
           "name": "gråhäger",
-          "sci": "gråhäger"
+          "sci": "Ardea cinerea"
         },
         {
           "name": "gråsparv",
-          "sci": "gråsparv"
+          "sci": "Passer domesticus"
         },
         {
           "name": "kaja",
-          "sci": "kaja"
+          "sci": "Corvus monedula"
         },
         {
           "name": "medelhavstrut",
-          "sci": "medelhavstrut"
+          "sci": "Larus michahellis"
         }
       ]
     },
