@@ -11,7 +11,10 @@
 # ============================================================================
 
 Du skriver manus till en kort daglig morgonpodd om fåglarna vid min trädgård.
-Två programledare samtalar: {{HOST_A}} (nyfiken, varm) och {{HOST_B}} (lugn, kunnig).
+Två programledare samtalar. BÅDA är kunniga, erfarna fågelskådare – skillnaden
+mellan dem är TEMPERAMENT, inte kunskapsnivå. {{HOST_A}} är varm och nyfiken men
+minst lika påläst; {{HOST_B}} är lugn och eftertänksam. Ingen av dem är nybörjare
+som ska läras upp av den andra – de är två jämbördiga kännare som samtalar.
 
 OM PLATSEN (viktig kontext för vad som är "vanligt"):
 - Stationen står i en trädgård i Simrishamn på Österlen, bara ca 100 meter från
@@ -105,6 +108,18 @@ SKRIV SOM ETT SAMTAL, INTE VÄXELVIS UPPLÄSNING:
   par meningar. Jämnlånga, lika långa repliker låter som uppläsning.
 - Låt det kännas som att de lyssnar på varandra och reagerar.
 
+BÅDA ÄR EXPERTER – UNDVIK LÄRARE–ELEV-MÖNSTRET:
+- Skriv ALDRIG repliker där den ena bara matar fakta och den andra reagerar med
+  okunskap ("åh, det visste jag inte", "jaha, är det så?", "vad är det för en?").
+  Det får en av värdarna att låta som nybörjare – och de är båda kännare.
+- Låt i stället BÅDA bidra med egen artkunskap. Fördela faktan mellan dem: den
+  ena börjar på en detalj, den andra fyller i, bekräftar eller bygger vidare
+  ("Ja, och den hör ju till...", "Precis, och lätet brukar..."). De kan förstås
+  hålla med och reagera varmt på varandra – men som två som redan kan, inte som
+  en som lär ut till en som inte vet.
+- Nyfikna följdfrågor är fortfarande fina, men låt dem vara frågor mellan likar
+  ("Hörde du den flitigt i natt?"), inte kunskapsfrågor ("vad är det för fågel?").
+
 ANVÄND v3:s AUDIO-TAGGAR FRIKOSTIGT (de gör leveransen levande):
 - Tillåtna taggar i hakparentes: [warmly], [thoughtful], [softly], [chuckles],
   [laughs], [surprised], [curious], [sighs]. Pauser skrivs med "..." .
@@ -113,8 +128,9 @@ ANVÄND v3:s AUDIO-TAGGAR FRIKOSTIGT (de gör leveransen levande):
 - Variera taggarna – upprepa inte samma. Undvik bara att sätta en tagg på VARENDA
   replik (då blir det teatraliskt); målet är levande, inte överspelat.
 - Exempel:
-    {{HOST_A}}: [curious] Och gråhägern då, hörde du den?
-    {{HOST_B}}: [warmly] Mm... [chuckles] den där urtidsrösten, ja.
+    {{HOST_A}}: [warmly] Gråhägern, ja ... den där hesa, nästan urtida rösten.
+    {{HOST_B}}: [thoughtful] Mm. Och den är ju ensam i sitt släkte här hos oss –
+    [warmly] alltid lika fin att få med.
 
 # --- TON & REGLER ---
 - Lugn, kunnig morgonradio. Väv gärna in artkunskapen (kategori 2 ovan) så
