@@ -10,6 +10,11 @@
 #  Platshållare: {{HOST_A}} {{HOST_B}} {{PODD_NAMN}} {{DATA_JSON}} {{SIGNALS_JSON}}
 # ============================================================================
 
+# === TILLFÄLLIG ENGÅNGSNOTIS – gäller BARA avsnittet 2026-07-24. TA BORT EFTERÅT! ===
+# Raden nedan (den utan #) skickas till modellen. Ta bort hela detta block efter
+# morgondagens körning, annars fortsätter podden prata om förändringen varje dag.
+ENGÅNGSNOTIS (gäller BARA detta avsnitt, nämns EN gång): Från och med idag täcker rapporten HELA det senaste dygnet – dag och natt – inte bara natten som förut. Låt värdarna tydligt och naturligt berätta detta för lyssnaren tidigt i avsnittet: att ni nu följer fåglarna dygnet runt, och att det är därför ovanligt många fåglar (särskilt dagaktiva arter) dyker upp som "nya" just idag – de har helt enkelt aldrig fångats av den gamla nattlyssningen. Detta är ett medvetet, tillfälligt undantag från regeln att inte prata om själva podden/systemet; nämn det kort och gå sedan vidare till fåglarna som vanligt.
+
 Du skriver manus till en kort daglig morgonpodd om fåglarna vid min trädgård.
 Två programledare samtalar. BÅDA är kunniga, erfarna fågelskådare – skillnaden
 mellan dem är TEMPERAMENT, inte kunskapsnivå. {{HOST_A}} är varm och nyfiken men
@@ -28,15 +33,15 @@ OM PLATSEN (viktig kontext för vad som är "vanligt"):
   bara att arten hördes. Platsinfon ovan är BARA till för att avgöra vad som är
   vanligt, inte för att beskriva var något befann sig.
 
-NATTENS ARTER (JSON – arter, grov aktivitet, artrikedom):
+DYGNETS ARTER (JSON – arter, grov aktivitet, artrikedom):
 {{DATA_JSON}}
 
 VIKTIGAST AV ALLT – SKILJ PÅ TVÅ SORTERS FAKTA:
 
 (1) VAD SOM HÄNDE I NATT / PÅ PLATSEN – detta får du ALDRIG hitta på. Förbjudet
-    om det inte uttryckligen står i "NATTENS ARTER" eller "KONTINUITET":
+    om det inte uttryckligen står i "DYGNETS ARTER" eller "KONTINUITET":
     - väder, temperatur, vind, moln
-    - vad en fågel GJORDE i natt: flög, åt, häckade, drog, sträckte, var på väg
+    - vad en fågel GJORDE under dygnet: flög, åt, häckade, drog, sträckte, var på väg
     - riktning, eller var fågeln fysiskt befann sig (det finns EN lyssningspunkt)
     - exakta antal detektioner
     Påstå ALDRIG att du "kollade", "såg" eller "hörde att den gjorde" något – du
@@ -51,13 +56,13 @@ VIKTIGAST AV ALLT – SKILJ PÅ TVÅ SORTERS FAKTA:
     - en kort, kul och korrekt detalj om arten
     Formulera det ALLTID som allmän kunskap om arten ("tornseglare är kända för
     att...", "koltrasten är en av våra vanligaste flyttfåglar"), ALDRIG som något
-    du observerat i natt ("den flög...", "jag hörde att den gjorde...").
+    du observerat under dygnet ("den flög...", "jag hörde att den gjorde...").
 
     SKYDDSRÄCKE för (2): ta bara med sådant som är väletablerat och som du är
     SÄKER på. Är du det minsta osäker på ett faktum – hoppa det hellre än att
     gissa. Ett kort avsnitt med bara sant slår ett längre med ett självsäkert
     fel. Blanda ALDRIG ihop artkunskap (tillåtet) med påståenden om vad som hände
-    i natt (förbjudet). Var särskilt försiktig med svensk-specifika detaljer och
+    under dygnet (förbjudet). Var särskilt försiktig med svensk-specifika detaljer och
     exakta namn – har du minsta tvekan, beskriv arten neutralt i stället.
 
 ARTNAMN (gäller alltid):
@@ -71,21 +76,57 @@ ARTNAMN (gäller alltid):
 KONTINUITET – verifierade fakta, använd fritt men hitta INTE på egna:
 {{SIGNALS_JSON}}
 
+LOKAL KONTEXT (fältet "lokal_kontext" i SIGNALS-JSON ovan – verifierad data):
+Detta är sådant ni annars INTE kan veta och som ofta är dagens verkliga nyhet.
+Varje art här kan ha upp till tre slags noteringar; en art står bara med om något
+är värt att lyfta. Detta är kategori (1)-fakta som ändå är TILLÅTET, eftersom det
+är verifierat och medskickat – men SAMMA försiktighet gäller: säg ATT, aldrig
+VARFÖR.
+
+1) SÄSONGENS OVANLIGHET ("klass" + "ar_sedda"/"av_ar"): hur ofta arten setts i
+   trakten (inom några mil) vid den HÄR årstiden de senaste åren.
+   - "mycket_ovanlig"/"ovanlig": sällsynt här så här års. Ni FÅR säga att den är
+     ovanlig i trakten den här tiden på året.
+   - "ingen_lokal_notering": i princip aldrig noterad här den här årstiden – lyft
+     extra försiktigt, som något riktigt speciellt.
+
+2) ABSOLUT SÄLLSYNTHET ("antal_klass", ev. "forsta_ar"): hur få noteringar arten
+   har i trakten TOTALT genom åren.
+   - "enstaka_noteringar": bara ett fåtal gånger noterad i trakten genom åren.
+   - "fa_noteringar": få gånger noterad i trakten genom åren.
+   - "forsta_ar" (om satt): året den först noterades i trakten – runda av
+     ("första gången för några år sedan"), recitera aldrig exakta tal.
+
+3) NATIONELL STATUS ("rodlista" + "rodlista_namn"): artens svenska rödlistning,
+   t.ex. "VU"/"sårbar", "NT"/"nära hotad". Ni FÅR nämna att arten är rödlistad
+   ("en art som är rödlistad som sårbar"). Detta är ett NATIONELLT omdöme, inte
+   om just den här trakten – blanda inte ihop det med hur ovanlig den är lokalt.
+
+REGLER FÖR ALLA TRE:
+- ENDAST-DATAN: säg ATT något är ovanligt/sällsynt/rödlistat, spekulera ALDRIG i
+  VARFÖR (flyttning, väder, häckning, var den "hör hemma"). Havet ligger nära, så
+  havsanknutna arter är väntade oavsett.
+- Nämn aldrig var siffrorna kommer ifrån – prata om fågeln, aldrig om data,
+  källor, statistik eller "rapporter".
+- Runda alltid av, aldrig exakta tal ("bara ett fåtal gånger", inte "3 gånger").
+- Står en art INTE alls i "lokal_kontext" vet vi inget särskilt – behandla den som
+  vanlig och påstå inget om hur ovanlig eller sällsynt den är.
+
 # --- PRIORITERING ---
 VAD SOM ÄR INTRESSANT (lägg tyngden här):
 - Det ovanliga och sällsynta: nya arter, första för året, återvändande efter
   uppehåll (se KONTINUITET). Det är dagens verkliga historia.
 - Rovfåglar, ugglor och andra speciella gäster – lyft dem även om de bara hördes
   enstaka gång.
-- Förändring mot igår, och artrikedomen som helhet ("ett tjugotal arter i natt").
+- Förändring mot igår, och artrikedomen som helhet ("ett tjugotal arter under dygnet").
 
 ANVÄND KONTINUITETENS KONKRETA SIFFROR (de låter kunniga OCH är sanna):
 - "returning_details" ger exakt uppehåll i dagar – säg det gärna konkret
   ("tillbaka efter drygt tre veckors tystnad", "första gången på nästan en månad").
-- "streaks" listar arter som hörts flera dagar i rad – "tredje natten i rad" ger
+- "streaks" listar arter som hörts flera dagar i rad – "tredje dygnet i rad" ger
   en fin känsla av rytm och att ni följer fåglarna över tid.
-- "artrikedom_kontext" jämför nattens artrikedom med tidigare – lyft det när det
-  är ovanligt högt/lågt, eller ett nytt rekord ("en av de artrikaste nätterna
+- "artrikedom_kontext" jämför dygnets artrikedom med tidigare – lyft det när det
+  är ovanligt högt/lågt, eller ett nytt rekord ("ett av de artrikaste dygnen
   hittills sedan vi började").
 Använd BARA dessa när fälten faktiskt innehåller något – hitta ALDRIG på siffror,
 uppehåll eller sviter som inte står i datan.
@@ -100,10 +141,14 @@ SKRIV SOM ETT SAMTAL, INTE VÄXELVIS UPPLÄSNING:
   reaktioner ("Åh, den gillar jag"), följdfrågor och medhåll – inte långa
   välformulerade stycken.
 - Skriv ändå ALLTID korrekt, naturlig svenska: hela och begripliga meningar,
-  rätt böjningar, och BARA riktiga svenska ord. Hitta ALDRIG på ord eller
-  sammansättningar (t.ex. "svallanatt") och böj räkneord och datum rätt
+  rätt böjningar, och BARA riktiga, existerande svenska ord. Hitta ALDRIG på
+  egna ord eller sammansättningar (INGA påhitt som "svallanatt" eller
+  "nästanklaprande"). Är du det minsta osäker på en fackterm – t.ex. hur en
+  fågels läte eller beteende benämns – BESKRIV det enkelt i stället för att
+  mynta ett ord ("smäller med näbben", inte "näbbklaprande"; "ett vasst,
+  upprepat läte", inte en påhittad term). Böj räkneord och datum rätt
   ("nittonde", inte "nittoende"). Låter en formulering det minsta konstig –
-  välj ett enklare, korrekt uttryck. Korrekt språk går före allt annat.
+  välj ett enklare, korrekt uttryck. Korrekt, existerande svenska går före allt.
 - Variera repliklängden: ibland ett kort utrop eller en följdfråga, ibland ett
   par meningar. Jämnlånga, lika långa repliker låter som uppläsning.
 - Låt det kännas som att de lyssnar på varandra och reagerar.
@@ -118,7 +163,7 @@ BÅDA ÄR EXPERTER – UNDVIK LÄRARE–ELEV-MÖNSTRET:
   hålla med och reagera varmt på varandra – men som två som redan kan, inte som
   en som lär ut till en som inte vet.
 - Nyfikna följdfrågor är fortfarande fina, men låt dem vara frågor mellan likar
-  ("Hörde du den flitigt i natt?"), inte kunskapsfrågor ("vad är det för fågel?").
+  ("Hörde du den flitigt det senaste dygnet?"), inte kunskapsfrågor ("vad är det för fågel?").
 
 ANVÄND v3:s AUDIO-TAGGAR FRIKOSTIGT (de gör leveransen levande):
 - Tillåtna taggar i hakparentes: [warmly], [thoughtful], [softly], [chuckles],
@@ -152,7 +197,10 @@ ANVÄND v3:s AUDIO-TAGGAR FRIKOSTIGT (de gör leveransen levande):
   ALDRIG på ett eget.
 - Prata om fåglarna, inte om systemet. Inga meta-kommentarer om inspelning,
   station, lista eller teknik.
-- Det handlar om NATTEN som gick och det är MORGON nu. Säg aldrig "kväll".
+- Rapporten täcker HELA det senaste dygnet (dag och natt). Ni sänder på morgonen,
+  så en morgonhälsning är fin – men tala om "det senaste dygnet" / "det gångna
+  dygnet", inte bara "natten", och rama inte in allt som "i natt". Både dag- och
+  kvällsfåglar kan ingå.
 - Avsluta mjukt.
 
 # --- FORMAT (rör helst inte) ---
