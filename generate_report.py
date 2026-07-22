@@ -2,12 +2,12 @@
 """
 Daily BirdWeather -> two-host Swedish voice podcast with memory of past days.
 
-Two AI hosts (Astrid & Erik) chat about last night's birds, like a NotebookLM-style
+Two AI hosts (Astrid & Erik) chat about the last day's birds, like a NotebookLM-style
 deep dive but automated, scheduled, in Swedish, and tuned to one station.
 
 Pipeline (runs on GitHub Actions, no server needed):
   1. Load history.json (the repo IS the database).
-  2. Pull last night's detections from the BirdWeather API.
+  2. Pull the last 24h of detections from the BirdWeather API.
   3. Compute continuity FACTS in Python (new / returning / first-of-year / vs-yesterday)
      so the hosts reference real things, never hallucinated ones.
   4. Ask Claude for a two-host DIALOGUE as JSON: [{speaker, text}, ...].
@@ -47,6 +47,13 @@ from xml.sax.saxutils import escape
 from zoneinfo import ZoneInfo
 
 import requests
+
+# Lokal artkontext från Artportalen (SLU Artdatabanken). Valfri: saknas modulen
+# eller dess cacher körs podden precis som förut, bara utan lokal-ovanlig-signal.
+try:
+    import artportalen
+except Exception:
+    artportalen = None
 
 # ---------------------------------------------------------------------------
 # Config
@@ -270,15 +277,17 @@ def fetch_birdweather():
     # topSpecies over the last 24h gives per-species counts for the day; we sum
     # them for the total and count the list for species richness. A high limit
     # makes sure we capture every species heard, not just the very top ones.
-    # 8 timmar bakåt från körningen. Vid morgonkörning (~06) motsvarar det i
-    # praktiken natten (~22–06). OBS: fönstret räknas bakåt från NÄR jobbet kör,
-    # inte från fasta klockslag – kör du mitt på dagen blir det inte natt.
+    # 24 timmar (ett helt dygn) bakåt från körningen. Vid morgonkörning (~06)
+    # täcker fönstret gårdagens dag + kväll + natt + morgonens gryning fram till
+    # körtid – alltså BÅDE dag- och nattfåglar. OBS: fönstret räknas rullande
+    # bakåt från NÄR jobbet kör, inte från fasta klockslag eller kalenderdygn.
+    # (Tidigare 8h ≈ natten; breddat till 24h-dygn 2026-07-24.)
     query = """
     query ($id: ID!) {
       station(id: $id) {
         id
         name
-        topSpecies(limit: 200, period: {count: 8, unit: "hour"}) {
+        topSpecies(limit: 200, period: {count: 24, unit: "hour"}) {
           count
           species {
             commonName
@@ -404,7 +413,7 @@ def derive_signals(today, history):
     # --- Rikare, DATA-GRUNDADE expert-krokar. Allt nedan är RÄKNAT ur den
     # verkliga historiken – inga påståenden om beteende/väder/plats. Ger värdarna
     # konkreta, sanna detaljer att låta kunniga på ("efter 23 dagars tystnad",
-    # "tredje natten i rad", "en av de artrikaste nätterna hittills"). ---------
+    # "tredje dygnet i rad", "ett av de artrikaste dygnen hittills"). ---------
     by_date = {d["date"]: _day_keys(d) for d in recent}
 
     # Uppehållets längd i dagar för varje återvändande art (sedan senast hörd).
@@ -415,7 +424,7 @@ def derive_signals(today, history):
             gap = (TODAY - dt.date.fromisoformat(max(prev_dates))).days
             returning_details.append({"art": display[k], "dagars_uppehall": gap})
 
-    # Svit: hur många dagar i följd (inkl. i natt) arten hörts. Bara >=3 är värt
+    # Svit: hur många dagar i följd (inkl. innevarande dygn) arten hörts. Bara >=3 är värt
     # att nämna. Kräver att historiken faktiskt har posterna för mellandagarna –
     # ett missat dygn bryter sviten (ärligt: då vet vi inte att den var i rad).
     streaks = []
@@ -437,6 +446,16 @@ def derive_signals(today, history):
         and today["species_count"] > rekord_tidigare,
     }
 
+    # Lokal ovanlighet från Artportalen: läses ur cache (inga nätanrop). Tyst
+    # tom lista om modulen/cachen saknas eller något strular – ska ALDRIG kunna
+    # fälla den dagliga körningen.
+    lokal_kontext = []
+    if artportalen is not None:
+        try:
+            lokal_kontext = artportalen.local_context(today_species)
+        except Exception:
+            lokal_kontext = []
+
     # Signalerna innehåller SVENSKA visningsnamn (inte de vetenskapliga nycklarna)
     # så prompten får rätt namn precis som förut.
     return {
@@ -447,6 +466,7 @@ def derive_signals(today, history):
         "streaks":             streaks,
         "artrikedom_kontext":  artrikedom_kontext,
         "vs_yesterday":        vs_yesterday,
+        "lokal_kontext":       lokal_kontext,
         "days_recorded":       len(recent) + 1,
         "total_species_ever":  len(species_ever) + len(new_keys),
     }
@@ -465,7 +485,7 @@ PROMPT_DIALOG_PATH = Path("prompt_dialog.txt")   # används när TTS_PROVIDER=el
 # Edit prompt.txt, NOT this string.
 DEFAULT_PROMPT = """Du skriver manus till en kort daglig morgonpodd om faglarna.
 Tva programledare samtalar: {{HOST_A}} (nyfiken, varm) och {{HOST_B}} (lugn, kunnig).
-GARNATTENS DATA (JSON):
+DYGNETS DATA (JSON):
 {{DATA_JSON}}
 KONTINUITET – verifierade fakta, hitta inte pa egna:
 {{SIGNALS_JSON}}
@@ -849,7 +869,10 @@ FALLBACK_TEMPLATE = """<!doctype html><html lang="sv"><head><meta charset="utf-8
 </head><body><h1>%%TITLE%%</h1><p>%%DESC%%</p>
 <p><a href="%%FEED_URL%%">RSS</a> · <a href="%%APPLE_URL%%">Apple Podcasts</a>
 · <a href="%%BIRDTUNES_URL%%">Stationens data</a></p>
-<div>%%LATEST%%</div><h2>Tidigare avsnitt</h2><ul>%%ROWS%%</ul></body></html>"""
+<div>%%LATEST%%</div><h2>Tidigare avsnitt</h2><ul>%%ROWS%%</ul>
+<footer><p>Lokal artdata från Artportalen (SLU Artdatabanken), använd enligt
+<a href="https://www.slu.se/artdatabanken/rapportering-och-fynd/oppna-data-och-apier/api-villkor/" rel="nofollow">deras API-villkor</a>.
+Sidan drivs inte av och representerar inte SLU.</p></footer></body></html>"""
 
 
 def build_index(mp3s):
@@ -944,7 +967,7 @@ def main():
     # mot faktisk data (för att skilja hallucination från vy-/tidsfönster-skillnad).
     data_path = EPISODES_DIR / f"{today['date']}.data.txt"
     data_lines = [
-        f"Hämtat {today['date']} – fönster: senaste 8 timmarna",
+        f"Hämtat {today['date']} – fönster: senaste dygnet (24 timmar)",
         f"Station: {today.get('station_name')}",
         f"Artrikedom: {today['species_count']}",
         "",
