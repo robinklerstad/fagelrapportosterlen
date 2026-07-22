@@ -35,7 +35,10 @@
     "Thalasseus sandvicensis": "2026-07-16",
     "Dendrocopos major": "2026-07-18",
     "Larus michahellis": "2026-07-19",
-    "Ardea alba": "2026-07-19"
+    "Ardea alba": "2026-07-19",
+    "Milvus milvus": "2026-07-22",
+    "Vanellus vanellus": "2026-07-22",
+    "Ciconia ciconia": "2026-07-22"
   },
   "recent_days": [
     {
@@ -805,6 +808,88 @@
         {
           "sci": "Corvus monedula",
           "name": "kaja"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-22",
+      "species_count": 19,
+      "top": [
+        {
+          "sci": "Columba palumbus",
+          "name": "ringduva"
+        },
+        {
+          "sci": "Hirundo rustica",
+          "name": "ladusvala"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Larus michahellis",
+          "name": "medelhavstrut"
+        },
+        {
+          "sci": "Larus canus",
+          "name": "fiskmås"
+        },
+        {
+          "sci": "Delichon urbicum",
+          "name": "hussvala"
+        },
+        {
+          "sci": "Apus apus",
+          "name": "tornseglare"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Turdus merula",
+          "name": "koltrast"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Sturnus vulgaris",
+          "name": "stare"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Buteo buteo",
+          "name": "ormvråk"
+        },
+        {
+          "sci": "Milvus milvus",
+          "name": "röd glada"
+        },
+        {
+          "sci": "Turdus philomelos",
+          "name": "taltrast"
+        },
+        {
+          "sci": "Vanellus vanellus",
+          "name": "tofsvipa"
+        },
+        {
+          "sci": "Ciconia ciconia",
+          "name": "vit stork"
         }
       ]
     }
