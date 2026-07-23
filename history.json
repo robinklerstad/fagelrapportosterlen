@@ -38,7 +38,8 @@
     "Ardea alba": "2026-07-19",
     "Milvus milvus": "2026-07-22",
     "Vanellus vanellus": "2026-07-22",
-    "Ciconia ciconia": "2026-07-22"
+    "Ciconia ciconia": "2026-07-22",
+    "Carduelis carduelis": "2026-07-23"
   },
   "recent_days": [
     {
@@ -890,6 +891,84 @@
         {
           "sci": "Ciconia ciconia",
           "name": "vit stork"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "species_count": 18,
+      "top": [
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Hirundo rustica",
+          "name": "ladusvala"
+        },
+        {
+          "sci": "Apus apus",
+          "name": "tornseglare"
+        },
+        {
+          "sci": "Columba palumbus",
+          "name": "ringduva"
+        },
+        {
+          "sci": "Delichon urbicum",
+          "name": "hussvala"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Larus michahellis",
+          "name": "medelhavstrut"
+        },
+        {
+          "sci": "Sturnus vulgaris",
+          "name": "stare"
+        },
+        {
+          "sci": "Turdus merula",
+          "name": "koltrast"
+        },
+        {
+          "sci": "Passer montanus",
+          "name": "pilfink"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Larus canus",
+          "name": "fiskmås"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Sterna hirundo",
+          "name": "fisktärna"
+        },
+        {
+          "sci": "Linaria cannabina",
+          "name": "hämpling"
+        },
+        {
+          "sci": "Grus grus",
+          "name": "trana"
         }
       ]
     }
