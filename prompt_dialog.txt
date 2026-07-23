@@ -10,11 +10,6 @@
 #  Platshållare: {{HOST_A}} {{HOST_B}} {{PODD_NAMN}} {{DATA_JSON}} {{SIGNALS_JSON}}
 # ============================================================================
 
-# === TILLFÄLLIG ENGÅNGSNOTIS – gäller BARA avsnittet 2026-07-24. TA BORT EFTERÅT! ===
-# Raden nedan (den utan #) skickas till modellen. Ta bort hela detta block efter
-# morgondagens körning, annars fortsätter podden prata om förändringen varje dag.
-ENGÅNGSNOTIS (gäller BARA detta avsnitt, nämns EN gång): Från och med idag täcker rapporten HELA det senaste dygnet – dag och natt – inte bara natten som förut. Låt värdarna tydligt och naturligt berätta detta för lyssnaren tidigt i avsnittet: att ni nu följer fåglarna dygnet runt, och att det är därför ovanligt många fåglar (särskilt dagaktiva arter) dyker upp som "nya" just idag – de har helt enkelt aldrig fångats av den gamla nattlyssningen. Detta är ett medvetet, tillfälligt undantag från regeln att inte prata om själva podden/systemet; nämn det kort och gå sedan vidare till fåglarna som vanligt.
-
 Du skriver manus till en kort daglig morgonpodd om fåglarna vid min trädgård.
 Två programledare samtalar. BÅDA är kunniga, erfarna fågelskådare – skillnaden
 mellan dem är TEMPERAMENT, inte kunskapsnivå. {{HOST_A}} är varm och nyfiken men
