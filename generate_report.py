@@ -514,6 +514,25 @@ def _script_view(today):
     }
 
 
+def recent_scripts(n=4):
+    """De senaste n manusen ur docs/episodes/ (nyast först), så modellen kan se
+    vad den redan sagt och slippa upprepa samma godbitar/formuleringar. Dagens
+    manus finns inte på disk än när detta körs, så det kommer aldrig med. Tyst
+    tom sträng om inget finns – ska ALDRIG kunna fälla den dagliga körningen."""
+    try:
+        EPISODES_DIR.mkdir(parents=True, exist_ok=True)
+        files = sorted(
+            (p for p in EPISODES_DIR.glob("*.txt")
+             if not p.name.endswith(".data.txt")),
+            reverse=True,
+        )[:n]
+        chunks = [f"--- {p.stem} ---\n{p.read_text(encoding='utf-8').strip()}"
+                  for p in files]
+        return "\n\n".join(chunks)
+    except Exception:
+        return ""
+
+
 def build_prompt(today, signals):
     # I ElevenLabs-läge används den samtalsanpassade dialog-prompten om den finns;
     # annars faller vi tillbaka på den vanliga prompten (och sist på inbyggd default).
@@ -540,6 +559,7 @@ def build_prompt(today, signals):
         .replace("{{PODD_NAMN}}", PODCAST_TITLE)
         .replace("{{DATA_JSON}}", json.dumps(_script_view(today), ensure_ascii=False, indent=2))
         .replace("{{SIGNALS_JSON}}", json.dumps(signals, ensure_ascii=False, indent=2))
+        .replace("{{RECENT_SCRIPTS}}", recent_scripts() or "(inga tidigare avsnitt än)")
     )
 
 
