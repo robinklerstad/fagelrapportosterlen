@@ -1,0 +1,115 @@
+{
+  "Anas platyrhynchos": {
+    "id": 102933
+  },
+  "Anser anser": {
+    "id": 102928
+  },
+  "Apus apus": {
+    "id": 102976
+  },
+  "Ardea alba": {
+    "id": 205497
+  },
+  "Ardea cinerea": {
+    "id": 100012
+  },
+  "Buteo buteo": {
+    "id": 102942
+  },
+  "Carduelis carduelis": {
+    "id": 103043
+  },
+  "Chroicocephalus ridibundus": {
+    "id": 102963
+  },
+  "Ciconia ciconia": {
+    "id": 100031
+  },
+  "Columba palumbus": {
+    "id": 102971
+  },
+  "Corvus corax": {
+    "id": 103036
+  },
+  "Corvus cornix": null,
+  "Corvus monedula": null,
+  "Curruca curruca": {
+    "id": 103008
+  },
+  "Cyanistes caeruleus": {
+    "id": 103025
+  },
+  "Delichon urbicum": {
+    "id": 102981
+  },
+  "Dendrocopos major": {
+    "id": 102978
+  },
+  "Fulica atra": {
+    "id": 102949
+  },
+  "Grus grus": {
+    "id": 100065
+  },
+  "Haematopus ostralegus": {
+    "id": 102950
+  },
+  "Hirundo rustica": {
+    "id": 102980
+  },
+  "Larus argentatus": {
+    "id": 102966
+  },
+  "Larus canus": {
+    "id": 102964
+  },
+  "Larus marinus": {
+    "id": 102967
+  },
+  "Larus michahellis": {
+    "id": 205663
+  },
+  "Linaria cannabina": {
+    "id": 103045
+  },
+  "Milvus milvus": {
+    "id": 100082
+  },
+  "Motacilla alba": {
+    "id": 102987
+  },
+  "Muscicapa striata": {
+    "id": 103017
+  },
+  "Passer domesticus": {
+    "id": 103038
+  },
+  "Passer montanus": {
+    "id": 103039
+  },
+  "Phylloscopus collybita": {
+    "id": 103013
+  },
+  "Sterna hirundo": {
+    "id": 102618
+  },
+  "Sturnus vulgaris": {
+    "id": 103037
+  },
+  "Thalasseus sandvicensis": {
+    "id": 100135
+  },
+  "Tringa totanus": {
+    "id": 102958
+  },
+  "Turdus merula": {
+    "id": 102998
+  },
+  "Turdus philomelos": {
+    "id": 103000
+  },
+  "Vanellus vanellus": {
+    "id": 102952
+  }
+}
