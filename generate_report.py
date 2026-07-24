@@ -101,6 +101,7 @@ EPISODES_DIR = DOCS_DIR / "episodes"
 FEED_PATH    = DOCS_DIR / "feed.xml"
 INDEX_PATH   = DOCS_DIR / "index.html"
 SV_NAMES_PATH = Path("species_sv.json")   # cache: vetenskapligt namn -> svenskt namn
+NOTIS_PATH    = Path("dagens_notis.txt")  # frivillig tillfällig notis (shoutout m.m.); tom = ingen notis
 
 PODCAST_TITLE  = "Ö24 Bird Data"
 PODCAST_DESC   = "Daglig fågelrapport från vår BirdWeather-station i Simrishamn – skriven och uppläst av AI-rösterna Astrid och Erik."
@@ -533,6 +534,21 @@ def recent_scripts(n=4):
         return ""
 
 
+def daily_note():
+    """Frivillig tillfällig notis (t.ex. en shoutout) ur dagens_notis.txt.
+    Rader som börjar med # är kommentarer och skickas inte med. Är filen tom
+    eller saknas injiceras INGENTING – notisen kan alltså aldrig fastna och
+    upprepas dag efter dag av misstag (töm filen efter körningen)."""
+    try:
+        if not NOTIS_PATH.exists():
+            return ""
+        lines = [ln for ln in NOTIS_PATH.read_text(encoding="utf-8").splitlines()
+                 if not ln.lstrip().startswith("#")]
+        return "\n".join(lines).strip()
+    except Exception:
+        return ""
+
+
 def build_prompt(today, signals):
     # I ElevenLabs-läge används den samtalsanpassade dialog-prompten om den finns;
     # annars faller vi tillbaka på den vanliga prompten (och sist på inbyggd default).
@@ -552,6 +568,14 @@ def build_prompt(today, signals):
         if marker not in template:
             print(f"  VARNING: platshållaren {marker} saknas i promptfilen")
 
+    note = daily_note()
+    note_block = (
+        "TILLFÄLLIG NOTIS – ta med den EN gång, väv in den naturligt och gå sedan "
+        "vidare som vanligt. Följ de ton- och placeringsönskemål som står i själva "
+        "notisen nedan:\n"
+        + note
+    ) if note else ""
+
     return (
         template
         .replace("{{HOST_A}}", HOST_A)
@@ -560,6 +584,7 @@ def build_prompt(today, signals):
         .replace("{{DATA_JSON}}", json.dumps(_script_view(today), ensure_ascii=False, indent=2))
         .replace("{{SIGNALS_JSON}}", json.dumps(signals, ensure_ascii=False, indent=2))
         .replace("{{RECENT_SCRIPTS}}", recent_scripts() or "(inga tidigare avsnitt än)")
+        .replace("{{DAGENS_NOTIS}}", note_block)
     )
 
 
