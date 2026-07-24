@@ -1,0 +1,21 @@
+# ============================================================================
+#  TILLFÄLLIG NOTIS  —  en engångssak som vävs in i NÄSTA avsnitt.
+#
+#  Så här funkar den:
+#   - Skriv det du vill att Astrid & Erik nämner: en shoutout, ett tack, en
+#     hälsning, en liten kungörelse.
+#   - Skriv gärna själva TONEN och PLACERINGEN i texten, eftersom det kan skilja
+#     sig från gång till gång. Modellen följer det du skriver här. Exempel:
+#       "på slutet, varmt och personligt, låt det få ett par meningar"
+#       "kort och lekfullt, gärna tidigt i avsnittet"
+#   - Rader som börjar med # är kommentarer och skickas INTE till modellen.
+#   - Är filen tom (bara kommentarer) nämns ingenting alls.
+#
+#  VIKTIGT: TÖM textraderna efter att avsnittet körts – annars upprepas notisen
+#  varje dag tills du tar bort den. (Kommentera ut eller radera texten.)
+# ============================================================================
+
+Nära avslutet: ge en varm, personlig shoutout till Macke och Marie och tacka
+dem för att de är så trogna lyssnare. Låt det få en naturlig upptakt och ett par
+meningar att andas på – inte en hastig sista mening – men håll det innerligt och
+inte överdrivet.
