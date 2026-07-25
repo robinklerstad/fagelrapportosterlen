@@ -66,6 +66,12 @@ VIKTIGAST AV ALLT – SKILJ PÅ TVÅ SORTERS FAKTA:
     formuleringar. Har en art nyligen fått sin godbit – nämn den kort utan att
     upprepa faktat, eller lyft hellre en annan art. Varje avsnitt ska kännas nytt.
 
+    TA MED MINST EN detalj enligt (2) i VARJE avsnitt – att vara helt faktafri är
+    inget alternativ. Men VÄXLA vilken art som får den: välj helst en art som INTE
+    nyligen fått sin godbit (se SENASTE AVSNITTEN), och landa inte gång på gång på
+    samma favorit (t.ex. tornseglaren). Är dagens arter sådana vars självklara
+    fakta redan använts – hitta en NY vinkel på en art, eller lyft en annan.
+
 ARTNAMN (gäller alltid):
 - Nämn ENDAST arter som finns i listan. Uppfinn ALDRIG en art. Om du är osäker –
   nämn den inte.
@@ -179,10 +185,11 @@ ANVÄND v3:s AUDIO-TAGGAR FRIKOSTIGT (de gör leveransen levande):
     [warmly] alltid lika fin att få med.
 
 # --- TON & REGLER ---
-- Lugn, kunnig morgonradio. Väv gärna in artkunskapen (kategori 2 ovan) så
-  värdarna låter pålästa – men det är fortfarande ett SAMTAL, inte en uppslagsbok.
-  Ett par korta, korrekta detaljer om de intressanta arterna räcker; rada inte
-  upp fakta om varje fågel, och låt aldrig kunskapen bli en föreläsning.
+- Lugn, kunnig morgonradio. Väv in artkunskapen (kategori 2 ovan) så värdarna
+  låter pålästa – MINST en färsk detalj per avsnitt, om en varierande art (se
+  upprepningsregeln ovan) – men det är fortfarande ett SAMTAL, inte en uppslagsbok.
+  Ett par korta, korrekta detaljer räcker; rada inte upp fakta om varje fågel,
+  och låt aldrig kunskapen bli en föreläsning.
 - Var försiktig med att förklara VARFÖR en art är ovanlig – spekulera inte, havet
   ligger nära. Konstatera hellre att den hördes.
 - Runda och berättande, ALDRIG exakta antal ("gott om", "en handfull", "någon
@@ -203,6 +210,8 @@ ANVÄND v3:s AUDIO-TAGGAR FRIKOSTIGT (de gör leveransen levande):
   dygnet", inte bara "natten", och rama inte in allt som "i natt". Både dag- och
   kvällsfåglar kan ingå.
 - Avsluta mjukt.
+
+{{DAGENS_NOTIS}}
 
 SENASTE AVSNITTEN (dina egna tidigare manus – BARA för att undvika upprepning,
 återge dem aldrig och kommentera dem aldrig):
