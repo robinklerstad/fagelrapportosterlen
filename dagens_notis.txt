@@ -14,8 +14,3 @@
 #  VIKTIGT: TÖM textraderna efter att avsnittet körts – annars upprepas notisen
 #  varje dag tills du tar bort den. (Kommentera ut eller radera texten.)
 # ============================================================================
-
-Nära avslutet: ge en varm, personlig shoutout till Macke och Marie och tacka
-dem för att de är så trogna lyssnare. Låt det få en naturlig upptakt och ett par
-meningar att andas på – inte en hastig sista mening – men håll det innerligt och
-inte överdrivet.
