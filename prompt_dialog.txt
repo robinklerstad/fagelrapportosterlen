@@ -66,11 +66,21 @@ VIKTIGAST AV ALLT – SKILJ PÅ TVÅ SORTERS FAKTA:
     formuleringar. Har en art nyligen fått sin godbit – nämn den kort utan att
     upprepa faktat, eller lyft hellre en annan art. Varje avsnitt ska kännas nytt.
 
-    TA MED MINST EN detalj enligt (2) i VARJE avsnitt – att vara helt faktafri är
-    inget alternativ. Men VÄXLA vilken art som får den: välj helst en art som INTE
-    nyligen fått sin godbit (se SENASTE AVSNITTEN), och landa inte gång på gång på
-    samma favorit (t.ex. tornseglaren). Är dagens arter sådana vars självklara
-    fakta redan använts – hitta en NY vinkel på en art, eller lyft en annan.
+    TA MED EN – HÖGST TVÅ – faktadetaljer enligt (2) per avsnitt, inte fler. De
+    FLESTA arter ska nämnas helt UTAN faktapåle; att stapla ett faktum på varje
+    fågel gör avsnittet långt och trögt (och ökar risken för fel). Att vara helt
+    faktafri är inte heller ett alternativ – landa på en, ibland två.
+
+    Detaljen behöver INTE vara om den ovanligaste arten. Ofta är det roligare med
+    en oväntad detalj om en till synes vardaglig art – något om gråsparven eller
+    kajan man inte visste – än ännu ett faktum om en självklar gäst. Välj den
+    detalj som känns färskast och mest överraskande, och VÄXLA vilken art som får
+    den (se SENASTE AVSNITTEN) – landa inte gång på gång på samma favorit (t.ex.
+    tornseglaren).
+
+    FAKTAT MÅSTE STÄMMA: ta bara med sådant du är helt säker på som väletablerad
+    allmän artkunskap. Vid minsta tvekan – hoppa detaljen hellre än att gissa. Ett
+    kort, korrekt avsnitt är alltid bättre än ett med ett självsäkert faktafel.
 
 ARTNAMN (gäller alltid):
 - Nämn ENDAST arter som finns i listan. Uppfinn ALDRIG en art. Om du är osäker –
@@ -170,7 +180,10 @@ BÅDA ÄR EXPERTER – UNDVIK LÄRARE–ELEV-MÖNSTRET:
   hålla med och reagera varmt på varandra – men som två som redan kan, inte som
   en som lär ut till en som inte vet.
 - Nyfikna följdfrågor är fortfarande fina, men låt dem vara frågor mellan likar
-  ("Hörde du den flitigt det senaste dygnet?"), inte kunskapsfrågor ("vad är det för fågel?").
+  ("Var den flitig det senaste dygnet?", "Höll den i sig hela dygnet?"), inte
+  kunskapsfrågor ("vad är det för fågel?"). OBS: värdarna har INTE själva hört
+  fåglarna – fråga aldrig varandra "hörde du...", och påstå aldrig att ni själva
+  hört eller sett något. Prata om vad som hördes under dygnet, opersonligt.
 
 ANVÄND v3:s AUDIO-TAGGAR FRIKOSTIGT (de gör leveransen levande):
 - Tillåtna taggar i hakparentes: [warmly], [thoughtful], [softly], [chuckles],
@@ -186,10 +199,9 @@ ANVÄND v3:s AUDIO-TAGGAR FRIKOSTIGT (de gör leveransen levande):
 
 # --- TON & REGLER ---
 - Lugn, kunnig morgonradio. Väv in artkunskapen (kategori 2 ovan) så värdarna
-  låter pålästa – MINST en färsk detalj per avsnitt, om en varierande art (se
-  upprepningsregeln ovan) – men det är fortfarande ett SAMTAL, inte en uppslagsbok.
-  Ett par korta, korrekta detaljer räcker; rada inte upp fakta om varje fågel,
-  och låt aldrig kunskapen bli en föreläsning.
+  låter pålästa – EN, högst TVÅ färska detaljer per avsnitt (se fakta-regeln ovan),
+  inte ett faktum om varje fågel. Det är ett SAMTAL, inte en uppslagsbok: de flesta
+  arter nämns helt utan faktapåle, och kunskapen får aldrig bli en föreläsning.
 - Var försiktig med att förklara VARFÖR en art är ovanlig – spekulera inte, havet
   ligger nära. Konstatera hellre att den hördes.
 - Runda och berättande, ALDRIG exakta antal ("gott om", "en handfull", "någon
