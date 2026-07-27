@@ -43,7 +43,12 @@
     "Falco tinnunculus": "2026-07-25",
     "Actitis hypoleucos": "2026-07-25",
     "Troglodytes troglodytes": "2026-07-25",
-    "Somateria mollissima": "2026-07-25"
+    "Somateria mollissima": "2026-07-25",
+    "Pica pica": "2026-07-27",
+    "Gallinago gallinago": "2026-07-27",
+    "Parus major": "2026-07-27",
+    "Emberiza citrinella": "2026-07-27",
+    "Anthus trivialis": "2026-07-27"
   },
   "recent_days": [
     {
@@ -1275,6 +1280,116 @@
         {
           "sci": "Haematopus ostralegus",
           "name": "strandskata"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-27",
+      "species_count": 26,
+      "top": [
+        {
+          "sci": "Apus apus",
+          "name": "tornseglare"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Hirundo rustica",
+          "name": "ladusvala"
+        },
+        {
+          "sci": "Columba palumbus",
+          "name": "ringduva"
+        },
+        {
+          "sci": "Delichon urbicum",
+          "name": "hussvala"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Sturnus vulgaris",
+          "name": "stare"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Larus michahellis",
+          "name": "medelhavstrut"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Larus canus",
+          "name": "fiskmås"
+        },
+        {
+          "sci": "Passer montanus",
+          "name": "pilfink"
+        },
+        {
+          "sci": "Actitis hypoleucos",
+          "name": "drillsnäppa"
+        },
+        {
+          "sci": "Buteo buteo",
+          "name": "ormvråk"
+        },
+        {
+          "sci": "Pica pica",
+          "name": "skata"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Gallinago gallinago",
+          "name": "enkelbeckasin"
+        },
+        {
+          "sci": "Parus major",
+          "name": "talgoxe"
+        },
+        {
+          "sci": "Linaria cannabina",
+          "name": "hämpling"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Emberiza citrinella",
+          "name": "gulsparv"
+        },
+        {
+          "sci": "Anthus trivialis",
+          "name": "trädpiplärka"
+        },
+        {
+          "sci": "Milvus milvus",
+          "name": "röd glada"
         }
       ]
     }
