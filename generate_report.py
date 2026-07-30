@@ -516,10 +516,30 @@ def _script_view(today):
 
 
 def recent_scripts(n=4):
-    """De senaste n manusen ur docs/episodes/ (nyast först), så modellen kan se
-    vad den redan sagt och slippa upprepa samma godbitar/formuleringar. Dagens
-    manus finns inte på disk än när detta körs, så det kommer aldrig med. Tyst
-    tom sträng om inget finns – ska ALDRIG kunna fälla den dagliga körningen."""
+    """Kompakt upprepningsminne: hur de senaste n avsnitten INLEDDES.
+
+    ÄNDRAT 2026-07-31 – detta är hela fixen. Funktionen matade tidigare in FYRA
+    KOMPLETTA MANUS (~7 000–8 600 tecken) i prompten. För en språkmodell är fyra
+    hela avsnitt inte "kontext att undvika" utan fyra EXEMPEL på hur ett avsnitt ska
+    se ut, och exempel styr hårdare än instruktioner. Följderna:
+
+      - avsnitten blev inbördes likformiga (samma upplägg, samma inledningar)
+      - ett FEL i ett tidigare manus blev ett demonstrerat exempel på ett godtagbart
+        påstående och reproducerades – t.ex. att tornseglaren är en svala, trots att
+        prompten säger motsatsen. Felet var självförstärkande så länge det låg inom
+        fyradagarsfönstret.
+      - ett ENGÅNGSINSLAG (hälsningen till Macke och Marie) bars vidare av sig själv
+        i nya avsnitt, trots att dagens_notis.txt var tömd
+
+    Nu skickas bara den första repliken ur varje manus, kapad. Det räcker för att
+    modellen ska variera sina inledningar, och det finns inget helt avsnitt att
+    imitera. Cirka 400 tecken i stället för 8 000.
+
+    MEDVETEN FÖRLUST: anti-upprepning av FAKTA försvinner tills faktaloggen finns
+    (modellen får då redovisa vilka artfakta den använt, och listan matas tillbaka).
+    Risken är att en godbit återkommer – klart mindre skada än att fel reproduceras.
+
+    Tyst tom sträng om inget finns – ska ALDRIG kunna fälla den dagliga körningen."""
     try:
         EPISODES_DIR.mkdir(parents=True, exist_ok=True)
         files = sorted(
@@ -527,9 +547,23 @@ def recent_scripts(n=4):
              if not p.name.endswith(".data.txt")),
             reverse=True,
         )[:n]
-        chunks = [f"--- {p.stem} ---\n{p.read_text(encoding='utf-8').strip()}"
-                  for p in files]
-        return "\n\n".join(chunks)
+        oppningar = []
+        for p in files:
+            for rad in p.read_text(encoding="utf-8").splitlines():
+                rad = rad.strip()
+                if not rad:
+                    continue
+                # Strippa talarprefixet ("Astrid: ...") så bara formuleringen syns.
+                if ":" in rad[:20]:
+                    rad = rad.split(":", 1)[1].strip()
+                oppningar.append(f'  "{rad[:90]}{"..." if len(rad) > 90 else ""}"')
+                break
+        if not oppningar:
+            return ""
+        return ("SÅ HAR DE SENASTE AVSNITTEN INLETTS – formulera dig annorlunda. Detta\n"
+                "är INTE en mall: kopiera aldrig upplägg eller engångsinslag från\n"
+                "tidigare avsnitt, och hälsa aldrig på en namngiven lyssnare om det inte\n"
+                "står i TILLFÄLLIG NOTIS för i dag.\n" + "\n".join(oppningar))
     except Exception:
         return ""
 
