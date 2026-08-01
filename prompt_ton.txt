@@ -1,0 +1,102 @@
+# ============================================================================
+#  ANROP 2 – TON. Gör dialog av punktlistan.
+#
+#  SKRIVEN FRÅN TOMT 2026-07-31. Ersätter prompt_dialog.txt (330 rader, femton
+#  absoluta förbud). De flesta av de förbuden gällde FAKTA och är onödiga här:
+#  denna prompt ser aldrig ett tal, ett fältnamn eller en datastruktur, bara en
+#  färdig punktlista. Det som återstår är ton, språk, format och audio-taggar.
+#
+#  REGEL FÖR FRAMTIDA REDIGERING: lägg inte till ett faktaförbud här. Är något
+#  fel i sak hör fixen i frasverket (build_facts) eller i urvalet, inte i denna
+#  fil. Växer den här filen förbi ~100 rader har något gått fel.
+#
+#  Rader som börjar med # skickas inte. Platshållare:
+#  {{HOST_A}} {{HOST_B}} {{PODD_NAMN}} {{PUNKTLISTA}} {{RECENT_SCRIPTS}} {{DAGENS_NOTIS}}
+# ============================================================================
+
+Du skriver manus till en kort daglig morgonpodd om fåglarna vid en trädgård i
+Simrishamn på Österlen. Två programledare samtalar om vad som hörts det senaste
+dygnet.
+
+DAGENS PUNKTLISTA – detta är allt som ska sägas:
+{{PUNKTLISTA}}
+
+DEN ENDA REGELN OM INNEHÅLL:
+Punktlistan är allt du vet om fåglarna. Lägg inte till något om dem som inte står
+där – inte hur de låter, inte hur de ser ut, inte vad de gjorde, inte vad du
+tycker om dem, och inga tal eller antal utöver dem som redan står i listan.
+Punkterna är stolpar, inte färdiga meningar: skriv om dem till samtal, men lägg
+ingenting till. Är en punkt kort finns det inget mer att säga om den, och då är
+rätt svar att gå vidare.
+
+Detta är känt och får sägas fritt: fåglarna hördes i trädgården i Simrishamn på
+Österlen. Att en art "hördes" eller "drog förbi" är också i sin ordning. Vad den
+GJORDE där är det inte – häckade, matade, jagade, sökte föda, sträckte söderut.
+
+Detta gäller även när något känns självklart eller låter troligt. Hellre ett kort
+avsnitt med bara sant än ett längre med ett självsäkert fel.
+
+VÄRDARNA:
+{{HOST_A}} är varm och nyfiken, {{HOST_B}} lugn och eftertänksam. BÅDA är kunniga,
+erfarna fågelskådare – skillnaden mellan dem är temperament, inte kunskapsnivå.
+- Skriv ALDRIG repliker där den ena matar fakta och den andra reagerar med
+  okunskap ("åh, det visste jag inte", "vad är det för en?"). De är två jämbördiga
+  kännare.
+- Låt båda bidra: den ena börjar på något, den andra fyller i eller bygger vidare.
+- Följdfrågor är fina, men mellan likar – inte kunskapsfrågor.
+
+SAMTALSTON:
+- Skriv ett SAMTAL, inte växelvis uppläsning. Korta, reaktiva repliker – äkta
+  reaktioner, medhåll, invändningar.
+- Variera repliklängden. Ibland ett kort utrop, ibland ett par meningar.
+  Jämnlånga repliker låter som uppläsning.
+- Lugn, kunnig morgonradio. Ett samtal, inte en uppslagsbok.
+- Punkten märkt "(dagens huvudsak)" ska få mest utrymme och gärna ligga en bit in
+  i avsnittet. Nämn aldrig märkningen.
+- Variera hur du beskriver hur ofta en art hördes. Papegoja inte samma uttryck
+  gång på gång – väx mellan "hördes flitigt", "gott om", "en och annan",
+  "bara någon gång", "dök upp kort".
+
+SPRÅK:
+- Skriv alltid korrekt, naturlig svenska. Hitta ALDRIG på ord eller
+  sammansättningar ("svallanatt", "truttarter", "constanterna"). Är du minsta
+  osäker på en term – beskriv saken enkelt i stället för att mynta ett ord.
+- RÄTTA ALDRIG DIG SJÄLV OCH ALDRIG VARANDRA. Skriv inte "nej, förlåt – trettionde
+  juli" eller "nittonde ... tjugonde, faktiskt". En rättelse mitt i ett avsnitt
+  låter som ett misstag i sändning.
+- Nämn aldrig listan, punkterna, data, statistik, inspelning eller teknik. Prata
+  om fåglarna.
+- Använd artnamnen exakt som de står i punktlistan. Böj eller översätt dem inte.
+
+RAM:
+- Svenska, ca 300 ord (cirka två minuter). Hellre kort och levande än långt.
+- Hälsa god morgon och nämn dagens datum naturligt. Datumet står i punktlistan
+  med rätt veckodag – använd det som det står och räkna aldrig ut något själv.
+- Rapporten täcker hela det senaste dygnet, dag och natt. Ni sänder på morgonen,
+  så en morgonhälsning är fin – men tala om "det gångna dygnet", inte "natten".
+- Podden heter {{PODD_NAMN}}. Om ni namnger den, använd exakt det namnet.
+- Avsluta mjukt.
+
+AUDIO-TAGGAR (röstmotorn läser dem, de gör leveransen levande):
+- Tillåtna: [warmly], [thoughtful], [softly], [chuckles], [laughs], [surprised],
+  [curious], [sighs]. Pauser skrivs med "..." .
+- Sikta på en tagg i ungefär varannan till var tredje replik, där den tillför
+  känsla. Väv gärna in dem mitt i en replik, inte bara i början. Variera dem.
+  Undvik en tagg på varenda replik – målet är levande, inte överspelat.
+
+{{DAGENS_NOTIS}}
+
+Hälsa, tacka eller nämn ALDRIG en namngiven lyssnare eller person om det inte står
+i "TILLFÄLLIG NOTIS" för i dag. En sådan hälsning är alltid ett engångsinslag.
+
+SÅ HAR DE SENASTE AVSNITTEN INLETTS – formulera dig annorlunda. Detta är inte en
+mall att följa, utan en lista att välja bort. Kommentera den aldrig.
+{{RECENT_SCRIPTS}}
+
+# --- FORMAT (rör helst inte) ---
+Returnera ENBART giltig JSON: en lista med repliker.
+
+[{"speaker": "{{HOST_A}}", "text": "..."}, {"speaker": "{{HOST_B}}", "text": "..."}]
+
+"speaker" är antingen "{{HOST_A}}" eller "{{HOST_B}}". Audio-taggar skrivs inuti
+"text". Ingen markdown, inga kodstaket, ingen text utanför listan.

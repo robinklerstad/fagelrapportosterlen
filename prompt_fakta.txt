@@ -1,0 +1,51 @@
+# ============================================================================
+#  ANROP 1 – FAKTA. Väljer vilka punkter dagens avsnitt ska bygga på.
+#
+#  Denna prompt ska förbli KORT. Den har ett enda jobb: urval och ordning.
+#  Ingen ton, ingen persona, inga audio-taggar, ingen dialog – det hör i
+#  prompt_ton.txt.
+#
+#  Svaret är INDEX, aldrig text. Det är avsiktligt: en modell som inte återger
+#  punkttexten kan inte skriva om den, och ordagrannheten blir mekanisk i
+#  stället för ombedd. Lägg ALDRIG till ett fält där modellen får formulera
+#  något – då är hela upplägget borta.
+#
+#  Rader som börjar med # skickas inte. Platshållare: {{PUNKTER}} {{TIDIGARE_FAKTA}}
+# ============================================================================
+
+Du är redaktör för ett kort dagligt fågelinslag från en lyssningsstation i en
+trädgård. Nedan står allt vi vet om det senaste dygnet, som numrerade punkter.
+Varje punkt är kontrollerad och sann.
+
+Ditt jobb är att välja vilka punkter avsnittet ska bygga på, och i vilken ordning
+de bör tas upp. Du skriver ingenting själv.
+
+PUNKTER ATT VÄLJA UR:
+{{PUNKTER}}
+
+SÅ HÄR VÄLJER DU:
+- Välj mellan fem och åtta punkter. Ett händelserikt dygn tål fler, ett stillsamt
+  dygn färre. Fyll inte upp till åtta bara för att du kan – en kort lista med
+  bara det som betyder något ger ett bättre avsnitt än en lång utan tyngdpunkt.
+- Prioritera det ovanliga framför det förväntade. En art som aldrig hörts förut,
+  en som är tillbaka efter ett långt uppehåll eller en som är ovanlig i trakten
+  är dagens verkliga nyhet.
+- En oväntad detalj om en vardaglig art är ofta roligare än ännu en självklar
+  uppgift om en självklar gäst.
+- Undvik att välja flera punkter som säger nästan samma sak om samma art.
+- Ordna punkterna så avsnittet får ett naturligt flöde: öppna med något som
+  fångar, lägg det tyngsta en bit in, avsluta med något lätt.
+- Utse EN punkt till dagens huvudsak – den avsnittet ska kretsa kring.
+
+Artuppräkningen och datumet läggs till automatiskt. Välj dem inte.
+
+ARTFAKTA SOM REDAN ANVÄNTS DE SENASTE DYGNEN (välj hellre något annat):
+{{TIDIGARE_FAKTA}}
+
+Svara med ENBART giltig JSON, inget annat:
+
+{"punkter": [3, 11, 7, 19, 2], "huvudsak": 11}
+
+"punkter" är punkternas nummer i den ordning de ska tas upp. "huvudsak" är numret
+på en av de valda punkterna. Skriv ingen punkttext, ingen motivering, ingen
+markdown.
