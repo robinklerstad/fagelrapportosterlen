@@ -780,7 +780,8 @@ MIN_ARTFAKTA   = 1    # så många som MÅSTE med när det finns någon (botten)
 MAX_PER_ART    = 2    # så många punkter om SAMMA art som får med i ett avsnitt
 MAX_AKTIVITET  = 3    # antal arter som får en aktivitetspunkt
 MIN_FAMILJEGRUPP = 3  # så många arter ur samma familj innan gruppen är värd en punkt
-FAKTALOGG_DAGAR = 4   # så många dygn bakåt en art är "nyss använd" och hoppas över
+FAKTALOGG_DAGAR = 4   # så många dygn ett EXAKT faktum ("art/fält") är blockerat
+ART_ROTATION_DAGAR = 2  # så många dygn hela ARTEN är blockerad, oavsett fält
 
 
 def _talord(n):
@@ -869,15 +870,41 @@ def _ar_rovfagel(art):
     return any(led in a for led in ROVFAGEL_LED)
 
 
-def _nyss_anvand(fact_log, dagar=FAKTALOGG_DAGAR):
-    """Artfakta som använts de senaste dygnen, som mängd av "art/fält"-strängar.
-    Faktarotationen var en promptregel ("landa inte gång på gång på samma
-    favorit"); här blir den ett filter."""
-    anvanda = set()
-    for _, poster in sorted((fact_log or {}).items(), reverse=True)[:dagar]:
+def _nyss_anvand(fact_log, dagar=FAKTALOGG_DAGAR, art_dagar=ART_ROTATION_DAGAR):
+    """(använda fakta, använda arter) ur faktaloggen, med OLIKA fönster.
+
+    Faktarotationen var en promptregel ("VÄXLA vilken art som får den, landa inte
+    gång på gång på samma favorit, t.ex. tornseglaren"); här är den ett filter.
+
+    TVÅ FÖNSTER, tillagt 2026-08-01. Första versionen nycklade bara på "art/fält",
+    vilket lät samma ART återkomma dag efter dag med roterande fält –
+    tornseglare/vingform i går, tornseglare/kosthallning i dag. Med garantins krok
+    (som föredrar en art som redan är med, och tornseglaren är det nästan alltid
+    via sin svit) hade favoritproblemet smugit tillbaka genom en annan dörr.
+
+    Det exakta faktumet blockeras längre än arten: att höra om tornseglaren igen om
+    tre dygn är rimligt, att höra samma mening om den är det inte."""
+    anvanda, arter = set(), set()
+    poster_per_dag = sorted((fact_log or {}).items(), reverse=True)
+    for _, poster in poster_per_dag[:dagar]:
         for p in poster or []:
             anvanda.add(str(p).strip().lower())
-    return anvanda
+    for _, poster in poster_per_dag[:art_dagar]:
+        for p in poster or []:
+            arter.add(str(p).strip().lower().split("/")[0])
+    return anvanda, arter
+
+
+def _faktum_syns_i_manuset(punkt_text, manus_lag):
+    """Sa manuset faktiskt det som stod i faktapunkten?
+
+    Matchar på ORDSTAMMAR, inte på formuleringen – hela poängen med anrop 2 är att
+    det skriver om punkten ("långa, spetsiga vingar" -> "byggd för luften" räknas).
+    Används både av manusvalideringen och av faktaloggen."""
+    stammar = [o[:5] for o in re.findall(r"[a-zåäöé]{5,}",
+                                         (punkt_text or "").split("–")[-1].lower())
+               if o not in ("familjen", "hemma")]
+    return not stammar or any(s in manus_lag for s in stammar)
 
 
 # Fälten i artfakta, i den ordning de är intressanta att säga. familj först –
@@ -925,7 +952,7 @@ def build_facts(today, signals, fact_log=None):
     garantin och flaskhalsen; det är avsiktligt, för det är den enda delen som
     går att testa."""
     punkter = []
-    nyss = _nyss_anvand(fact_log)
+    nyss_fakta, nyss_arter = _nyss_anvand(fact_log)
     display_till_art = {}
 
     # --- Ram: datumet. Alltid med, räknas inte mot budgeten. ---------------
@@ -1026,22 +1053,13 @@ def build_facts(today, signals, fact_log=None):
                                   "uteblev", art=s.get("art")))
 
     # --- Artfakta. Fler KANDIDATER än budgeten, taket sätts vid urvalet. ----
-    for post in signals.get("artfakta") or []:
-        if len([p for p in punkter if p["kategori"] == "artfaktum"]) >= ARTFAKTA_KANDIDATER:
-            break
-        art = post.get("art")
-        if not art:
-            continue
-        for falt in ARTFAKTA_FALT:
-            varde = post.get(falt)
-            if not varde:
-                continue
-            fid = f"{art}/{falt}"
-            if fid.lower() in nyss:          # rotation: nyss använt hoppas över
-                continue
-            punkter.append(_punkt(_artfaktumfras(art, falt, varde), "artfaktum",
-                                  art=art, fakta_id=fid))
-            break                            # högst ETT faktum per art
+    # Två pass: först med artrotationen på, och om den lämnar oss helt utan fakta
+    # görs om utan den. Att vara faktafri är inget alternativ (regel sedan
+    # 2026-07-24), så rotationen får aldrig tysta faktumet helt – bara flytta det.
+    fakta_punkter = _artfaktapunkter(signals, nyss_fakta, nyss_arter)
+    if not fakta_punkter:
+        fakta_punkter = _artfaktapunkter(signals, nyss_fakta, set())
+    punkter += fakta_punkter
 
     # --- Familjegrupper i dygnets lista -------------------------------------
     # Sant per konstruktion, som jämförelserna: vi grupperar arter som DELAR
@@ -1085,6 +1103,31 @@ def build_facts(today, signals, fact_log=None):
             punkter.append(_punkt(f"{art} – {fras}", "aktivitet", art=art))
 
     return [p for p in punkter if _punkt_ar_ren(p["text"])]
+
+
+def _artfaktapunkter(signals, nyss_fakta, nyss_arter):
+    """Faktakandidater, högst en per art och högst ARTFAKTA_KANDIDATER totalt.
+
+    `nyss_fakta` blockerar exakta "art/fält", `nyss_arter` hela arter. Skicka en tom
+    mängd som `nyss_arter` för att stänga av artrotationen (andra passet)."""
+    ut = []
+    for post in signals.get("artfakta") or []:
+        if len(ut) >= ARTFAKTA_KANDIDATER:
+            break
+        art = post.get("art")
+        if not art or art.lower() in nyss_arter:
+            continue
+        for falt in ARTFAKTA_FALT:
+            varde = post.get(falt)
+            if not varde:
+                continue
+            fid = f"{art}/{falt}"
+            if fid.lower() in nyss_fakta:    # rotation: nyss använt hoppas över
+                continue
+            ut.append(_punkt(_artfaktumfras(art, falt, varde), "artfaktum",
+                             art=art, fakta_id=fid))
+            break                            # högst ETT faktum per art
+    return ut
 
 
 def _familjegrupper(today):
@@ -1803,12 +1846,7 @@ def validate_script(turns, rader, today=None):
             for namn in (p.get("arter") or []):
                 if namn and namn.lower()[:5] not in lag:
                     trafffar.append(f"OANVÄND PUNKT: {namn!r} nämns inte i manuset")
-            if not p.get("fakta_id"):
-                continue
-            stammar = [o[:5] for o in re.findall(r"[a-zåäöé]{5,}",
-                                                 p["text"].split("–")[-1].lower())
-                       if o not in ("familjen", "hemma")]
-            if stammar and not any(s in lag for s in stammar):
+            if p.get("fakta_id") and not _faktum_syns_i_manuset(p["text"], lag):
                 trafffar.append(f"OANVÄNT ARTFAKTUM: {p['text']!r} – "
                                 f"avsnittet blev faktafritt")
     except Exception as e:
@@ -1828,7 +1866,14 @@ def write_dialogue(today, signals, fact_log=None):
     rader = punktlista(facts, valda, today, huvud_pos)
 
     turns, _ = _parse_dialogue(_anropa_claude(build_tone_prompt(rader), max_tokens=2000))
-    anvand_fakta = [p["fakta_id"] for p in valda if p.get("fakta_id")]
+
+    # BARA FAKTA SOM FAKTISKT SADES LOGGAS. Punktlistan är inte ett löfte: anrop 2
+    # kan hoppa över en punkt, och 2026-07-31 gjorde det ("ladusvala –
+    # insektsätare" låg i listan, avsnittet blev faktafritt ändå). Loggades det
+    # ändå blockerades faktumet i fyra dygn utan att en enda lyssnare hört det.
+    manus_lag = " ".join((t.get("text") or "") for t in turns).lower()
+    anvand_fakta = [p["fakta_id"] for p in valda
+                    if p.get("fakta_id") and _faktum_syns_i_manuset(p["text"], manus_lag)]
     return turns, anvand_fakta, rader
 
 
