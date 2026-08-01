@@ -52,6 +52,10 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/ history.json
+          # fakta_logg.json och species_sv.json ligger i repots ROT, inte i docs/,
+          # och kom därför aldrig med i committen. Följden: faktarotationen mellan
+          # dygn hade aldrig något minne, och de svenska artnamnen slogs upp mot
+          # GBIF från noll vid varje körning (se rate-limit-incidenten 2026-07-21).
+          git add docs/ history.json fakta_logg.json species_sv.json
           git commit -m "Bird report $(date -u +%Y-%m-%d)" || echo "Inget att committa"
           git push
