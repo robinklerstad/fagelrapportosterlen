@@ -449,6 +449,94 @@ class NyaKategorier(unittest.TestCase):
             self.assertNotIn("Heron", s["art"])
 
 
+class Faktarotation(unittest.TestCase):
+    """TVÅ FÖNSTER sedan 2026-08-01. Första versionen nycklade bara på "art/fält",
+    så samma ART kunde återkomma dag efter dag med roterande fält – och med
+    garantins krok (som föredrar en art som redan är med) hade tornseglaren kunnat
+    få ett faktum i en vecka. Robins regel sedan 2026-07-24 är att VÄXLA ART."""
+
+    def _sig(self, artfakta):
+        return {"new_species": [], "first_this_year": [], "returning_after_gap": [],
+                "returning_details": [], "streaks": [], "avbrutna_sviter": [],
+                "artrikedom_kontext": {}, "vs_yesterday": None, "lokal_kontext": [],
+                "artfakta": artfakta, "artfakta_jamforelser": {}}
+
+    ARTFAKTA = [{"art": "tornseglare", "vingform": "långa, spetsiga vingar",
+                 "kosthallning": "insektsätare", "habitat": "öppen mark"},
+                {"art": "ringduva", "familj": "duvor"}]
+
+    def test_arten_hoppas_over_aven_med_annat_falt(self):
+        logg = {"2026-07-31": ["tornseglare/vingform"]}
+        p = gr.build_facts(dygn(), self._sig(self.ARTFAKTA), logg)
+        arter = [x["art"] for x in p if x["kategori"] == "artfaktum"]
+        self.assertNotIn("tornseglare", arter)
+        self.assertIn("ringduva", arter)
+
+    def test_arten_slapps_fri_efter_rotationsfonstret(self):
+        logg = {f"2026-07-{d}": ["annan/familj"] for d in (29, 30, 31)}
+        logg["2026-07-28"] = ["tornseglare/vingform"]
+        p = gr.build_facts(dygn(), self._sig(self.ARTFAKTA), logg)
+        arter = [x["art"] for x in p if x["kategori"] == "artfaktum"]
+        self.assertIn("tornseglare", arter)
+
+    def test_exakta_faktumet_blockeras_langre_an_arten(self):
+        # tornseglare/vingform användes för tre dygn sedan: arten är fri igen,
+        # men just den meningen ska inte tillbaka.
+        logg = {f"2026-07-{d}": ["annan/familj"] for d in (29, 30, 31)}
+        logg["2026-07-28"] = ["tornseglare/vingform"]
+        p = gr.build_facts(dygn(), self._sig(self.ARTFAKTA), logg)
+        ider = [x["fakta_id"] for x in p if x["kategori"] == "artfaktum"]
+        self.assertIn("tornseglare/kosthallning", ider)
+        self.assertNotIn("tornseglare/vingform", ider)
+
+    def test_rotationen_far_aldrig_tysta_faktumet_helt(self):
+        """Att vara faktafri är inget alternativ. Är den enda arten med fakta
+        blockerad av artrotationen görs passet om utan den."""
+        bara_en = [{"art": "tornseglare", "vingform": "långa, spetsiga vingar",
+                    "kosthallning": "insektsätare"}]
+        logg = {"2026-07-31": ["tornseglare/vingform"]}
+        p = gr.build_facts(dygn(), self._sig(bara_en), logg)
+        fakta = [x for x in p if x["kategori"] == "artfaktum"]
+        self.assertTrue(fakta, "artrotationen tystade faktumet helt")
+        self.assertEqual(fakta[0]["fakta_id"], "tornseglare/kosthallning")
+
+    def test_nyss_anvand_ger_bada_mangderna(self):
+        logg = {"2026-07-31": ["tornseglare/vingform"],
+                "2026-07-30": ["ringduva/familj"],
+                "2026-07-29": ["kaja/familj"]}
+        fakta, arter = gr._nyss_anvand(logg)
+        self.assertIn("tornseglare/vingform", fakta)
+        self.assertIn("kaja/familj", fakta)          # 4-dygnsfönstret
+        self.assertIn("tornseglare", arter)
+        self.assertNotIn("kaja", arter)              # utanför 2-dygnsfönstret
+
+
+class Faktaloggen(unittest.TestCase):
+    """Loggen ska registrera vad som SADES, inte vad som stod i punktlistan.
+    2026-07-31 låg "ladusvala – insektsätare" i listan, avsnittet blev faktafritt,
+    och faktumet blockerades ändå i fyra dygn utan att någon hört det."""
+
+    def test_omskrivet_faktum_raknas_som_anvant(self):
+        self.assertTrue(gr._faktum_syns_i_manuset(
+            "tornseglare – långa, spetsiga vingar",
+            "de där långa, spetsiga vingarna gör den till en luftfågel"))
+
+    def test_helt_annan_formulering_raknas_ocksa_om_stammen_finns(self):
+        self.assertTrue(gr._faktum_syns_i_manuset(
+            "ladusvala – insektsätare", "en av dem som lever på insekter"))
+
+    def test_utelamnat_faktum_raknas_inte(self):
+        self.assertFalse(gr._faktum_syns_i_manuset(
+            "ladusvala – insektsätare", "ladusvala hördes också."))
+
+    def test_familjen_ar_inte_ett_eget_nyckelord(self):
+        # "familjen" får inte ensamt räknas som att faktumet användes.
+        self.assertFalse(gr._faktum_syns_i_manuset(
+            "ringduva – familjen duvor", "familjen var samlad i trädgården"))
+        self.assertTrue(gr._faktum_syns_i_manuset(
+            "ringduva – familjen duvor", "den hör ju till duvorna"))
+
+
 class Faktabudget(unittest.TestCase):
     """Taket OCH botten. Första skarpa körningen (2026-07-31) valde bort båda
     faktapunkterna och avsnittet blev faktafritt – taket fanns, botten saknades."""
