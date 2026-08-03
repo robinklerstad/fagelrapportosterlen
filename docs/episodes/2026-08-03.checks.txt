@@ -1,0 +1,6 @@
+Manuskontroll 2026-08-03 – LOGGLÄGE, inget blockeras
+========================================================
+
+- PÅHITTAT TAL: 'två' finns inte i punktlistan
+- FORMULERING: 'listan' – metareferens till underlaget
+- SVALRÄKNING: 'ladusvalan är ju insektsätare, precis som de andra två ...'
