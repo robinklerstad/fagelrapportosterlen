@@ -52,7 +52,9 @@
     "Larus fuscus": "2026-07-28",
     "Riparia riparia": "2026-07-28",
     "Emberiza schoeniclus": "2026-07-29",
-    "Calidris alpina": "2026-07-30"
+    "Calidris alpina": "2026-07-30",
+    "Tringa glareola": "2026-08-04",
+    "Chloris chloris": "2026-08-04"
   },
   "recent_days": [
     {
@@ -2088,6 +2090,116 @@
         {
           "sci": "Passer montanus",
           "name": "pilfink"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-04",
+      "species_count": 26,
+      "top": [
+        {
+          "sci": "Apus apus",
+          "name": "tornseglare"
+        },
+        {
+          "sci": "Hirundo rustica",
+          "name": "ladusvala"
+        },
+        {
+          "sci": "Delichon urbicum",
+          "name": "hussvala"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Columba palumbus",
+          "name": "ringduva"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Larus michahellis",
+          "name": "medelhavstrut"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Linaria cannabina",
+          "name": "hämpling"
+        },
+        {
+          "sci": "Haematopus ostralegus",
+          "name": "strandskata"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Actitis hypoleucos",
+          "name": "drillsnäppa"
+        },
+        {
+          "sci": "Sterna hirundo",
+          "name": "fisktärna"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Passer montanus",
+          "name": "pilfink"
+        },
+        {
+          "sci": "Tringa glareola",
+          "name": "grönbena"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Riparia riparia",
+          "name": "backsvala"
+        },
+        {
+          "sci": "Falco tinnunculus",
+          "name": "tornfalk"
+        },
+        {
+          "sci": "Sturnus vulgaris",
+          "name": "stare"
+        },
+        {
+          "sci": "Larus canus",
+          "name": "fiskmås"
+        },
+        {
+          "sci": "Chloris chloris",
+          "name": "Chloris chloris"
+        },
+        {
+          "sci": "Thalasseus sandvicensis",
+          "name": "kentsk tärna"
         }
       ]
     }
