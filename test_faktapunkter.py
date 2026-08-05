@@ -15,6 +15,7 @@ Inga nätanrop, ingen modell. Kör: python3 test_faktapunkter.py
 """
 
 import os
+import re
 import json
 import tempfile
 import unittest
@@ -47,10 +48,20 @@ def dygn(datum="2026-07-31", arter=None):
 # ---------------------------------------------------------------------------
 class Kontrakt(unittest.TestCase):
 
+    # Passet över hela historiken tar ~10 s. Med sex kontraktstester som alla
+    # behöver samma punkter blir det en minut för ingenting – resultatet är
+    # rent deterministiskt, så det räknas ut en gång per körning.
+    _PUNKTER = None
+
     def _alla_punkter_ur_verklig_historik(self):
         """Kör build_facts för VARJE dygn i den riktiga historiken och samla alla
         punkter. Syntetiska testdygn räcker inte – felen har alltid dykt upp på
         verklig data (långa sviter, udda artnamn, tomma fält)."""
+        if Kontrakt._PUNKTER is not None:
+            if not Kontrakt._PUNKTER:
+                self.skipTest("ingen användbar historik")
+            return Kontrakt._PUNKTER
+        Kontrakt._PUNKTER = []
         if not HISTORIK.exists():
             self.skipTest("history.json saknas")
         hist = json.loads(HISTORIK.read_text(encoding="utf-8"))
@@ -60,8 +71,20 @@ class Kontrakt(unittest.TestCase):
 
         punkter = []
         for i, dag in enumerate(dagar):
-            arter = [art(t.get("name") or t.get("sci", "?"), t.get("sci", ""))
-                     for t in dag.get("top", [])]
+            # NAMNEN HÄMTAS UR ARTNAMNSTABELLEN, precis som fetch_data gör – inte
+            # ur historikens `name`. Historiken bär 33 ENGELSKA artnamn från tiden
+            # före GBIF-fixen, och läste replayen dem rakt av byggde den punkter
+            # som "tre arter ur familjen måsfåglar: Common Gull, Herring Gull och
+            # Black-headed Gull". Det säger ingenting om produktionen, där varje
+            # art får sitt namn ur tabellen, men det döljer de fel kontrakten
+            # finns för att hitta. Arter som inte går att namnge utesluts, exakt
+            # som i driften.
+            arter = [art("", t.get("sci", "")) for t in dag.get("top", [])
+                     if t.get("sci")]
+            onamngivna = gr.swedish_names_for(arter)
+            arter = [a for a in arter if a not in onamngivna]
+            for a in arter:
+                a["name"] = a["display"] = a["name_sv"]
             if not arter:
                 continue
             today = dygn(dag["date"], arter)
@@ -74,6 +97,7 @@ class Kontrakt(unittest.TestCase):
             if ov:
                 punkter.append(ov)
         self.assertTrue(punkter, "build_facts gav inga punkter alls på verklig data")
+        Kontrakt._PUNKTER = punkter
         return punkter
 
     def test_kontrakt_1_inga_siffror(self):
@@ -100,6 +124,35 @@ class Kontrakt(unittest.TestCase):
             for ord_ in p["text"].lower().replace(",", " ").split():
                 if ord_ in misstankta:
                     self.assertIn(ord_, kanda, f"okänt talord i: {p['text']!r}")
+
+    def test_kontrakt_4_inget_vetenskapligt_namn(self):
+        """INGEN PUNKT FÅR BÄRA ETT LATINSKT ARTNAMN.
+
+        2026-08-04 bar punktlistan "Chloris chloris" i tre punkter, varav en som
+        dagens huvudsak, eftersom `display` föll tillbaka på det vetenskapliga
+        namnet när det svenska saknades. Anrop 2 sa latinet rakt ut och gissade
+        sedan ett svenskt namn ur eget minne – "grönsiskan", vilket är en annan
+        art (Spinus spinus; Chloris chloris är grönfink).
+
+        Kontraktet är bevisande, inte heuristiskt: ett binomen är versal följt av
+        gement, och punkttexterna är genomgående gemena svenska. Mönstret kan
+        därför inte träffa ett riktigt svenskt artnamn.
+        """
+        binomen = re.compile(r"\b[A-Z][a-z]{2,}\s+[a-z]{3,}\b")
+        for p in self._alla_punkter_ur_verklig_historik():
+            m = binomen.search(p["text"])
+            self.assertIsNone(m, f"vetenskapligt namn i punkt: {p['text']!r}")
+
+    def test_kontrakt_4_galler_ocksa_uppraekningen(self):
+        """Uppräkningen ("hördes också: ...") är den punkt som rör flest arter
+        och ligger utanför faktabudgeten – den måste omfattas av samma kontrakt."""
+        binomen = re.compile(r"\b[A-Z][a-z]{2,}\s+[a-z]{3,}\b")
+        punkter = [p for p in self._alla_punkter_ur_verklig_historik()
+                   if p.get("kategori") == "ovriga"]
+        self.assertTrue(punkter, "hittade ingen uppräkningspunkt i historiken")
+        for p in punkter:
+            self.assertIsNone(binomen.search(p["text"]),
+                              f"vetenskapligt namn i uppräkningen: {p['text']!r}")
 
 
 # ---------------------------------------------------------------------------
