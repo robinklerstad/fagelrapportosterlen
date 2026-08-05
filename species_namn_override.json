@@ -1,0 +1,30 @@
+{
+  "_om": [
+    "Handmatade artnamn. Läggs på SIST av bygg_artnamn.py och vinner över Dyntaxa.",
+    "Håll listan kort och motivera varje rad. Är ett namn fel i Dyntaxa hör rättelsen",
+    "hos SLU Artdatabanken, inte här. Det som hör här är namn Dyntaxa inte KAN ge.",
+    "",
+    "ALIAS är den viktiga kategorin: BirdNET och Dyntaxa följer olika checklistor och",
+    "är inte alltid överens om artgränser. BirdWeather skickar då ett vetenskapligt",
+    "namn som Dyntaxa inte har som accepterad art, och arten kan inte namnges alls.",
+    "Utan dessa två rader hade kaja och kråka fallit ur podden – kajan mitt i en svit",
+    "på tjugofem dygn. Det upptäcktes 2026-08-04 av historiktestet i test_artnamn.py.",
+    "",
+    "Om BirdWeather byter checklista (AviList 2025 slår t.ex. ihop kråka och svartkråka)",
+    "kan de vetenskapliga namnen ändras. Då faller historiktestet och fler rader",
+    "behövs här. Det är avsiktligt att det faller högt i stället för att tystna."
+  ],
+
+  "alias": {
+    "Corvus cornix": {
+      "namn": "kråka",
+      "varfor": "Dyntaxa har ingen accepterad art Corvus cornix – den behandlar kråkan som underarten Corvus corone cornix. BirdWeather skickar Corvus cornix."
+    },
+    "Corvus monedula": {
+      "namn": "kaja",
+      "varfor": "Dyntaxa använder släktet Coloeus (Coloeus monedula). BirdWeather skickar Corvus monedula."
+    }
+  },
+
+  "overstyrning": {}
+}
