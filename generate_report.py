@@ -110,7 +110,9 @@ EPISODES_DIR = DOCS_DIR / "episodes"
 FACT_LOG_PATH = (Path(_TEST_DIR) / "fakta_logg.json") if _TEST_DIR else Path("fakta_logg.json")
 FEED_PATH    = DOCS_DIR / "feed.xml"
 INDEX_PATH   = DOCS_DIR / "index.html"
-SV_NAMES_PATH = Path("species_sv.json")   # cache: vetenskapligt namn -> svenskt namn
+SV_NAMES_PATH = Path("species_sv.json")   # FÖRBYGGD TABELL: vetenskapligt -> svenskt
+                                          # namn. Byggs av bygg_artnamn.py, läses här.
+                                          # Skrivs ALDRIG av den dagliga körningen.
 NOTIS_PATH    = Path("dagens_notis.txt")  # frivillig tillfällig notis (shoutout m.m.); tom = ingen notis
 
 PODCAST_TITLE  = "Ö24 Bird Data"
@@ -297,77 +299,62 @@ def reset_today(history, today_iso):
 
 
 # ---------------------------------------------------------------------------
-# Svenska artnamn via GBIF (deterministiskt uppslag – INGEN översättning av LLM)
+# Svenska artnamn ur en FÖRBYGGD TABELL (deterministiskt – ingen LLM, inget nät)
+#
+# Tabellen byggs av `bygg_artnamn.py` ur Dyntaxa (SLU Artdatabanken, CC0) och
+# committas. Den dagliga körningen LÄSER den bara.
+#
+# TIDIGARE: uppslaget gjordes här, en art i taget, mot GBIF, och resultatet
+# cachades. Det gick sönder 2026-08-04. GBIF:s `species/match` gav ingen
+# usageKey för "Chloris chloris" (Chloris är också ett grässläkte), uppslaget
+# returnerade None, det cachades som tom sträng – permanent, eftersom uppslag
+# bara gjordes `if sci not in cache` – och `display` föll tillbaka på det
+# VETENSKAPLIGA namnet. Punktlistan bar då "Chloris chloris" i tre punkter, och
+# anrop 2 sa latinet och gissade sedan ett svenskt namn: "grönsiskan". Grönsiska
+# är Spinus spinus. Chloris chloris är grönfink.
+#
+# TVÅ SAKER FÖLJER AV DET, OCH BÅDA SITTER I KODEN NU:
+#   1. Inget uppslag i driften. En förbyggd tabell kan inte falla 06:08.
+#   2. INGEN ÅTERFALLSVÄG TILL LATIN ELLER ENGELSKA. En art som inte finns i
+#      tabellen utesluts ur dygnet och loggas – se `swedish_names_for`. Att
+#      tappa en art är sämre än att nämna den, men oändligt mycket bättre än
+#      att nämna den med fel namn.
 # ---------------------------------------------------------------------------
 def _load_sv_cache():
+    """Artnamnstabellen: vetenskapligt namn -> svenskt namn. Nycklar som börjar
+    med "_" är metadata (t.ex. _attribution) och är inte arter."""
     if SV_NAMES_PATH.exists():
         try:
-            return json.loads(SV_NAMES_PATH.read_text(encoding="utf-8"))
+            data = json.loads(SV_NAMES_PATH.read_text(encoding="utf-8"))
+            return {k: v for k, v in data.items() if not k.startswith("_")}
         except (json.JSONDecodeError, ValueError):
             return {}
     return {}
 
 
-def _save_sv_cache(cache):
-    SV_NAMES_PATH.write_text(
-        json.dumps(cache, ensure_ascii=False, indent=2, sort_keys=True),
-        encoding="utf-8",
-    )
-
-
-def _gbif_swedish_name(scientific):
-    """Slå upp svenskt trivialnamn för ett vetenskapligt namn via GBIF.
-    Föredrar poster märkta 'preferred'; annars det vanligaste namnet bland
-    de svenska träffarna (skyddar mot enstaka udda stavningar). None om inget."""
-    try:
-        m = requests.get(
-            "https://api.gbif.org/v1/species/match",
-            params={"name": scientific}, timeout=20,
-        )
-        m.raise_for_status()
-        key = m.json().get("usageKey")
-        if not key:
-            return None
-        v = requests.get(
-            f"https://api.gbif.org/v1/species/{key}/vernacularNames",
-            params={"limit": 200}, timeout=20,
-        )
-        v.raise_for_status()
-        rows = [
-            r for r in v.json().get("results", [])
-            if r.get("language") == "swe" and r.get("vernacularName")
-        ]
-        if not rows:
-            return None
-
-        # 1) Föredra en post som är märkt 'preferred'.
-        for r in rows:
-            if r.get("preferred"):
-                return r["vernacularName"].strip().lower()
-
-        # 2) Annars: rösta fram det vanligaste namnet (skyddar mot "hus-swala").
-        from collections import Counter
-        counts = Counter(r["vernacularName"].strip().lower() for r in rows)
-        return counts.most_common(1)[0][0]
-    except requests.RequestException:
-        return None
-
-
 def swedish_names_for(species):
-    """Fyll i svenskt namn per art (via cache + GBIF). Muterar listan in-place."""
-    cache = _load_sv_cache()
-    changed = False
+    """Fyll i svenskt namn per art ur tabellen. Muterar listan in-place.
+
+    Returnerar de arter som INTE kunde namnges. De ska uteslutas ur dygnet av
+    anroparen, inte namnges på något annat sätt: det finns ingen återfallsväg
+    som är sann. Det vetenskapliga namnet är inte svenska, och `name` från
+    BirdWeather är engelska.
+
+    Att en art hamnar här betyder nästan alltid att BirdNET och Dyntaxa följer
+    olika checklistor – t.ex. skickar BirdWeather "Corvus monedula" där Dyntaxa
+    har "Coloeus monedula". Fixen är en rad i species_namn_override.json, inte
+    en gissning här. `test_artnamn.py` fångar det för varje art i historiken.
+    """
+    tabell = _load_sv_cache()
+    onamngivna = []
     for s in species:
         sci = s.get("scientific") or ""
-        if not sci:
-            continue
-        if sci not in cache:
-            cache[sci] = _gbif_swedish_name(sci) or ""   # "" = sökt men inget svenskt namn
-            changed = True
-        if cache[sci]:
-            s["name_sv"] = cache[sci]
-    if changed:
-        _save_sv_cache(cache)
+        namn = tabell.get(sci) if sci else None
+        if namn:
+            s["name_sv"] = namn
+        else:
+            onamngivna.append(s)
+    return onamngivna
 
 
 # ---------------------------------------------------------------------------
@@ -443,14 +430,38 @@ def fetch_birdweather():
     for s in all_species:
         s["activity"] = activity(s["count"])
 
-    # Fyll i korrekt svenskt namn per art (GBIF + cache). Deterministiskt –
-    # ingen LLM-översättning. Arter utan svenskt namn behåller bara sci/engelskt.
-    swedish_names_for(all_species)
+    # Svenskt namn per art ur den förbyggda tabellen. Deterministiskt – ingen
+    # LLM-översättning, inget nätanrop.
+    onamngivna = swedish_names_for(all_species)
 
-    # Kanoniskt visningsnamn som används överallt nedströms (manus, signaler,
-    # historik) så allt är konsekvent: svenskt namn först, annars vetenskapligt.
+    # ARTER UTAN SVENSKT NAMN UTESLUTS HÄR, vid inläsningen, EN GÅNG.
+    #
+    # Detta är den enda platsen det går att göra säkert. `display` konsumeras på
+    # ett tiotal ställen nedströms – punktlistan, uppräkningen, signalerna,
+    # historiken – och varje sådan konsument har formen
+    # `s.get("display") or s["name"]`. Lämnades arten kvar utan svenskt namn
+    # skulle den alltså läcka ut som latin eller engelska på någon av de vägarna,
+    # vilket är exakt vad som hände 2026-08-04 ("Chloris chloris" -> "grönsiskan").
+    #
+    # Följd att känna till: dygnets artrikedom sjunker med de uteslutna. Det är
+    # avsett – kan vi inte namnge arten kan vi inte rapportera den – men det får
+    # aldrig ske tyst, därför uteslutna_arter i returen och en rad i .checks.txt.
+    if onamngivna:
+        uteslutna = [{"scientific": s.get("scientific") or "?",
+                      "birdweather_namn": s.get("name") or "?"} for s in onamngivna]
+        kvar = [s for s in all_species if s not in onamngivna]
+        for u in uteslutna:
+            print(f"  UTESLUTEN: {u['scientific']} saknar svenskt namn i "
+                  f"{SV_NAMES_PATH.name} – lägg ett alias i species_namn_override.json",
+                  file=sys.stderr)
+        all_species = kvar
+    else:
+        uteslutna = []
+
+    # Kanoniskt visningsnamn nedströms. Efter filtret ovan har varje art ett
+    # svenskt namn, så det finns ingen återfallsväg kvar – och ska inte finnas.
     for s in all_species:
-        s["display"] = s.get("name_sv") or s.get("scientific") or s["name"]
+        s["display"] = s["name_sv"]
 
     return {
         "date": TODAY.isoformat(),
@@ -458,6 +469,7 @@ def fetch_birdweather():
         "total_detections": sum(s["count"] for s in all_species),  # internt, ej i manus
         "species_count": len(all_species),
         "top_species": all_species,   # ALLA arter – count används internt, ej i manus
+        "uteslutna_arter": uteslutna,  # saknar svenskt namn; loggas i .checks.txt
     }
 
 
@@ -1812,6 +1824,29 @@ def validate_script(turns, rader, today=None):
             if any(stam and (stam in a or a in ord_) for a in arter):
                 continue
             trafffar.append(f"OKÄND ART: {ord_!r} står inte i dygnets artlista")
+
+        # 6b. VETENSKAPLIGT NAMN I MANUSET. BEVISANDE: jämför mot dygnets egna
+        # vetenskapliga namn i stället för mot ett mönster för binomen. Ett
+        # mönster hade flaggat varje mening som börjar med versal ("Andra
+        # augusti", "Tjugotre dygn") – dygnets faktiska latin är en exakt mängd.
+        #
+        # Detta gick ut i sändning 2026-08-04: "Chloris chloris hördes i
+        # trädgården", eftersom display föll tillbaka på det vetenskapliga
+        # namnet. Vägen dit är stängd i koden nu, men kontrollen stannar – den
+        # kostar ingenting och fångar varje framtida väg till samma fel.
+        for s in (today or {}).get("top_species") or []:
+            sci = (s.get("scientific") or "").strip()
+            if sci and sci.lower() in lag:
+                trafffar.append(
+                    f"VETENSKAPLIGT NAMN: {sci!r} sägs i manuset – latin hör inte dit")
+
+        # 7b. Arter som uteslöts ur dygnet för att de saknar svenskt namn.
+        # Ligger här och inte bara på stderr: en art som tappas ur ett avsnitt
+        # ska stå i granskningsunderlaget, annars upptäcks det aldrig.
+        for u in (today or {}).get("uteslutna_arter") or []:
+            trafffar.append(
+                f"ART UTESLUTEN: {u['scientific']!r} saknar svenskt namn i "
+                f"artnamnstabellen – lägg ett alias i species_namn_override.json")
 
         # 7. Svala-räkning. "de tre svalarterna" räknade in tornseglaren.
         #
