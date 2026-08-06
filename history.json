@@ -54,7 +54,9 @@
     "Emberiza schoeniclus": "2026-07-29",
     "Calidris alpina": "2026-07-30",
     "Tringa glareola": "2026-08-04",
-    "Chloris chloris": "2026-08-04"
+    "Chloris chloris": "2026-08-04",
+    "Phylloscopus trochilus": "2026-08-06",
+    "Anas crecca": "2026-08-06"
   },
   "recent_days": [
     {
@@ -2314,6 +2316,112 @@
         {
           "sci": "Anas platyrhynchos",
           "name": "gräsand"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-06",
+      "species_count": 25,
+      "top": [
+        {
+          "sci": "Apus apus",
+          "name": "tornseglare"
+        },
+        {
+          "sci": "Hirundo rustica",
+          "name": "ladusvala"
+        },
+        {
+          "sci": "Columba palumbus",
+          "name": "ringduva"
+        },
+        {
+          "sci": "Larus michahellis",
+          "name": "medelhavstrut"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Delichon urbicum",
+          "name": "hussvala"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Sterna hirundo",
+          "name": "fisktärna"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Linaria cannabina",
+          "name": "hämpling"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Sturnus vulgaris",
+          "name": "stare"
+        },
+        {
+          "sci": "Phylloscopus trochilus",
+          "name": "lövsångare"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Passer montanus",
+          "name": "pilfink"
+        },
+        {
+          "sci": "Turdus merula",
+          "name": "koltrast"
+        },
+        {
+          "sci": "Phylloscopus collybita",
+          "name": "gransångare"
+        },
+        {
+          "sci": "Emberiza citrinella",
+          "name": "gulsparv"
+        },
+        {
+          "sci": "Anas crecca",
+          "name": "kricka"
+        },
+        {
+          "sci": "Riparia riparia",
+          "name": "backsvala"
+        },
+        {
+          "sci": "Calidris alpina",
+          "name": "kärrsnäppa"
         }
       ]
     }
