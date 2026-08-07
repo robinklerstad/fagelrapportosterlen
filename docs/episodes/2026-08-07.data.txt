@@ -1,0 +1,26 @@
+Hämtat 2026-08-07 – fönster: senaste dygnet (24 timmar)
+Station: Ö24 Simrishamn 
+Artrikedom: 21
+
+Arter i datan (namn + aktivitet):
+  - ladusvala  [Hirundo rustica]  (ofta hord)
+  - gråsparv  [Passer domesticus]  (hordes en del)
+  - grågås  [Anser anser]  (hordes en del)
+  - ringduva  [Columba palumbus]  (hordes en del)
+  - hussvala  [Delichon urbicum]  (hordes en del)
+  - kaja  [Corvus monedula]  (enstaka)
+  - medelhavstrut  [Larus michahellis]  (enstaka)
+  - sädesärla  [Motacilla alba]  (enstaka)
+  - tornseglare  [Apus apus]  (enstaka)
+  - blåmes  [Cyanistes caeruleus]  (enstaka)
+  - fisktärna  [Sterna hirundo]  (enstaka)
+  - hämpling  [Linaria cannabina]  (enstaka)
+  - gråhäger  [Ardea cinerea]  (enstaka)
+  - gråtrut  [Larus argentatus]  (enstaka)
+  - steglits  [Carduelis carduelis]  (enstaka)
+  - kentsk tärna  [Thalasseus sandvicensis]  (enstaka)
+  - backsvala  [Riparia riparia]  (enstaka)
+  - ormvråk  [Buteo buteo]  (enstaka)
+  - koltrast  [Turdus merula]  (enstaka)
+  - stare  [Sturnus vulgaris]  (enstaka)
+  - gulsparv  [Emberiza citrinella]  (enstaka)
