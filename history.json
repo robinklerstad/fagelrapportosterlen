@@ -2863,6 +2863,116 @@
           "name": "drillsnäppa"
         }
       ]
+    },
+    {
+      "date": "2026-08-11",
+      "species_count": 26,
+      "top": [
+        {
+          "sci": "Columba palumbus",
+          "name": "ringduva"
+        },
+        {
+          "sci": "Apus apus",
+          "name": "tornseglare"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Hirundo rustica",
+          "name": "ladusvala"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Sturnus vulgaris",
+          "name": "stare"
+        },
+        {
+          "sci": "Delichon urbicum",
+          "name": "hussvala"
+        },
+        {
+          "sci": "Larus michahellis",
+          "name": "medelhavstrut"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Linaria cannabina",
+          "name": "hämpling"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Branta canadensis",
+          "name": "kanadagås"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Turdus merula",
+          "name": "koltrast"
+        },
+        {
+          "sci": "Emberiza citrinella",
+          "name": "gulsparv"
+        },
+        {
+          "sci": "Haematopus ostralegus",
+          "name": "strandskata"
+        },
+        {
+          "sci": "Sterna hirundo",
+          "name": "fisktärna"
+        },
+        {
+          "sci": "Actitis hypoleucos",
+          "name": "drillsnäppa"
+        },
+        {
+          "sci": "Muscicapa striata",
+          "name": "grå flugsnappare"
+        },
+        {
+          "sci": "Buteo buteo",
+          "name": "ormvråk"
+        },
+        {
+          "sci": "Anas platyrhynchos",
+          "name": "gräsand"
+        },
+        {
+          "sci": "Thalasseus sandvicensis",
+          "name": "kentsk tärna"
+        },
+        {
+          "sci": "Charadrius hiaticula",
+          "name": "större strandpipare"
+        }
+      ]
     }
   ]
 }
