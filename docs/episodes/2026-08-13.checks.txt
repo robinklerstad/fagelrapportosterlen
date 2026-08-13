@@ -1,0 +1,5 @@
+Manuskontroll 2026-08-13 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FÄLTNAMN: 'streak' läckte ut i manuset
+- FORMULERING: 'listan' – metareferens till underlaget
