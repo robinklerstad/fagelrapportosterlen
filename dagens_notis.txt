@@ -14,10 +14,3 @@
 #  VIKTIGT: TÖM textraderna efter att avsnittet körts – annars upprepas notisen
 #  varje dag tills du tar bort den. (Kommentera ut eller radera texten.)
 # ============================================================================
-
-tidigt, i de två första replikerna, lätt och kort – be om ursäkt en gång
-och gå sedan vidare utan att göra affär av det. Inled INTE med "god morgon",
-avsnittet kommer ut mitt på dagen:
-
-Avsnittet är sent idag. Det var rösterna som strejkade, inte fåglarna –
-ett tekniskt strul i uppläsningen som är löst nu.
