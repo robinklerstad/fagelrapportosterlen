@@ -1,0 +1,6 @@
+Manuskontroll 2026-08-17 – LOGGLÄGE, inget blockeras
+========================================================
+
+- PÅHITTAT TAL: 'femte' finns inte i punktlistan
+- FORMULERING: 'listan' – metareferens till underlaget
+- OKÄND ART: 'händer' står inte i dygnets artlista

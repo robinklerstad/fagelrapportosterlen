@@ -64,7 +64,8 @@
     "Streptopelia decaocto": "2026-08-14",
     "Sterna paradisaea": "2026-08-14",
     "Tringa ochropus": "2026-08-15",
-    "Numenius arquata": "2026-08-16"
+    "Numenius arquata": "2026-08-16",
+    "Anser albifrons": "2026-08-17"
   },
   "recent_days": [
     {
@@ -3602,6 +3603,144 @@
         {
           "sci": "Riparia riparia",
           "name": "backsvala"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-17",
+      "species_count": 33,
+      "top": [
+        {
+          "sci": "Hirundo rustica",
+          "name": "ladusvala"
+        },
+        {
+          "sci": "Columba palumbus",
+          "name": "ringduva"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Delichon urbicum",
+          "name": "hussvala"
+        },
+        {
+          "sci": "Streptopelia decaocto",
+          "name": "turkduva"
+        },
+        {
+          "sci": "Calidris alpina",
+          "name": "kärrsnäppa"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Branta canadensis",
+          "name": "kanadagås"
+        },
+        {
+          "sci": "Tringa glareola",
+          "name": "grönbena"
+        },
+        {
+          "sci": "Linaria cannabina",
+          "name": "hämpling"
+        },
+        {
+          "sci": "Turdus merula",
+          "name": "koltrast"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Anthus trivialis",
+          "name": "trädpiplärka"
+        },
+        {
+          "sci": "Anas platyrhynchos",
+          "name": "gräsand"
+        },
+        {
+          "sci": "Larus michahellis",
+          "name": "medelhavstrut"
+        },
+        {
+          "sci": "Buteo buteo",
+          "name": "ormvråk"
+        },
+        {
+          "sci": "Haematopus ostralegus",
+          "name": "strandskata"
+        },
+        {
+          "sci": "Muscicapa striata",
+          "name": "grå flugsnappare"
+        },
+        {
+          "sci": "Numenius arquata",
+          "name": "storspov"
+        },
+        {
+          "sci": "Tringa nebularia",
+          "name": "gluttsnäppa"
+        },
+        {
+          "sci": "Actitis hypoleucos",
+          "name": "drillsnäppa"
+        },
+        {
+          "sci": "Falco tinnunculus",
+          "name": "tornfalk"
+        },
+        {
+          "sci": "Phylloscopus collybita",
+          "name": "gransångare"
+        },
+        {
+          "sci": "Anser albifrons",
+          "name": "bläsgås"
+        },
+        {
+          "sci": "Passer montanus",
+          "name": "pilfink"
+        },
+        {
+          "sci": "Sterna hirundo",
+          "name": "fisktärna"
+        },
+        {
+          "sci": "Anas crecca",
+          "name": "kricka"
         }
       ]
     }
