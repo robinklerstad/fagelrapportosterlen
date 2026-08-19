@@ -1,0 +1,4 @@
+Manuskontroll 2026-08-19 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'listan' – metareferens till underlaget

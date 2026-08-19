@@ -68,7 +68,9 @@
     "Anser albifrons": "2026-08-17",
     "Periparus ater": "2026-08-18",
     "Sitta europaea": "2026-08-18",
-    "Regulus regulus": "2026-08-18"
+    "Regulus regulus": "2026-08-18",
+    "Fringilla coelebs": "2026-08-19",
+    "Coccothraustes coccothraustes": "2026-08-19"
   },
   "recent_days": [
     {
@@ -3902,6 +3904,168 @@
         {
           "sci": "Larus marinus",
           "name": "havstrut"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "species_count": 39,
+      "top": [
+        {
+          "sci": "Hirundo rustica",
+          "name": "ladusvala"
+        },
+        {
+          "sci": "Columba palumbus",
+          "name": "ringduva"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Delichon urbicum",
+          "name": "hussvala"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Passer montanus",
+          "name": "pilfink"
+        },
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Turdus merula",
+          "name": "koltrast"
+        },
+        {
+          "sci": "Streptopelia decaocto",
+          "name": "turkduva"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Linaria cannabina",
+          "name": "hämpling"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Sturnus vulgaris",
+          "name": "stare"
+        },
+        {
+          "sci": "Parus major",
+          "name": "talgoxe"
+        },
+        {
+          "sci": "Phylloscopus collybita",
+          "name": "gransångare"
+        },
+        {
+          "sci": "Larus michahellis",
+          "name": "medelhavstrut"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Sterna hirundo",
+          "name": "fisktärna"
+        },
+        {
+          "sci": "Apus apus",
+          "name": "tornseglare"
+        },
+        {
+          "sci": "Actitis hypoleucos",
+          "name": "drillsnäppa"
+        },
+        {
+          "sci": "Calidris alpina",
+          "name": "kärrsnäppa"
+        },
+        {
+          "sci": "Periparus ater",
+          "name": "svartmes"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Branta canadensis",
+          "name": "kanadagås"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Haematopus ostralegus",
+          "name": "strandskata"
+        },
+        {
+          "sci": "Tringa totanus",
+          "name": "rödbena"
+        },
+        {
+          "sci": "Troglodytes troglodytes",
+          "name": "gärdsmyg"
+        },
+        {
+          "sci": "Muscicapa striata",
+          "name": "grå flugsnappare"
+        },
+        {
+          "sci": "Fringilla coelebs",
+          "name": "bofink"
+        },
+        {
+          "sci": "Buteo buteo",
+          "name": "ormvråk"
+        },
+        {
+          "sci": "Regulus regulus",
+          "name": "kungsfågel"
+        },
+        {
+          "sci": "Pica pica",
+          "name": "skata"
+        },
+        {
+          "sci": "Coccothraustes coccothraustes",
+          "name": "stenknäck"
+        },
+        {
+          "sci": "Anas platyrhynchos",
+          "name": "gräsand"
+        },
+        {
+          "sci": "Anthus trivialis",
+          "name": "trädpiplärka"
+        },
+        {
+          "sci": "Charadrius hiaticula",
+          "name": "större strandpipare"
         }
       ]
     }
