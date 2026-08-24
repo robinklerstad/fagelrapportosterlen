@@ -1,0 +1,8 @@
+Manuskontroll 2026-08-24 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'listan' – metareferens till underlaget
+- HUVUDSAKSOMDÖME: 'Det är ett fint fynd.'
+- OKÄND ART: 'måsfåglarna' står inte i dygnets artlista
+- OKÄND ART: 'vänder' står inte i dygnets artlista
+- OMDÖME (svag träff): 'det stora'
