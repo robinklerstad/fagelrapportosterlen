@@ -1,0 +1,7 @@
+Manuskontroll 2026-08-25 – LOGGLÄGE, inget blockeras
+========================================================
+
+- PÅHITTAT TAL: 'fjärde' finns inte i punktlistan
+- FORMULERING: 'listan' – metareferens till underlaget
+- OKÄND ART: 'måsfåglarna' står inte i dygnets artlista
+- OMDÖME (svag träff): 'det stora'

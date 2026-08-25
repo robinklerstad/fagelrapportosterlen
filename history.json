@@ -85,7 +85,8 @@
     "Melanitta nigra": "2026-08-24",
     "Motacilla cinerea": "2026-08-24",
     "Cygnus cygnus": "2026-08-24",
-    "Pandion haliaetus": "2026-08-24"
+    "Pandion haliaetus": "2026-08-24",
+    "Fringilla montifringilla": "2026-08-25"
   },
   "recent_days": [
     {
@@ -4831,6 +4832,172 @@
         {
           "sci": "Thalasseus sandvicensis",
           "name": "kentsk tärna"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-25",
+      "species_count": 40,
+      "top": [
+        {
+          "sci": "Hirundo rustica",
+          "name": "ladusvala"
+        },
+        {
+          "sci": "Columba palumbus",
+          "name": "ringduva"
+        },
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Delichon urbicum",
+          "name": "hussvala"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Sturnus vulgaris",
+          "name": "stare"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Anas platyrhynchos",
+          "name": "gräsand"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Linaria cannabina",
+          "name": "hämpling"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Haematopus ostralegus",
+          "name": "strandskata"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Thalasseus sandvicensis",
+          "name": "kentsk tärna"
+        },
+        {
+          "sci": "Sterna hirundo",
+          "name": "fisktärna"
+        },
+        {
+          "sci": "Buteo buteo",
+          "name": "ormvråk"
+        },
+        {
+          "sci": "Phylloscopus collybita",
+          "name": "gransångare"
+        },
+        {
+          "sci": "Streptopelia decaocto",
+          "name": "turkduva"
+        },
+        {
+          "sci": "Motacilla flava",
+          "name": "gulärla"
+        },
+        {
+          "sci": "Larus michahellis",
+          "name": "medelhavstrut"
+        },
+        {
+          "sci": "Aegithalos caudatus",
+          "name": "stjärtmes"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Coccothraustes coccothraustes",
+          "name": "stenknäck"
+        },
+        {
+          "sci": "Apus apus",
+          "name": "tornseglare"
+        },
+        {
+          "sci": "Actitis hypoleucos",
+          "name": "drillsnäppa"
+        },
+        {
+          "sci": "Melanitta nigra",
+          "name": "sjöorre"
+        },
+        {
+          "sci": "Certhia familiaris",
+          "name": "trädkrypare"
+        },
+        {
+          "sci": "Dendrocopos major",
+          "name": "större hackspett"
+        },
+        {
+          "sci": "Motacilla cinerea",
+          "name": "forsärla"
+        },
+        {
+          "sci": "Fringilla montifringilla",
+          "name": "bergfink"
+        },
+        {
+          "sci": "Branta canadensis",
+          "name": "kanadagås"
+        },
+        {
+          "sci": "Chroicocephalus ridibundus",
+          "name": "skrattmås"
+        },
+        {
+          "sci": "Tringa ochropus",
+          "name": "skogssnäppa"
+        },
+        {
+          "sci": "Larus marinus",
+          "name": "havstrut"
+        },
+        {
+          "sci": "Hydroprogne caspia",
+          "name": "skräntärna"
+        },
+        {
+          "sci": "Charadrius hiaticula",
+          "name": "större strandpipare"
+        },
+        {
+          "sci": "Calidris alpina",
+          "name": "kärrsnäppa"
         }
       ]
     }
