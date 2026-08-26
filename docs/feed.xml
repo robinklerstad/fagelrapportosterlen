@@ -14,6 +14,12 @@
       <link> https://robinklerstad.github.io/fagelrapportosterlen</link>
     </image>
     <item>
+      <title>Ö24 Bird Data – 2026-08-26</title>
+      <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-08-26.mp3</guid>
+      <pubDate>Wed, 26 Aug 2026 06:00:00 +0000</pubDate>
+      <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-08-26.mp3" length="1496109" type="audio/mpeg"/>
+    </item>
+    <item>
       <title>Ö24 Bird Data – 2026-08-25</title>
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-08-25.mp3</guid>
       <pubDate>Tue, 25 Aug 2026 06:00:00 +0000</pubDate>
@@ -186,12 +192,6 @@
       <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-28.mp3</guid>
       <pubDate>Tue, 28 Jul 2026 06:00:00 +0000</pubDate>
       <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-28.mp3" length="1454885" type="audio/mpeg"/>
-    </item>
-    <item>
-      <title>Ö24 Bird Data – 2026-07-27</title>
-      <guid isPermaLink="false"> https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-27.mp3</guid>
-      <pubDate>Mon, 27 Jul 2026 06:00:00 +0000</pubDate>
-      <enclosure url=" https://robinklerstad.github.io/fagelrapportosterlen/episodes/2026-07-27.mp3" length="1662430" type="audio/mpeg"/>
     </item>
   </channel>
 </rss>
