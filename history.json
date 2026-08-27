@@ -5158,6 +5158,128 @@
           "name": "ärtsångare"
         }
       ]
+    },
+    {
+      "date": "2026-08-27",
+      "species_count": 29,
+      "top": [
+        {
+          "sci": "Hirundo rustica",
+          "name": "ladusvala"
+        },
+        {
+          "sci": "Columba palumbus",
+          "name": "ringduva"
+        },
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Streptopelia decaocto",
+          "name": "turkduva"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Sturnus vulgaris",
+          "name": "stare"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Passer montanus",
+          "name": "pilfink"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Sterna hirundo",
+          "name": "fisktärna"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Delichon urbicum",
+          "name": "hussvala"
+        },
+        {
+          "sci": "Linaria cannabina",
+          "name": "hämpling"
+        },
+        {
+          "sci": "Turdus merula",
+          "name": "koltrast"
+        },
+        {
+          "sci": "Anser albifrons",
+          "name": "bläsgås"
+        },
+        {
+          "sci": "Phylloscopus collybita",
+          "name": "gransångare"
+        },
+        {
+          "sci": "Pica pica",
+          "name": "skata"
+        },
+        {
+          "sci": "Coccothraustes coccothraustes",
+          "name": "stenknäck"
+        },
+        {
+          "sci": "Branta canadensis",
+          "name": "kanadagås"
+        },
+        {
+          "sci": "Motacilla flava",
+          "name": "gulärla"
+        },
+        {
+          "sci": "Tringa ochropus",
+          "name": "skogssnäppa"
+        },
+        {
+          "sci": "Hydroprogne caspia",
+          "name": "skräntärna"
+        },
+        {
+          "sci": "Tringa glareola",
+          "name": "grönbena"
+        },
+        {
+          "sci": "Sterna paradisaea",
+          "name": "silvertärna"
+        }
+      ]
     }
   ]
 }

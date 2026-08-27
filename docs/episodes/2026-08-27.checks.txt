@@ -1,0 +1,9 @@
+Manuskontroll 2026-08-27 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'ovanligt' – ovanlighetspåstående som inte står i punktlistan
+- HUVUDSAKSOMDÖME: 'Ja, det är ett fint utbud.'
+- HUVUDSAKSOMDÖME: 'Det var verkligen dagens höjdpunkt, tycker jag.'
+- OKÄND ART: 'måsfåglarna' står inte i dygnets artlista
+- OMDÖME (svag träff): 'stack ut'
+- OMDÖME (svag träff): 'höjdpunkt'
