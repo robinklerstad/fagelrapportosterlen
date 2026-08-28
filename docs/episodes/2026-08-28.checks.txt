@@ -1,0 +1,5 @@
+Manuskontroll 2026-08-28 – LOGGLÄGE, inget blockeras
+========================================================
+
+- PÅHITTAT TAL: 'femte' finns inte i punktlistan
+- OMDÖME (svag träff): 'det stora'
