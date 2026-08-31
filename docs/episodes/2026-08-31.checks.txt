@@ -1,0 +1,7 @@
+Manuskontroll 2026-08-31 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'ovanligt' – ovanlighetspåstående som inte står i punktlistan
+- OKÄND ART: 'händer' står inte i dygnets artlista
+- OKÄND ART: 'måsfåglarna' står inte i dygnets artlista
+- OMDÖME (svag träff): 'det stora'
