@@ -1,0 +1,8 @@
+Manuskontroll 2026-09-02 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'listan' – metareferens till underlaget
+- FORMULERING: 'listan' – metareferens till underlaget
+- OKÄND ART: 'finkarna' står inte i dygnets artlista
+- OKÄND ART: 'finkarter' står inte i dygnets artlista
+- ART UTESLUTEN: 'Charadrius dubius' saknar svenskt namn i artnamnstabellen – lägg ett alias i species_namn_override.json
