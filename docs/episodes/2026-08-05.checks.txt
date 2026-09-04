@@ -1,7 +1,0 @@
-Manuskontroll 2026-08-05 – LOGGLÄGE, inget blockeras
-========================================================
-
-Inga träffar.
-
-OBS: det betyder att inget MÖNSTER slog till,
-inte att manuset är sant.
