@@ -1,0 +1,7 @@
+Manuskontroll 2026-09-06 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'listan' – metareferens till underlaget
+- OKÄND ART: 'händer' står inte i dygnets artlista
+- ART UTESLUTEN: 'Charadrius dubius' saknar svenskt namn i artnamnstabellen – lägg ett alias i species_namn_override.json
+- OMDÖME (svag träff): 'det stora'
