@@ -6988,6 +6988,128 @@
           "name": "kentsk tärna"
         }
       ]
+    },
+    {
+      "date": "2026-09-10",
+      "species_count": 29,
+      "top": [
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Columba palumbus",
+          "name": "ringduva"
+        },
+        {
+          "sci": "Phoenicurus phoenicurus",
+          "name": "rödstjärt"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Phylloscopus collybita",
+          "name": "gransångare"
+        },
+        {
+          "sci": "Streptopelia decaocto",
+          "name": "turkduva"
+        },
+        {
+          "sci": "Hirundo rustica",
+          "name": "ladusvala"
+        },
+        {
+          "sci": "Delichon urbicum",
+          "name": "hussvala"
+        },
+        {
+          "sci": "Anas platyrhynchos",
+          "name": "gräsand"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Phylloscopus trochilus",
+          "name": "lövsångare"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Anser albifrons",
+          "name": "bläsgås"
+        },
+        {
+          "sci": "Haematopus ostralegus",
+          "name": "strandskata"
+        },
+        {
+          "sci": "Tringa ochropus",
+          "name": "skogssnäppa"
+        },
+        {
+          "sci": "Spinus spinus",
+          "name": "grönsiska"
+        },
+        {
+          "sci": "Branta canadensis",
+          "name": "kanadagås"
+        },
+        {
+          "sci": "Parus major",
+          "name": "talgoxe"
+        },
+        {
+          "sci": "Buteo buteo",
+          "name": "ormvråk"
+        },
+        {
+          "sci": "Turdus philomelos",
+          "name": "taltrast"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Anthus trivialis",
+          "name": "trädpiplärka"
+        },
+        {
+          "sci": "Erithacus rubecula",
+          "name": "rödhake"
+        },
+        {
+          "sci": "Linaria cannabina",
+          "name": "hämpling"
+        },
+        {
+          "sci": "Pica pica",
+          "name": "skata"
+        },
+        {
+          "sci": "Pandion haliaetus",
+          "name": "fiskgjuse"
+        }
+      ]
     }
   ]
 }
