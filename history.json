@@ -97,7 +97,9 @@
     "Spinus spinus": "2026-09-02",
     "Hydrocoloeus minutus": "2026-09-04",
     "Phoenicurus ochruros": "2026-09-06",
-    "Dryocopus martius": "2026-09-11"
+    "Dryocopus martius": "2026-09-11",
+    "Anthus pratensis": "2026-09-13",
+    "Pluvialis apricaria": "2026-09-13"
   },
   "recent_days": [
     {
@@ -7409,6 +7411,148 @@
         {
           "sci": "Charadrius hiaticula",
           "name": "större strandpipare"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-13",
+      "species_count": 34,
+      "top": [
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Columba palumbus",
+          "name": "ringduva"
+        },
+        {
+          "sci": "Erithacus rubecula",
+          "name": "rödhake"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Phylloscopus collybita",
+          "name": "gransångare"
+        },
+        {
+          "sci": "Streptopelia decaocto",
+          "name": "turkduva"
+        },
+        {
+          "sci": "Pica pica",
+          "name": "skata"
+        },
+        {
+          "sci": "Spinus spinus",
+          "name": "grönsiska"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Calidris alpina",
+          "name": "kärrsnäppa"
+        },
+        {
+          "sci": "Coccothraustes coccothraustes",
+          "name": "stenknäck"
+        },
+        {
+          "sci": "Turdus philomelos",
+          "name": "taltrast"
+        },
+        {
+          "sci": "Motacilla cinerea",
+          "name": "forsärla"
+        },
+        {
+          "sci": "Anas platyrhynchos",
+          "name": "gräsand"
+        },
+        {
+          "sci": "Haematopus ostralegus",
+          "name": "strandskata"
+        },
+        {
+          "sci": "Motacilla flava",
+          "name": "gulärla"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Prunella modularis",
+          "name": "järnsparv"
+        },
+        {
+          "sci": "Anser albifrons",
+          "name": "bläsgås"
+        },
+        {
+          "sci": "Anthus pratensis",
+          "name": "ängspiplärka"
+        },
+        {
+          "sci": "Anthus trivialis",
+          "name": "trädpiplärka"
+        },
+        {
+          "sci": "Tringa ochropus",
+          "name": "skogssnäppa"
+        },
+        {
+          "sci": "Buteo buteo",
+          "name": "ormvråk"
+        },
+        {
+          "sci": "Pluvialis apricaria",
+          "name": "ljungpipare"
+        },
+        {
+          "sci": "Regulus regulus",
+          "name": "kungsfågel"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Fulica atra",
+          "name": "sothöna"
+        },
+        {
+          "sci": "Delichon urbicum",
+          "name": "hussvala"
+        },
+        {
+          "sci": "Phoenicurus phoenicurus",
+          "name": "rödstjärt"
+        },
+        {
+          "sci": "Gallinula chloropus",
+          "name": "rörhöna"
         }
       ]
     }
