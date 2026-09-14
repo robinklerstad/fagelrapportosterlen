@@ -1,0 +1,5 @@
+Manuskontroll 2026-09-14 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'listan' – metareferens till underlaget
+- OKÄND ART: 'händer' står inte i dygnets artlista

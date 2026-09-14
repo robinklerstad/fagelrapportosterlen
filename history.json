@@ -99,7 +99,9 @@
     "Phoenicurus ochruros": "2026-09-06",
     "Dryocopus martius": "2026-09-11",
     "Anthus pratensis": "2026-09-13",
-    "Pluvialis apricaria": "2026-09-13"
+    "Pluvialis apricaria": "2026-09-13",
+    "Branta leucopsis": "2026-09-14",
+    "Phalacrocorax carbo": "2026-09-14"
   },
   "recent_days": [
     {
@@ -7553,6 +7555,148 @@
         {
           "sci": "Gallinula chloropus",
           "name": "rörhöna"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-14",
+      "species_count": 34,
+      "top": [
+        {
+          "sci": "Columba palumbus",
+          "name": "ringduva"
+        },
+        {
+          "sci": "Erithacus rubecula",
+          "name": "rödhake"
+        },
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Hirundo rustica",
+          "name": "ladusvala"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Phylloscopus collybita",
+          "name": "gransångare"
+        },
+        {
+          "sci": "Coccothraustes coccothraustes",
+          "name": "stenknäck"
+        },
+        {
+          "sci": "Streptopelia decaocto",
+          "name": "turkduva"
+        },
+        {
+          "sci": "Anas platyrhynchos",
+          "name": "gräsand"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Anthus trivialis",
+          "name": "trädpiplärka"
+        },
+        {
+          "sci": "Turdus merula",
+          "name": "koltrast"
+        },
+        {
+          "sci": "Turdus philomelos",
+          "name": "taltrast"
+        },
+        {
+          "sci": "Fringilla montifringilla",
+          "name": "bergfink"
+        },
+        {
+          "sci": "Delichon urbicum",
+          "name": "hussvala"
+        },
+        {
+          "sci": "Calidris alpina",
+          "name": "kärrsnäppa"
+        },
+        {
+          "sci": "Motacilla cinerea",
+          "name": "forsärla"
+        },
+        {
+          "sci": "Tringa ochropus",
+          "name": "skogssnäppa"
+        },
+        {
+          "sci": "Parus major",
+          "name": "talgoxe"
+        },
+        {
+          "sci": "Muscicapa striata",
+          "name": "grå flugsnappare"
+        },
+        {
+          "sci": "Regulus regulus",
+          "name": "kungsfågel"
+        },
+        {
+          "sci": "Pica pica",
+          "name": "skata"
+        },
+        {
+          "sci": "Branta leucopsis",
+          "name": "vitkindad gås"
+        },
+        {
+          "sci": "Motacilla flava",
+          "name": "gulärla"
+        },
+        {
+          "sci": "Phalacrocorax carbo",
+          "name": "storskarv"
+        },
+        {
+          "sci": "Somateria mollissima",
+          "name": "ejder"
+        },
+        {
+          "sci": "Thalasseus sandvicensis",
+          "name": "kentsk tärna"
+        },
+        {
+          "sci": "Charadrius hiaticula",
+          "name": "större strandpipare"
         }
       ]
     }
