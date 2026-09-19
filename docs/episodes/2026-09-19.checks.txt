@@ -1,0 +1,6 @@
+Manuskontroll 2026-09-19 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'listan' – metareferens till underlaget
+- FORMULERING: 'för den här tiden' – säsongspåstående som inte står i punktlistan
+- OKÄND ART: 'tystare' står inte i dygnets artlista
