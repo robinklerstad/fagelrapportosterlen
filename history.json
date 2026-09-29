@@ -9733,6 +9733,160 @@
           "name": "domherre"
         }
       ]
+    },
+    {
+      "date": "2026-09-29",
+      "species_count": 37,
+      "top": [
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Regulus regulus",
+          "name": "kungsfågel"
+        },
+        {
+          "sci": "Erithacus rubecula",
+          "name": "rödhake"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Phylloscopus collybita",
+          "name": "gransångare"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Turdus philomelos",
+          "name": "taltrast"
+        },
+        {
+          "sci": "Anas platyrhynchos",
+          "name": "gräsand"
+        },
+        {
+          "sci": "Troglodytes troglodytes",
+          "name": "gärdsmyg"
+        },
+        {
+          "sci": "Spinus spinus",
+          "name": "grönsiska"
+        },
+        {
+          "sci": "Linaria cannabina",
+          "name": "hämpling"
+        },
+        {
+          "sci": "Fringilla coelebs",
+          "name": "bofink"
+        },
+        {
+          "sci": "Anser albifrons",
+          "name": "bläsgås"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Gallinula chloropus",
+          "name": "rörhöna"
+        },
+        {
+          "sci": "Turdus merula",
+          "name": "koltrast"
+        },
+        {
+          "sci": "Coccothraustes coccothraustes",
+          "name": "stenknäck"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Pica pica",
+          "name": "skata"
+        },
+        {
+          "sci": "Fringilla montifringilla",
+          "name": "bergfink"
+        },
+        {
+          "sci": "Gallinago gallinago",
+          "name": "enkelbeckasin"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Branta canadensis",
+          "name": "kanadagås"
+        },
+        {
+          "sci": "Phoenicurus phoenicurus",
+          "name": "rödstjärt"
+        },
+        {
+          "sci": "Aegithalos caudatus",
+          "name": "stjärtmes"
+        },
+        {
+          "sci": "Dryocopus martius",
+          "name": "spillkråka"
+        },
+        {
+          "sci": "Streptopelia decaocto",
+          "name": "turkduva"
+        },
+        {
+          "sci": "Fulica atra",
+          "name": "sothöna"
+        },
+        {
+          "sci": "Turdus iliacus",
+          "name": "rödvingetrast"
+        },
+        {
+          "sci": "Chroicocephalus ridibundus",
+          "name": "skrattmås"
+        },
+        {
+          "sci": "Passer montanus",
+          "name": "pilfink"
+        },
+        {
+          "sci": "Anthus trivialis",
+          "name": "trädpiplärka"
+        },
+        {
+          "sci": "Numenius phaeopus",
+          "name": "småspov"
+        }
+      ]
     }
   ]
 }
