@@ -1,0 +1,7 @@
+Manuskontroll 2026-10-01 – LOGGLÄGE, inget blockeras
+========================================================
+
+- PÅHITTAT TAL: 'två' finns inte i punktlistan
+- FORMULERING: 'listan' – metareferens till underlaget
+- HUVUDSAKSOMDÖME: 'Det är ändå den som stannar kvar lite extra.'
+- OKÄND ART: 'händer' står inte i dygnets artlista
