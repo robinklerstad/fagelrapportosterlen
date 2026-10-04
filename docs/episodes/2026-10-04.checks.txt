@@ -1,0 +1,6 @@
+Manuskontroll 2026-10-04 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'listan' – metareferens till underlaget
+- OKÄND ART: 'gåshimlen' står inte i dygnets artlista
+- OKÄND ART: 'händer' står inte i dygnets artlista
