@@ -110,7 +110,8 @@
     "Alauda arvensis": "2026-09-28",
     "Alcedo atthis": "2026-09-30",
     "Sylvia atricapilla": "2026-10-01",
-    "Garrulus glandarius": "2026-10-01"
+    "Garrulus glandarius": "2026-10-01",
+    "Columba livia": "2026-10-06"
   },
   "recent_days": [
     {
@@ -10812,6 +10813,148 @@
         {
           "sci": "Numenius arquata",
           "name": "storspov"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-06",
+      "species_count": 34,
+      "top": [
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Phylloscopus collybita",
+          "name": "gransångare"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Parus major",
+          "name": "talgoxe"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Spinus spinus",
+          "name": "grönsiska"
+        },
+        {
+          "sci": "Turdus iliacus",
+          "name": "rödvingetrast"
+        },
+        {
+          "sci": "Branta bernicla",
+          "name": "prutgås"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Erithacus rubecula",
+          "name": "rödhake"
+        },
+        {
+          "sci": "Fringilla coelebs",
+          "name": "bofink"
+        },
+        {
+          "sci": "Fringilla montifringilla",
+          "name": "bergfink"
+        },
+        {
+          "sci": "Streptopelia decaocto",
+          "name": "turkduva"
+        },
+        {
+          "sci": "Turdus philomelos",
+          "name": "taltrast"
+        },
+        {
+          "sci": "Corvus corax",
+          "name": "korp"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Picus viridis",
+          "name": "gröngöling"
+        },
+        {
+          "sci": "Certhia familiaris",
+          "name": "trädkrypare"
+        },
+        {
+          "sci": "Turdus merula",
+          "name": "koltrast"
+        },
+        {
+          "sci": "Prunella modularis",
+          "name": "järnsparv"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Gallinula chloropus",
+          "name": "rörhöna"
+        },
+        {
+          "sci": "Periparus ater",
+          "name": "svartmes"
+        },
+        {
+          "sci": "Pica pica",
+          "name": "skata"
+        },
+        {
+          "sci": "Columba livia",
+          "name": "klippduva"
+        },
+        {
+          "sci": "Fulica atra",
+          "name": "sothöna"
+        },
+        {
+          "sci": "Anas platyrhynchos",
+          "name": "gräsand"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Gallinago gallinago",
+          "name": "enkelbeckasin"
+        },
+        {
+          "sci": "Emberiza schoeniclus",
+          "name": "sävsparv"
+        },
+        {
+          "sci": "Tringa ochropus",
+          "name": "skogssnäppa"
+        },
+        {
+          "sci": "Grus grus",
+          "name": "trana"
         }
       ]
     }
