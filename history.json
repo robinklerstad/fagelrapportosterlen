@@ -10957,6 +10957,160 @@
           "name": "trana"
         }
       ]
+    },
+    {
+      "date": "2026-10-07",
+      "species_count": 37,
+      "top": [
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Phylloscopus collybita",
+          "name": "gransångare"
+        },
+        {
+          "sci": "Turdus philomelos",
+          "name": "taltrast"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Turdus iliacus",
+          "name": "rödvingetrast"
+        },
+        {
+          "sci": "Erithacus rubecula",
+          "name": "rödhake"
+        },
+        {
+          "sci": "Motacilla alba",
+          "name": "sädesärla"
+        },
+        {
+          "sci": "Anas platyrhynchos",
+          "name": "gräsand"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Pica pica",
+          "name": "skata"
+        },
+        {
+          "sci": "Tringa ochropus",
+          "name": "skogssnäppa"
+        },
+        {
+          "sci": "Gallinula chloropus",
+          "name": "rörhöna"
+        },
+        {
+          "sci": "Branta bernicla",
+          "name": "prutgås"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Spinus spinus",
+          "name": "grönsiska"
+        },
+        {
+          "sci": "Poecile palustris",
+          "name": "entita"
+        },
+        {
+          "sci": "Anser albifrons",
+          "name": "bläsgås"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Parus major",
+          "name": "talgoxe"
+        },
+        {
+          "sci": "Buteo buteo",
+          "name": "ormvråk"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Motacilla cinerea",
+          "name": "forsärla"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Anthus pratensis",
+          "name": "ängspiplärka"
+        },
+        {
+          "sci": "Fringilla coelebs",
+          "name": "bofink"
+        },
+        {
+          "sci": "Corvus corax",
+          "name": "korp"
+        },
+        {
+          "sci": "Fringilla montifringilla",
+          "name": "bergfink"
+        },
+        {
+          "sci": "Cygnus cygnus",
+          "name": "sångsvan"
+        },
+        {
+          "sci": "Fulica atra",
+          "name": "sothöna"
+        },
+        {
+          "sci": "Alauda arvensis",
+          "name": "sånglärka"
+        },
+        {
+          "sci": "Numenius arquata",
+          "name": "storspov"
+        },
+        {
+          "sci": "Emberiza schoeniclus",
+          "name": "sävsparv"
+        },
+        {
+          "sci": "Grus grus",
+          "name": "trana"
+        },
+        {
+          "sci": "Pluvialis squatarola",
+          "name": "kustpipare"
+        },
+        {
+          "sci": "Anas crecca",
+          "name": "kricka"
+        }
+      ]
     }
   ]
 }
