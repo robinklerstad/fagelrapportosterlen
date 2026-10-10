@@ -1,0 +1,7 @@
+Manuskontroll 2026-10-10 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'listan' – metareferens till underlaget
+- FORMULERING: 'den första' – unikhetspåstående som inte står i punktlistan
+- OKÄND ART: 'trastfamiljen' står inte i dygnets artlista
+- OMDÖME (svag träff): 'det stora'
