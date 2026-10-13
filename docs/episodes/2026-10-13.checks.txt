@@ -1,0 +1,8 @@
+Manuskontroll 2026-10-13 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'listan' – metareferens till underlaget
+- OKÄND ART: 'händer' står inte i dygnets artlista
+- OKÄND ART: 'tystare' står inte i dygnets artlista
+- OMDÖME (svag träff): 'stack ut'
+- OMDÖME (svag träff): 'det stora'
