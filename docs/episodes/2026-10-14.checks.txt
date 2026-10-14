@@ -1,0 +1,8 @@
+Manuskontroll 2026-10-14 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FÄLTNAMN: 'sammanfattning' läckte ut i manuset
+- FORMULERING: 'åt nästan' – påstår vad fågeln gjorde – det vet vi inte
+- HUVUDSAKSOMDÖME: 'Det är verkligen välkommet.'
+- OKÄND ART: 'händer' står inte i dygnets artlista
+- OMDÖME (svag träff): 'det stora'
