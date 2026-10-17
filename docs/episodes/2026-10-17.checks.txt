@@ -1,4 +1,7 @@
-Manuskontroll 2026-09-17 – LOGGLÄGE, inget blockeras
+Manuskontroll 2026-10-17 – LOGGLÄGE, inget blockeras
 ========================================================
 
+- OKÄND ART: 'kontrast' står inte i dygnets artlista
 - ART UTESLUTEN: 'Charadrius dubius' saknar svenskt namn i artnamnstabellen – lägg ett alias i species_namn_override.json
+- OMDÖME (svag träff): 'gedigen'
+- OMDÖME (svag träff): 'det stora'
