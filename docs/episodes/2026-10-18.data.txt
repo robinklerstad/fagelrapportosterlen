@@ -1,0 +1,11 @@
+Hämtat 2026-10-18 – fönster: senaste dygnet (24 timmar)
+Station: Ö24 Simrishamn
+Artrikedom: 6
+
+Arter i datan (namn + aktivitet):
+  - kaja  [Corvus monedula]  (ofta hord)
+  - rödvingetrast  [Turdus iliacus]  (ofta hord)
+  - råka  [Corvus frugilegus]  (hordes en del)
+  - vitkindad gås  [Branta leucopsis]  (hordes en del)
+  - grågås  [Anser anser]  (hordes en del)
+  - spillkråka  [Dryocopus martius]  (enstaka)

@@ -12675,6 +12675,36 @@
           "name": "sjöorre"
         }
       ]
+    },
+    {
+      "date": "2026-10-18",
+      "species_count": 6,
+      "top": [
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Turdus iliacus",
+          "name": "rödvingetrast"
+        },
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Branta leucopsis",
+          "name": "vitkindad gås"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Dryocopus martius",
+          "name": "spillkråka"
+        }
+      ]
     }
   ]
 }
