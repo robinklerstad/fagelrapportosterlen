@@ -1,0 +1,6 @@
+Manuskontroll 2026-10-22 – LOGGLÄGE, inget blockeras
+========================================================
+
+- PÅHITTAT TAL: 'två' finns inte i punktlistan
+- FORMULERING: 'listan' – metareferens till underlaget
+- HUVUDSAKSOMDÖME: 'det sätter lite extra färg på hela dygnet.'
