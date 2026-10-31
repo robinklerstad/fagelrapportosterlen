@@ -1,7 +1,4 @@
 {
-  "2026-10-01": [
-    "kaja/familj"
-  ],
   "2026-10-02": [
     "taltrast/kosthallning"
   ],
@@ -88,5 +85,8 @@
   ],
   "2026-10-30": [
     "grågås/kosthallning"
+  ],
+  "2026-10-31": [
+    "kaja/familj"
   ]
 }
