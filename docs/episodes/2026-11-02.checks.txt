@@ -1,0 +1,8 @@
+Manuskontroll 2026-11-02 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'listan' – metareferens till underlaget
+- FORMULERING: 'den här årstiden' – säsongspåstående som inte står i punktlistan
+- HUVUDSAKSOMDÖME: 'Inte illa för ett novemberdygn i Simrishamn.'
+- OKÄND ART: 'mesätter' står inte i dygnets artlista
+- OMDÖME (svag träff): 'Inte illa'
