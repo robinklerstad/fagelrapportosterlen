@@ -1,0 +1,7 @@
+Manuskontroll 2026-11-08 – LOGGLÄGE, inget blockeras
+========================================================
+
+- HUVUDSAKSOMDÖME: 'Men om vi ska lyfta fram det som verkligen stod ut i dag – det är finkarna.'
+- HUVUDSAKSOMDÖME: 'Ja, det är den sortens dygn man minns lite extra.'
+- OKÄND ART: 'finkarter' står inte i dygnets artlista
+- ART UTESLUTEN: 'Charadrius dubius' saknar svenskt namn i artnamnstabellen – lägg ett alias i species_namn_override.json
