@@ -1,0 +1,7 @@
+Manuskontroll 2026-11-12 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'vi hörde' – värdarna har inte själva hört fåglarna
+- FORMULERING: 'listan' – metareferens till underlaget
+- OKÄND ART: 'tystare' står inte i dygnets artlista
+- OMDÖME (svag träff): 'stack ut'
