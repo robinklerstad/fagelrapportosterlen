@@ -1,0 +1,8 @@
+Manuskontroll 2026-11-14 – LOGGLÄGE, inget blockeras
+========================================================
+
+- PÅHITTAT TAL: 'fjärde' finns inte i punktlistan
+- PÅHITTAT TAL: 'tre' finns inte i punktlistan
+- PÅHITTAT TAL: 'fjärde' finns inte i punktlistan
+- PÅHITTAT TAL: 'två' finns inte i punktlistan
+- FORMULERING: 'listan' – metareferens till underlaget
