@@ -1,0 +1,5 @@
+Manuskontroll 2026-11-15 – LOGGLÄGE, inget blockeras
+========================================================
+
+- FORMULERING: 'i morse' – tidsinramning – fönstret är hela dygnet
+- OKÄND ART: 'återvänder' står inte i dygnets artlista
