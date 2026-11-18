@@ -15895,6 +15895,100 @@
           "name": "trana"
         }
       ]
+    },
+    {
+      "date": "2026-11-18",
+      "species_count": 22,
+      "top": [
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Bombycilla garrulus",
+          "name": "sidensvans"
+        },
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Erithacus rubecula",
+          "name": "rödhake"
+        },
+        {
+          "sci": "Troglodytes troglodytes",
+          "name": "gärdsmyg"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Turdus iliacus",
+          "name": "rödvingetrast"
+        },
+        {
+          "sci": "Anas platyrhynchos",
+          "name": "gräsand"
+        },
+        {
+          "sci": "Turdus merula",
+          "name": "koltrast"
+        },
+        {
+          "sci": "Anser albifrons",
+          "name": "bläsgås"
+        },
+        {
+          "sci": "Branta leucopsis",
+          "name": "vitkindad gås"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Fringilla montifringilla",
+          "name": "bergfink"
+        },
+        {
+          "sci": "Pica pica",
+          "name": "skata"
+        },
+        {
+          "sci": "Cygnus cygnus",
+          "name": "sångsvan"
+        },
+        {
+          "sci": "Parus major",
+          "name": "talgoxe"
+        },
+        {
+          "sci": "Fulica atra",
+          "name": "sothöna"
+        },
+        {
+          "sci": "Tringa ochropus",
+          "name": "skogssnäppa"
+        }
+      ]
     }
   ]
 }

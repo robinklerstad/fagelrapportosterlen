@@ -1,0 +1,6 @@
+Manuskontroll 2026-11-18 – LOGGLÄGE, inget blockeras
+========================================================
+
+- PÅHITTAT TAL: 'tre' finns inte i punktlistan
+- PÅHITTAT TAL: 'åttonde' finns inte i punktlistan
+- OKÄND ART: 'kontrasten' står inte i dygnets artlista
