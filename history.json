@@ -15989,6 +15989,32 @@
           "name": "skogssnäppa"
         }
       ]
+    },
+    {
+      "date": "2026-11-19",
+      "species_count": 5,
+      "top": [
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Fulica atra",
+          "name": "sothöna"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        }
+      ]
     }
   ]
 }

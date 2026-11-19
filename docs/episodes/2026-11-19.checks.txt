@@ -1,0 +1,4 @@
+Manuskontroll 2026-11-19 – LOGGLÄGE, inget blockeras
+========================================================
+
+- PÅHITTAT TAL: 'tre' finns inte i punktlistan
