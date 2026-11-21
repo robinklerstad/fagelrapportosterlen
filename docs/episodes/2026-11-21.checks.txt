@@ -1,0 +1,4 @@
+Manuskontroll 2026-11-21 – LOGGLÄGE, inget blockeras
+========================================================
+
+- PÅHITTAT TAL: 'två' finns inte i punktlistan
