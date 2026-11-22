@@ -16215,6 +16215,128 @@
           "name": "skogssnäppa"
         }
       ]
+    },
+    {
+      "date": "2026-11-22",
+      "species_count": 29,
+      "top": [
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Bombycilla garrulus",
+          "name": "sidensvans"
+        },
+        {
+          "sci": "Passer domesticus",
+          "name": "gråsparv"
+        },
+        {
+          "sci": "Fringilla coelebs",
+          "name": "bofink"
+        },
+        {
+          "sci": "Fringilla montifringilla",
+          "name": "bergfink"
+        },
+        {
+          "sci": "Troglodytes troglodytes",
+          "name": "gärdsmyg"
+        },
+        {
+          "sci": "Parus major",
+          "name": "talgoxe"
+        },
+        {
+          "sci": "Erithacus rubecula",
+          "name": "rödhake"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Spinus spinus",
+          "name": "grönsiska"
+        },
+        {
+          "sci": "Corvus cornix",
+          "name": "kråka"
+        },
+        {
+          "sci": "Branta leucopsis",
+          "name": "vitkindad gås"
+        },
+        {
+          "sci": "Turdus iliacus",
+          "name": "rödvingetrast"
+        },
+        {
+          "sci": "Cygnus olor",
+          "name": "knölsvan"
+        },
+        {
+          "sci": "Acanthis flammea",
+          "name": "gråsiska"
+        },
+        {
+          "sci": "Anser albifrons",
+          "name": "bläsgås"
+        },
+        {
+          "sci": "Ardea cinerea",
+          "name": "gråhäger"
+        },
+        {
+          "sci": "Tringa ochropus",
+          "name": "skogssnäppa"
+        },
+        {
+          "sci": "Aegithalos caudatus",
+          "name": "stjärtmes"
+        },
+        {
+          "sci": "Turdus merula",
+          "name": "koltrast"
+        },
+        {
+          "sci": "Pica pica",
+          "name": "skata"
+        },
+        {
+          "sci": "Anas platyrhynchos",
+          "name": "gräsand"
+        },
+        {
+          "sci": "Motacilla cinerea",
+          "name": "forsärla"
+        },
+        {
+          "sci": "Poecile palustris",
+          "name": "entita"
+        },
+        {
+          "sci": "Carduelis carduelis",
+          "name": "steglits"
+        },
+        {
+          "sci": "Fulica atra",
+          "name": "sothöna"
+        }
+      ]
     }
   ]
 }
