@@ -16411,6 +16411,48 @@
           "name": "tofsvipa"
         }
       ]
+    },
+    {
+      "date": "2026-11-24",
+      "species_count": 9,
+      "top": [
+        {
+          "sci": "Corvus monedula",
+          "name": "kaja"
+        },
+        {
+          "sci": "Anser anser",
+          "name": "grågås"
+        },
+        {
+          "sci": "Corvus frugilegus",
+          "name": "råka"
+        },
+        {
+          "sci": "Anser albifrons",
+          "name": "bläsgås"
+        },
+        {
+          "sci": "Larus argentatus",
+          "name": "gråtrut"
+        },
+        {
+          "sci": "Cyanistes caeruleus",
+          "name": "blåmes"
+        },
+        {
+          "sci": "Cygnus cygnus",
+          "name": "sångsvan"
+        },
+        {
+          "sci": "Troglodytes troglodytes",
+          "name": "gärdsmyg"
+        },
+        {
+          "sci": "Fulica atra",
+          "name": "sothöna"
+        }
+      ]
     }
   ]
 }
