@@ -1,0 +1,23 @@
+Hämtat 2026-11-26 – fönster: senaste dygnet (24 timmar)
+Station: Ö24 Simrishamn
+Artrikedom: 18
+
+Arter i datan (namn + aktivitet):
+  - kaja  [Corvus monedula]  (ofta hord)
+  - grågås  [Anser anser]  (ofta hord)
+  - bläsgås  [Anser albifrons]  (enstaka)
+  - råka  [Corvus frugilegus]  (enstaka)
+  - enkelbeckasin  [Gallinago gallinago]  (enstaka)
+  - vitkindad gås  [Branta leucopsis]  (enstaka)
+  - sothöna  [Fulica atra]  (enstaka)
+  - rödvingetrast  [Turdus iliacus]  (enstaka)
+  - gråsparv  [Passer domesticus]  (enstaka)
+  - koltrast  [Turdus merula]  (enstaka)
+  - gråhäger  [Ardea cinerea]  (enstaka)
+  - kråka  [Corvus cornix]  (enstaka)
+  - större hackspett  [Dendrocopos major]  (enstaka)
+  - skata  [Pica pica]  (enstaka)
+  - gråtrut  [Larus argentatus]  (enstaka)
+  - tofsvipa  [Vanellus vanellus]  (enstaka)
+  - sjöorre  [Melanitta nigra]  (enstaka)
+  - kärrsnäppa  [Calidris alpina]  (enstaka)
